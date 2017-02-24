@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.products.qc.ButtonType1Activity" 
+    android:id="@+id/action_bar">
+
+    <item
+        android:id="@+id/action_restart"
+        android:orderInCategory="100"
+        android:title="Restart"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_status"
+        android:orderInCategory="100"
+        android:title="Status"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_freight"
+        android:orderInCategory="100"
+        android:title="Freight"
+        app:showAsAction="never"/>
+</menu>

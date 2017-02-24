@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">QC</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_code">Enter Code</string>
+    <string name="button_next">Next</string>
+    <string name="button_picture">Picture</string>
+    <string name="button_restart">Restart</string>
+    <string name="title_activity_display_manifest">DisplayManifestActivity</string>
+    <string name="textview_referenceno">Reference No:</string>
+    <string name="textview_auxiliarreference">PO:</string>
+    <string name="textview_shipperid">Shipper Id:</string>
+    <string name="textview_truckno">Truck No:</string>
+    <string name="textview_receiptdate">Receipt Date:</string>
+    <string name="sample_textview">Sample?</string>
+    <string name="button_no">No</string>
+    <string name="button_yes">Yes</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_full_screen_view">FullScreenViewActivity</string>
+    <string name="title_activity_grid_view">GridViewActivity</string>
+    <string name="title_activity_temperature_grower_plus">TemperatureGrowerPlusActivity</string>
+    <string name="textview_temperature">Temperature:</string>
+    <string name="textview_grower">Grower:</string>
+    <string name="textview_plus">Plu\'s</string>
+    <string name="edit_temperature">Enter Temperature</string>
+    <string name="edit_grower">Enter Grower</string>
+    <string name="edit_plus">Enter</string>
+    <string name="preference_file_key">com.products.qc.PREFERENCE_FILE_KEY</string>
+    <string name="saved_warehouse">com.products.qc.warehouse</string>
+    <string name="saved_warehouse_customer">com.products.qc.warehousecustomer</string>
+    <string name="saved_referenceno">com.products.qc.referenceno</string>
+    <string name="saved_lot">com.products.qc.lot</string>
+    <string name="saved_description">com.products.qc.lot</string>
+    <string name="saved_auxiliarreference">com.products.qc.auxiliarreference</string>
+    <string name="saved_shipperid">com.products.qc.shipperid</string>
+    <string name="saved_truckno">com.products.qc.truckno</string>
+    <string name="saved_receiptdate">com.products.qc.receiptdate</string>
+    <string name="saved_current_pallet">com.products.qc.currentpallet</string>
+    <string name="saved_current_sampling">com.products.qc.currentsampling</string>
+    <string name="saved_begin_date">com.products.qc.begindate</string>
+    <string name="saved_finish_date">com.products.qc.finishdate</string>
+    <string name="saved_incoming_id">com.products.qc.incomingid</string>
+    <string name="saved_manifest_id">com.products.qc.manifestid</string>
+    
+    <string name="saved_saveqcontrol">com.products.qc.saveqcontrol</string>
+    <string name="saved_saveqcontroldetail">com.products.qc.saveqcontroldetail</string>
+    <string name="saved_saveqcontroldetailfactor">com.products.qc.saveqcontroldetailfactor</string>
+    <string name="saved_saveqcontroldetailpicture">com.products.qc.saveqcontroldetailpicture</string>
+    <string name="saved_responsecontrol">com.products.qc.responsecontrol</string>
+    <string name="saved_responsecontroldetail">com.products.qc.responsecontroldetail</string>
+    
+    <string name="title_activity_qc_factor_table">QcFactorTableActivity</string>
+    <string name="toast_error_sendindg_data">Something wrong. Try again</string>
+
+    <string-array name="factor_types_array">
+        <item>Q</item>
+        <item>C</item>
+        <item>QC</item>
+    </string-array>
+    <string-array name="measurements">
+        <item>"Enter Measurement"</item>
+        <item>1/16</item>
+        <item>2/16</item>
+        <item>3/16</item>
+        <item>4/16</item>
+        <item>5/16</item>
+        <item>6/16</item>
+        <item>7/16</item>
+        <item>8/16</item>
+        <item>9/16</item>
+        <item>10/16</item>
+        <item>11/16</item>
+        <item>12/16</item>
+        <item>13/16</item>
+        <item>14/16</item>
+        <item>15/16</item>
+    </string-array>
+
+    <string name="title_activity_button_type1">ButtonType1Activity</string>
+    <string name="title_activity_button_type2">ButtonType2Activity</string>
+    <string name="title_activity_brix_pressure_measurements">BrixPressureMeasurementsActivity</string>
+    <string name="textview_brix">Brix:</string>
+    <string name="textview_pressure">Pressure:</string>
+    <string name="textview_measurements">Measurements:</string>
+    <string name="edit_brix">Enter Brix</string>
+    <string name="edit_pressure">Enter Pressure</string>
+    <string name="edit_measurements">Enter Measurements</string>
+    <string name="edit_button_back">Back</string>
+    <string name="title_activity_status">StatusActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="camera_preview">CameraPreview</string>
+    <string name="button_capture">Capture</string>
+
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    
+</resources>

@@ -1,0 +1,67 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+	
+    <TableLayout 
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_centerInParent="true">
+        
+        <TableRow >
+            <TextView
+	        android:id="@+id/tv"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Count"
+	        android:textSize="20dp" />
+        </TableRow>
+        
+        <TableRow >
+            <TextView
+		        android:id="@+id/TextView01"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="SL"
+		        android:textSize="20dp"
+		        android:gravity="center" />
+		
+		    <TextView
+		        android:id="@+id/TextView02"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="M"
+		        android:textSize="20dp"
+		        android:gravity="center" />
+		
+		    <TextView
+		        android:id="@+id/TextView03"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="S"
+		        android:textSize="20dp"
+		        android:gravity="center" />
+        </TableRow>
+        
+        <TableRow >
+		    <NumberPicker
+		        android:id="@+id/np"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content" />
+		    
+		    <NumberPicker
+		        android:id="@+id/NumberPicker01"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"/>
+		    
+			<NumberPicker
+		        android:id="@+id/NumberPicker02"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"/>
+		    
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

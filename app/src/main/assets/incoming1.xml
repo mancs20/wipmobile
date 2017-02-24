@@ -1,0 +1,2619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IncomingTruck xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <Id>3698</Id>
+   <WarehouseCustomerId>1</WarehouseCustomerId>
+   <CustomerRef>22562</CustomerRef>
+   <CustomerPo />
+   <TruckNo>Tramil 20</TruckNo>
+   <Description>Organic Oranges</Description>
+   <ShipperId>17</ShipperId>
+   <ShipperRef>201</ShipperRef>
+   <IncomingMotiveId>2</IncomingMotiveId>
+   <PortId xsi:nil="true" />
+   <EmanifestNo />
+   <Scac />
+   <Patente />
+   <Pedimento />
+   <Remesa />
+   <WarehouseId>1</WarehouseId>
+   <OpenDate>2016-01-23T15:48:52.92</OpenDate>
+   <ManifestId>4324</ManifestId>
+   <ManifestIdSource>
+      <ReferenceNo>4324</ReferenceNo>
+      <WarehouseId>1</WarehouseId>
+      <WarehouseCustomerId>1</WarehouseCustomerId>
+      <ShipperId>17</ShipperId>
+      <Lot>22562</Lot>
+      <Description>Organic Oranges</Description>
+      <ShipperReference>201</ShipperReference>
+      <AuxiliarReference />
+      <TruckNo>Tramil 20</TruckNo>
+      <DateReceived>2016-01-23T15:48:52.92</DateReceived>
+      <Concurrency>AAAAAAAGcHE=</Concurrency>
+      <AddToWms>true</AddToWms>
+      <WarehouseCustomerIdSource>
+         <Id>1</Id>
+         <Name>Pacific Organic Produce</Name>
+         <Address>1625 Bush Street, Suite #3</Address>
+         <City>San Francisco</City>
+         <State>CA</State>
+         <Zip>94109</Zip>
+         <Address2 />
+         <City2 />
+         <State2 />
+         <Zip2 />
+         <TelNumber>(415) 673-5555</TelNumber>
+         <MainEmail />
+         <ContactTel1>CHRISTINA LOYA</ContactTel1>
+         <Mobile1>(415) 867-3171</Mobile1>
+         <Home1 />
+         <Email1>christina@purityorganic.com</Email1>
+         <ContactTel2>RACHEL WREN</ContactTel2>
+         <Mobile2>(415) 385-1985</Mobile2>
+         <Home2 />
+         <Email2>rachel@purityorganic.com</Email2>
+         <ContactTel3 />
+         <Mobile3 />
+         <Home3 />
+         <Email3 />
+         <RepackCollection />
+         <QcRulesCollection />
+         <SalesManSalesManCollection_From_WarehouseCustomerSalesMan />
+         <OutgoingTruckCollection />
+         <CustomerIdCustomerCollection_From_WarehouseCustomerCustomer />
+         <WebUsersCollection />
+         <WarehouseCustomerSalesManCollection />
+         <WarehouseCustomerCustomerCollection />
+         <IncomingTruckCollection />
+         <TruckTrackingCollection />
+         <ManifestCollection />
+         <SalesOrderCollection />
+      </WarehouseCustomerIdSource>
+      <ShipperIdSource>
+         <Id>17</Id>
+         <Description>Citrison S.A. DE C.V.</Description>
+         <ShortName>CITRISON</ShortName>
+         <City>Hermosillo</City>
+         <State>Sonora, MX</State>
+         <Zip />
+         <GeneralPhone />
+         <GeneralEmail />
+         <Contact1 />
+         <Cel1 />
+         <Phone1 />
+         <Home1 />
+         <Email1 />
+         <Contact2 />
+         <Phone2 />
+         <Cel2 />
+         <Home2 />
+         <Email2 />
+         <Contact3 />
+         <Cel3 />
+         <Phone3 />
+         <Home3 />
+         <Email3 />
+         <Address>.</Address>
+         <IncomingTruckCollection />
+         <ManifestCollection />
+      </ShipperIdSource>
+      <WarehouseIdSource>
+         <Id>1</Id>
+         <Description>Klondike</Description>
+         <Shortname>KCS</Shortname>
+         <Address>450 West Gold Hill Road</Address>
+         <City>Nogales</City>
+         <State>AZ</State>
+         <Zip>85621</Zip>
+         <GeneralPhone>(520) 761-5050</GeneralPhone>
+         <GeneralEmail />
+         <Contact1 />
+         <Cel1 />
+         <Phone1 />
+         <Home1 />
+         <Email1 />
+         <Contact2 />
+         <Phone2 />
+         <Cel2 />
+         <Home2 />
+         <Email2 />
+         <Contact3 />
+         <Cel3 />
+         <Phone3 />
+         <Home3 />
+         <Email3 />
+         <RepackCollection />
+         <OutgoingTruckCollection />
+         <IncomingTruckCollection />
+         <TruckTrackingCollection />
+         <ManifestCollection />
+         <SalesOrderCollection />
+      </WarehouseIdSource>
+      <IncomingTruckCollection />
+      <ManifestDetailCollection>
+         <ManifestDetail>
+            <Id>20848</Id>
+            <ManifestId>4324</ManifestId>
+            <ProductId>1</ProductId>
+            <VarietyId>1</VarietyId>
+            <StyleId>69</StyleId>
+            <SizeId>68</SizeId>
+            <LabelId>75</LabelId>
+            <GradeId>1</GradeId>
+            <RegionId>2</RegionId>
+            <UnitsPallet>54</UnitsPallet>
+            <InvQty>27</InvQty>
+			<OnePerQty>100</OnePerQty>
+			<RoundUp>true</RoundUp>
+            <LabelIdSource>
+               <Id>75</Id>
+               <Description>Purity</Description>
+               <ShortName>PUR</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </LabelIdSource>
+            <ProductIdSource>
+               <Id>1</Id>
+               <Description>Organic Oranges</Description>
+               <ShortName>OORNG</ShortName>
+               <QcRulesCollection />
+               <RepackOutputCollection />
+               <QcReportCollection />
+               <SalesOrderDetailCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+            </ProductIdSource>
+            <SizeIdSource>
+               <Id>68</Id>
+               <Description>72's</Description>
+               <ShortName>72</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </SizeIdSource>
+            <StyleIdSource>
+               <Id>69</Id>
+               <Description>40# Ctn</Description>
+               <ShortName>CTN40</ShortName>
+               <NetWeight>0</NetWeight>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </StyleIdSource>
+            <VarietyIdSource>
+               <Id>1</Id>
+               <Description>.</Description>
+               <ShortName>.</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </VarietyIdSource>
+            <TagCollection>
+               <Tag>
+                  <Id>81360</Id>
+                  <ManifestDetailId>20848</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>27</InvQty>
+                  <BalanceQty>27</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+            </TagCollection>
+			<ArrayOfQcReport>
+			   <QcReport>
+				 <Id>1</Id>
+				 <Description>Oranges</Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>true</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection>
+					<QcReportDetail>
+					   <Id>1</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>1</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>1</Order>
+					   <QcFactorIdSource>
+						  <Id>1</Id>
+						  <Description>Turning</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>2</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>2</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>2</Order>
+					   <QcFactorIdSource>
+						  <Id>2</Id>
+						  <Description>Surface Disc</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>3</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>3</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>3</Order>
+					   <QcFactorIdSource>
+						  <Id>3</Id>
+						  <Description>Slightly Rough</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>4</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>4</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>4</Order>
+					   <QcFactorIdSource>
+						  <Id>4</Id>
+						  <Description>Scars</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>5</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>5</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>5</Order>
+					   <QcFactorIdSource>
+						  <Id>5</Id>
+						  <Description>Scale</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>6</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>6</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>6</Order>
+					   <QcFactorIdSource>
+						  <Id>6</Id>
+						  <Description>Oil Spots</Description>
+						  <QcFactorTypeId>3</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>3</Id>
+							 <Description>Quality &amp; Condition</Description>
+							 <ShortName>Q&amp;C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>7</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>7</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>7</Order>
+					   <QcFactorIdSource>
+						  <Id>7</Id>
+						  <Description>Soft Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>8</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>8</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>8</Order>
+					   <QcFactorIdSource>
+						  <Id>8</Id>
+						  <Description>Dry Old Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>9</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>9</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>9</Order>
+					   <QcFactorIdSource>
+						  <Id>9</Id>
+						  <Description>Skin Break</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>10</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>10</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>10</Order>
+					   <QcFactorIdSource>
+						  <Id>10</Id>
+						  <Description>Pull Stem</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>11</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>11</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>11</Order>
+					   <QcFactorIdSource>
+						  <Id>11</Id>
+						  <Description>Green Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>12</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>12</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>12</Order>
+					   <QcFactorIdSource>
+						  <Id>12</Id>
+						  <Description>Blue Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>13</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>13</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>13</Order>
+					   <QcFactorIdSource>
+						  <Id>13</Id>
+						  <Description>Decay</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>14</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>14</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>14</Order>
+					   <QcFactorIdSource>
+						  <Id>14</Id>
+						  <Description>Bruising</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>15</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>15</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>15</Order>
+					   <QcFactorIdSource>
+						  <Id>15</Id>
+						  <Description>Sunken Areas</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>16</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>16</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>16</Order>
+					   <QcFactorIdSource>
+						  <Id>16</Id>
+						  <Description>Mechanical</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>17</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>17</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>17</Order>
+					   <QcFactorIdSource>
+						  <Id>17</Id>
+						  <Description>Misshaped</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+				 </QcReportDetailCollection>
+			  </QcReport>
+			   <QcReport>
+				 <Id>2</Id>
+				 <Description></Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>false</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection />
+			  </QcReport>
+			</ArrayOfQcReport>
+			<ArrayOfQcReport>
+			   <QcReport>
+				 <Id>1</Id>
+				 <Description>Oranges</Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>true</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection>
+					<QcReportDetail>
+					   <Id>1</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>1</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>1</Order>
+					   <QcFactorIdSource>
+						  <Id>1</Id>
+						  <Description>Turning</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>2</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>2</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>2</Order>
+					   <QcFactorIdSource>
+						  <Id>2</Id>
+						  <Description>Surface Disc</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+				</QcReportDetailCollection>
+		 	 </QcReport>
+	 	 </ArrayOfQcReport>
+		 </ManifestDetail>
+         <ManifestDetail>
+            <Id>20849</Id>
+            <ManifestId>4324</ManifestId>
+            <ProductId>1</ProductId>
+            <VarietyId>1</VarietyId>
+            <StyleId>69</StyleId>
+            <SizeId>72</SizeId>
+            <LabelId>75</LabelId>
+            <GradeId>1</GradeId>
+            <RegionId>2</RegionId>
+            <UnitsPallet>54</UnitsPallet>
+            <InvQty>27</InvQty>
+			<OnePerQty>100</OnePerQty>
+			<RoundUp>true</RoundUp>
+            <LabelIdSource>
+               <Id>75</Id>
+               <Description>Purity</Description>
+               <ShortName>PUR</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </LabelIdSource>
+            <ProductIdSource>
+               <Id>1</Id>
+               <Description>Organic Oranges</Description>
+               <ShortName>OORNG</ShortName>
+               <QcRulesCollection />
+               <RepackOutputCollection />
+               <QcReportCollection />
+               <SalesOrderDetailCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+            </ProductIdSource>
+            <SizeIdSource>
+               <Id>72</Id>
+               <Description>88's</Description>
+               <ShortName>88</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </SizeIdSource>
+            <StyleIdSource>
+               <Id>69</Id>
+               <Description>40# Ctn</Description>
+               <ShortName>CTN40</ShortName>
+               <NetWeight>0</NetWeight>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </StyleIdSource>
+            <VarietyIdSource>
+               <Id>1</Id>
+               <Description>.</Description>
+               <ShortName>.</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </VarietyIdSource>
+            <TagCollection>
+               <Tag>
+                  <Id>81361</Id>
+                  <ManifestDetailId>20849</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>27</InvQty>
+                  <BalanceQty>27</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+            </TagCollection>
+			<ArrayOfQcReport>
+			  <QcReport>
+				 <Id>1</Id>
+				 <Description>Oranges</Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>true</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection>
+					<QcReportDetail>
+					   <Id>1</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>1</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>1</Order>
+					   <QcFactorIdSource>
+						  <Id>1</Id>
+						  <Description>Turning</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>2</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>2</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>2</Order>
+					   <QcFactorIdSource>
+						  <Id>2</Id>
+						  <Description>Surface Disc</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>3</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>3</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>3</Order>
+					   <QcFactorIdSource>
+						  <Id>3</Id>
+						  <Description>Slightly Rough</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>4</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>4</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>4</Order>
+					   <QcFactorIdSource>
+						  <Id>4</Id>
+						  <Description>Scars</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>5</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>5</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>5</Order>
+					   <QcFactorIdSource>
+						  <Id>5</Id>
+						  <Description>Scale</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>6</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>6</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>6</Order>
+					   <QcFactorIdSource>
+						  <Id>6</Id>
+						  <Description>Oil Spots</Description>
+						  <QcFactorTypeId>3</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>3</Id>
+							 <Description>Quality &amp; Condition</Description>
+							 <ShortName>Q&amp;C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>7</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>7</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>7</Order>
+					   <QcFactorIdSource>
+						  <Id>7</Id>
+						  <Description>Soft Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>8</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>8</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>8</Order>
+					   <QcFactorIdSource>
+						  <Id>8</Id>
+						  <Description>Dry Old Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>9</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>9</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>9</Order>
+					   <QcFactorIdSource>
+						  <Id>9</Id>
+						  <Description>Skin Break</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>10</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>10</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>10</Order>
+					   <QcFactorIdSource>
+						  <Id>10</Id>
+						  <Description>Pull Stem</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>11</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>11</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>11</Order>
+					   <QcFactorIdSource>
+						  <Id>11</Id>
+						  <Description>Green Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>12</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>12</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>12</Order>
+					   <QcFactorIdSource>
+						  <Id>12</Id>
+						  <Description>Blue Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>13</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>13</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>13</Order>
+					   <QcFactorIdSource>
+						  <Id>13</Id>
+						  <Description>Decay</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>14</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>14</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>14</Order>
+					   <QcFactorIdSource>
+						  <Id>14</Id>
+						  <Description>Bruising</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>15</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>15</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>15</Order>
+					   <QcFactorIdSource>
+						  <Id>15</Id>
+						  <Description>Sunken Areas</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>16</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>16</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>16</Order>
+					   <QcFactorIdSource>
+						  <Id>16</Id>
+						  <Description>Mechanical</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>17</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>17</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>17</Order>
+					   <QcFactorIdSource>
+						  <Id>17</Id>
+						  <Description>Misshaped</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+				 </QcReportDetailCollection>
+			  </QcReport>
+			  <QcReport>
+				 <Id>2</Id>
+				 <Description></Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>false</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection />
+			  </QcReport>
+			</ArrayOfQcReport>
+		 </ManifestDetail>
+         <ManifestDetail>
+            <Id>20850</Id>
+            <ManifestId>4324</ManifestId>
+            <ProductId>1</ProductId>
+            <VarietyId>39</VarietyId>
+            <StyleId>69</StyleId>
+            <SizeId>4</SizeId>
+            <LabelId>75</LabelId>
+            <GradeId>1</GradeId>
+            <RegionId>2</RegionId>
+            <UnitsPallet>54</UnitsPallet>
+            <InvQty>324</InvQty>
+			<OnePerQty>100</OnePerQty>
+			<RoundUp>true</RoundUp>
+            <LabelIdSource>
+               <Id>75</Id>
+               <Description>Purity</Description>
+               <ShortName>PUR</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </LabelIdSource>
+            <ProductIdSource>
+               <Id>1</Id>
+               <Description>Organic Oranges</Description>
+               <ShortName>OORNG</ShortName>
+               <QcRulesCollection />
+               <RepackOutputCollection />
+               <QcReportCollection />
+               <SalesOrderDetailCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+            </ProductIdSource>
+            <SizeIdSource>
+               <Id>4</Id>
+               <Description>113's</Description>
+               <ShortName>113</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </SizeIdSource>
+            <StyleIdSource>
+               <Id>69</Id>
+               <Description>40# Ctn</Description>
+               <ShortName>CTN40</ShortName>
+               <NetWeight>0</NetWeight>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </StyleIdSource>
+            <VarietyIdSource>
+               <Id>39</Id>
+               <Description>N/PLU</Description>
+               <ShortName>N/PLU</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </VarietyIdSource>
+            <TagCollection>
+               <Tag>
+                  <Id>81362</Id>
+                  <ManifestDetailId>20850</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81363</Id>
+                  <ManifestDetailId>20850</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81364</Id>
+                  <ManifestDetailId>20850</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81365</Id>
+                  <ManifestDetailId>20850</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81366</Id>
+                  <ManifestDetailId>20850</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81367</Id>
+                  <ManifestDetailId>20850</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+            </TagCollection>
+			<ArrayOfQcReport>
+			  <QcReport>
+				 <Id>1</Id>
+				 <Description>Oranges</Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>true</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection>
+					<QcReportDetail>
+					   <Id>1</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>1</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>1</Order>
+					   <QcFactorIdSource>
+						  <Id>1</Id>
+						  <Description>Turning</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>2</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>2</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>2</Order>
+					   <QcFactorIdSource>
+						  <Id>2</Id>
+						  <Description>Surface Disc</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>3</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>3</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>3</Order>
+					   <QcFactorIdSource>
+						  <Id>3</Id>
+						  <Description>Slightly Rough</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>4</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>4</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>4</Order>
+					   <QcFactorIdSource>
+						  <Id>4</Id>
+						  <Description>Scars</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>5</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>5</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>5</Order>
+					   <QcFactorIdSource>
+						  <Id>5</Id>
+						  <Description>Scale</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>6</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>6</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>6</Order>
+					   <QcFactorIdSource>
+						  <Id>6</Id>
+						  <Description>Oil Spots</Description>
+						  <QcFactorTypeId>3</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>3</Id>
+							 <Description>Quality &amp; Condition</Description>
+							 <ShortName>Q&amp;C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>7</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>7</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>7</Order>
+					   <QcFactorIdSource>
+						  <Id>7</Id>
+						  <Description>Soft Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>8</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>8</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>8</Order>
+					   <QcFactorIdSource>
+						  <Id>8</Id>
+						  <Description>Dry Old Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>9</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>9</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>9</Order>
+					   <QcFactorIdSource>
+						  <Id>9</Id>
+						  <Description>Skin Break</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>10</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>10</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>10</Order>
+					   <QcFactorIdSource>
+						  <Id>10</Id>
+						  <Description>Pull Stem</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>11</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>11</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>11</Order>
+					   <QcFactorIdSource>
+						  <Id>11</Id>
+						  <Description>Green Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>12</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>12</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>12</Order>
+					   <QcFactorIdSource>
+						  <Id>12</Id>
+						  <Description>Blue Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>13</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>13</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>13</Order>
+					   <QcFactorIdSource>
+						  <Id>13</Id>
+						  <Description>Decay</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>14</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>14</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>14</Order>
+					   <QcFactorIdSource>
+						  <Id>14</Id>
+						  <Description>Bruising</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>15</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>15</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>15</Order>
+					   <QcFactorIdSource>
+						  <Id>15</Id>
+						  <Description>Sunken Areas</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>16</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>16</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>16</Order>
+					   <QcFactorIdSource>
+						  <Id>16</Id>
+						  <Description>Mechanical</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>17</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>17</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>17</Order>
+					   <QcFactorIdSource>
+						  <Id>17</Id>
+						  <Description>Misshaped</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+				 </QcReportDetailCollection>
+			  </QcReport>
+			  <QcReport>
+				 <Id>2</Id>
+				 <Description></Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>false</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection />
+			  </QcReport>
+		   </ArrayOfQcReport>
+		 </ManifestDetail>
+         <ManifestDetail>
+            <Id>20851</Id>
+            <ManifestId>4324</ManifestId>
+            <ProductId>1</ProductId>
+            <VarietyId>39</VarietyId>
+            <StyleId>69</StyleId>
+            <SizeId>11</SizeId>
+            <LabelId>75</LabelId>
+            <GradeId>1</GradeId>
+            <RegionId>2</RegionId>
+            <UnitsPallet>54</UnitsPallet>
+            <InvQty>270</InvQty>
+			<OnePerQty>100</OnePerQty>
+			<RoundUp>true</RoundUp>
+            <LabelIdSource>
+               <Id>75</Id>
+               <Description>Purity</Description>
+               <ShortName>PUR</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </LabelIdSource>
+            <ProductIdSource>
+               <Id>1</Id>
+               <Description>Organic Oranges</Description>
+               <ShortName>OORNG</ShortName>
+               <QcRulesCollection />
+               <RepackOutputCollection />
+               <QcReportCollection />
+               <SalesOrderDetailCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+            </ProductIdSource>
+            <SizeIdSource>
+               <Id>11</Id>
+               <Description>138's</Description>
+               <ShortName>138</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </SizeIdSource>
+            <StyleIdSource>
+               <Id>69</Id>
+               <Description>40# Ctn</Description>
+               <ShortName>CTN40</ShortName>
+               <NetWeight>0</NetWeight>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </StyleIdSource>
+            <VarietyIdSource>
+               <Id>39</Id>
+               <Description>N/PLU</Description>
+               <ShortName>N/PLU</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </VarietyIdSource>
+            <TagCollection>
+               <Tag>
+                  <Id>81370</Id>
+                  <ManifestDetailId>20851</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81371</Id>
+                  <ManifestDetailId>20851</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81372</Id>
+                  <ManifestDetailId>20851</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81373</Id>
+                  <ManifestDetailId>20851</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81374</Id>
+                  <ManifestDetailId>20851</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+            </TagCollection>
+			<ArrayOfQcReport>
+			  <QcReport>
+				 <Id>1</Id>
+				 <Description>Oranges</Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>true</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection>
+					<QcReportDetail>
+					   <Id>1</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>1</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>1</Order>
+					   <QcFactorIdSource>
+						  <Id>1</Id>
+						  <Description>Turning</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>2</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>2</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>2</Order>
+					   <QcFactorIdSource>
+						  <Id>2</Id>
+						  <Description>Surface Disc</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>3</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>3</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>3</Order>
+					   <QcFactorIdSource>
+						  <Id>3</Id>
+						  <Description>Slightly Rough</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>4</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>4</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>4</Order>
+					   <QcFactorIdSource>
+						  <Id>4</Id>
+						  <Description>Scars</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>5</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>5</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>5</Order>
+					   <QcFactorIdSource>
+						  <Id>5</Id>
+						  <Description>Scale</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>6</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>6</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>6</Order>
+					   <QcFactorIdSource>
+						  <Id>6</Id>
+						  <Description>Oil Spots</Description>
+						  <QcFactorTypeId>3</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>3</Id>
+							 <Description>Quality &amp; Condition</Description>
+							 <ShortName>Q&amp;C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>7</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>7</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>7</Order>
+					   <QcFactorIdSource>
+						  <Id>7</Id>
+						  <Description>Soft Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>8</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>8</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>8</Order>
+					   <QcFactorIdSource>
+						  <Id>8</Id>
+						  <Description>Dry Old Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>9</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>9</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>9</Order>
+					   <QcFactorIdSource>
+						  <Id>9</Id>
+						  <Description>Skin Break</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>10</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>10</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>10</Order>
+					   <QcFactorIdSource>
+						  <Id>10</Id>
+						  <Description>Pull Stem</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>11</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>11</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>11</Order>
+					   <QcFactorIdSource>
+						  <Id>11</Id>
+						  <Description>Green Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>12</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>12</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>12</Order>
+					   <QcFactorIdSource>
+						  <Id>12</Id>
+						  <Description>Blue Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>13</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>13</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>13</Order>
+					   <QcFactorIdSource>
+						  <Id>13</Id>
+						  <Description>Decay</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>14</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>14</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>14</Order>
+					   <QcFactorIdSource>
+						  <Id>14</Id>
+						  <Description>Bruising</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>15</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>15</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>15</Order>
+					   <QcFactorIdSource>
+						  <Id>15</Id>
+						  <Description>Sunken Areas</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>16</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>16</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>16</Order>
+					   <QcFactorIdSource>
+						  <Id>16</Id>
+						  <Description>Mechanical</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>17</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>17</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>17</Order>
+					   <QcFactorIdSource>
+						  <Id>17</Id>
+						  <Description>Misshaped</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+				 </QcReportDetailCollection>
+			  </QcReport>
+			  <QcReport>
+				 <Id>2</Id>
+				 <Description></Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>false</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection />
+			  </QcReport>
+		   </ArrayOfQcReport>
+         </ManifestDetail>
+         <ManifestDetail>
+            <Id>20858</Id>
+            <ManifestId>4324</ManifestId>
+            <ProductId>1</ProductId>
+            <VarietyId>1</VarietyId>
+            <StyleId>69</StyleId>
+            <SizeId>4</SizeId>
+            <LabelId>75</LabelId>
+            <GradeId>1</GradeId>
+            <RegionId>2</RegionId>
+            <UnitsPallet>54</UnitsPallet>
+            <InvQty>108</InvQty>
+			<OnePerQty>100</OnePerQty>
+			<RoundUp>true</RoundUp>
+            <LabelIdSource>
+               <Id>75</Id>
+               <Description>Purity</Description>
+               <ShortName>PUR</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </LabelIdSource>
+            <ProductIdSource>
+               <Id>1</Id>
+               <Description>Organic Oranges</Description>
+               <ShortName>OORNG</ShortName>
+               <QcRulesCollection />
+               <RepackOutputCollection />
+               <QcReportCollection />
+               <SalesOrderDetailCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+            </ProductIdSource>
+            <SizeIdSource>
+               <Id>4</Id>
+               <Description>113's</Description>
+               <ShortName>113</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </SizeIdSource>
+            <StyleIdSource>
+               <Id>69</Id>
+               <Description>40# Ctn</Description>
+               <ShortName>CTN40</ShortName>
+               <NetWeight>0</NetWeight>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </StyleIdSource>
+            <VarietyIdSource>
+               <Id>1</Id>
+               <Description>.</Description>
+               <ShortName>.</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </VarietyIdSource>
+            <TagCollection>
+               <Tag>
+                  <Id>81415</Id>
+                  <ManifestDetailId>20858</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81416</Id>
+                  <ManifestDetailId>20858</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>0</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+            </TagCollection>
+			<ArrayOfQcReport>
+			  <QcReport>
+				 <Id>1</Id>
+				 <Description>Oranges</Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>true</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection>
+					<QcReportDetail>
+					   <Id>1</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>1</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>1</Order>
+					   <QcFactorIdSource>
+						  <Id>1</Id>
+						  <Description>Turning</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>2</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>2</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>2</Order>
+					   <QcFactorIdSource>
+						  <Id>2</Id>
+						  <Description>Surface Disc</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>3</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>3</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>3</Order>
+					   <QcFactorIdSource>
+						  <Id>3</Id>
+						  <Description>Slightly Rough</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>4</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>4</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>4</Order>
+					   <QcFactorIdSource>
+						  <Id>4</Id>
+						  <Description>Scars</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>5</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>5</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>5</Order>
+					   <QcFactorIdSource>
+						  <Id>5</Id>
+						  <Description>Scale</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>6</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>6</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>6</Order>
+					   <QcFactorIdSource>
+						  <Id>6</Id>
+						  <Description>Oil Spots</Description>
+						  <QcFactorTypeId>3</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>3</Id>
+							 <Description>Quality &amp; Condition</Description>
+							 <ShortName>Q&amp;C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>7</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>7</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>7</Order>
+					   <QcFactorIdSource>
+						  <Id>7</Id>
+						  <Description>Soft Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>8</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>8</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>8</Order>
+					   <QcFactorIdSource>
+						  <Id>8</Id>
+						  <Description>Dry Old Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>9</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>9</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>9</Order>
+					   <QcFactorIdSource>
+						  <Id>9</Id>
+						  <Description>Skin Break</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>10</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>10</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>10</Order>
+					   <QcFactorIdSource>
+						  <Id>10</Id>
+						  <Description>Pull Stem</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>11</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>11</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>11</Order>
+					   <QcFactorIdSource>
+						  <Id>11</Id>
+						  <Description>Green Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>12</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>12</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>12</Order>
+					   <QcFactorIdSource>
+						  <Id>12</Id>
+						  <Description>Blue Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>13</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>13</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>13</Order>
+					   <QcFactorIdSource>
+						  <Id>13</Id>
+						  <Description>Decay</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>14</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>14</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>14</Order>
+					   <QcFactorIdSource>
+						  <Id>14</Id>
+						  <Description>Bruising</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>15</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>15</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>15</Order>
+					   <QcFactorIdSource>
+						  <Id>15</Id>
+						  <Description>Sunken Areas</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>16</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>16</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>16</Order>
+					   <QcFactorIdSource>
+						  <Id>16</Id>
+						  <Description>Mechanical</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>17</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>17</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>17</Order>
+					   <QcFactorIdSource>
+						  <Id>17</Id>
+						  <Description>Misshaped</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+				 </QcReportDetailCollection>
+			  </QcReport>
+			  <QcReport>
+				 <Id>2</Id>
+				 <Description></Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>false</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection />
+			  </QcReport>
+		   </ArrayOfQcReport>
+         </ManifestDetail>
+         <ManifestDetail>
+            <Id>20859</Id>
+            <ManifestId>4324</ManifestId>
+            <ProductId>1</ProductId>
+            <VarietyId>1</VarietyId>
+            <StyleId>69</StyleId>
+            <SizeId>11</SizeId>
+            <LabelId>75</LabelId>
+            <GradeId>1</GradeId>
+            <RegionId>2</RegionId>
+            <UnitsPallet>54</UnitsPallet>
+            <InvQty>216</InvQty>
+			<OnePerQty>100</OnePerQty>
+			<RoundUp>true</RoundUp>
+            <LabelIdSource>
+               <Id>75</Id>
+               <Description>Purity</Description>
+               <ShortName>PUR</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </LabelIdSource>
+            <ProductIdSource>
+               <Id>1</Id>
+               <Description>Organic Oranges</Description>
+               <ShortName>OORNG</ShortName>
+               <QcRulesCollection />
+               <RepackOutputCollection />
+               <QcReportCollection />
+               <SalesOrderDetailCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+            </ProductIdSource>
+            <SizeIdSource>
+               <Id>11</Id>
+               <Description>138's</Description>
+               <ShortName>138</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </SizeIdSource>
+            <StyleIdSource>
+               <Id>69</Id>
+               <Description>40# Ctn</Description>
+               <ShortName>CTN40</ShortName>
+               <NetWeight>0</NetWeight>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </StyleIdSource>
+            <VarietyIdSource>
+               <Id>1</Id>
+               <Description>.</Description>
+               <ShortName>.</ShortName>
+               <QcRulesCollection />
+               <CommodityCollection />
+               <ManifestDetailCollection />
+               <SalesOrderDetailCollection />
+               <RepackOutputCollection />
+            </VarietyIdSource>
+            <TagCollection>
+               <Tag>
+                  <Id>81417</Id>
+                  <ManifestDetailId>20859</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81418</Id>
+                  <ManifestDetailId>20859</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81419</Id>
+                  <ManifestDetailId>20859</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+               <Tag>
+                  <Id>81420</Id>
+                  <ManifestDetailId>20859</ManifestDetailId>
+                  <RepackOutPutId xsi:nil="true" />
+                  <InvQty>54</InvQty>
+                  <BalanceQty>54</BalanceQty>
+                  <RepackInputCollection />
+                  <OutTagCollection />
+               </Tag>
+            </TagCollection>
+			<ArrayOfQcReport>
+			  <QcReport>
+				 <Id>1</Id>
+				 <Description>Oranges</Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>true</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection>
+					<QcReportDetail>
+					   <Id>1</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>1</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>1</Order>
+					   <QcFactorIdSource>
+						  <Id>1</Id>
+						  <Description>Turning</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>2</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>2</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>2</Order>
+					   <QcFactorIdSource>
+						  <Id>2</Id>
+						  <Description>Surface Disc</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>3</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>3</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>3</Order>
+					   <QcFactorIdSource>
+						  <Id>3</Id>
+						  <Description>Slightly Rough</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>4</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>4</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>4</Order>
+					   <QcFactorIdSource>
+						  <Id>4</Id>
+						  <Description>Scars</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>5</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>5</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>5</Order>
+					   <QcFactorIdSource>
+						  <Id>5</Id>
+						  <Description>Scale</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>6</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>6</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>6</Order>
+					   <QcFactorIdSource>
+						  <Id>6</Id>
+						  <Description>Oil Spots</Description>
+						  <QcFactorTypeId>3</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>3</Id>
+							 <Description>Quality &amp; Condition</Description>
+							 <ShortName>Q&amp;C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>7</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>7</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>7</Order>
+					   <QcFactorIdSource>
+						  <Id>7</Id>
+						  <Description>Soft Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>8</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>8</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>8</Order>
+					   <QcFactorIdSource>
+						  <Id>8</Id>
+						  <Description>Dry Old Fruit</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>9</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>9</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>9</Order>
+					   <QcFactorIdSource>
+						  <Id>9</Id>
+						  <Description>Skin Break</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>10</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>10</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>10</Order>
+					   <QcFactorIdSource>
+						  <Id>10</Id>
+						  <Description>Pull Stem</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>11</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>11</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>11</Order>
+					   <QcFactorIdSource>
+						  <Id>11</Id>
+						  <Description>Green Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>12</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>12</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>12</Order>
+					   <QcFactorIdSource>
+						  <Id>12</Id>
+						  <Description>Blue Mold</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>13</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>13</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>13</Order>
+					   <QcFactorIdSource>
+						  <Id>13</Id>
+						  <Description>Decay</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>14</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>14</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>14</Order>
+					   <QcFactorIdSource>
+						  <Id>14</Id>
+						  <Description>Bruising</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>15</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>15</QcFactorId>
+					   <QcButtonTypeId>2</QcButtonTypeId>
+					   <Order>15</Order>
+					   <QcFactorIdSource>
+						  <Id>15</Id>
+						  <Description>Sunken Areas</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>16</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>16</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>16</Order>
+					   <QcFactorIdSource>
+						  <Id>16</Id>
+						  <Description>Mechanical</Description>
+						  <QcFactorTypeId>2</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>2</Id>
+							 <Description>Condition</Description>
+							 <ShortName>C</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+					<QcReportDetail>
+					   <Id>17</Id>
+					   <QcReportId>1</QcReportId>
+					   <QcFactorId>17</QcFactorId>
+					   <QcButtonTypeId>1</QcButtonTypeId>
+					   <Order>17</Order>
+					   <QcFactorIdSource>
+						  <Id>17</Id>
+						  <Description>Misshaped</Description>
+						  <QcFactorTypeId>1</QcFactorTypeId>
+						  <QcFactorTypeIdSource>
+							 <Id>1</Id>
+							 <Description>Quality</Description>
+							 <ShortName>Q</ShortName>
+						  </QcFactorTypeIdSource>
+					   </QcFactorIdSource>
+					</QcReportDetail>
+				 </QcReportDetailCollection>
+			  </QcReport>
+			  <QcReport>
+				 <Id>2</Id>
+				 <Description></Description>
+				 <ProductId>1</ProductId>
+				 <SafeNameDefault>false</SafeNameDefault>
+				 <WarehouseCustomerId xsi:nil="true" />
+				 <QcReportDetailCollection />
+			  </QcReport>
+		   </ArrayOfQcReport>
+         </ManifestDetail>
+      </ManifestDetailCollection>
+      <ManifestNotesCollection />
+   </ManifestIdSource>
+   <TruckTrackingCollection />
+   <IncomingTruckDocumentsCollection />
+   <IncomingTruckImagesCollection />
+   <TruckTrackingGroupEventCollection />
+</IncomingTruck>
