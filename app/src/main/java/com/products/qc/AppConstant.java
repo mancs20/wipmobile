@@ -27,4 +27,8 @@ public class AppConstant {
     public static boolean sendData = false;
     
     public static boolean dataSended = false;
+
+    public static boolean closing = false;
+
+    public static String palletTag = "";
 }
