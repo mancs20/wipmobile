@@ -16,6 +16,8 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import dialogs.PalletValidationWebServiceDialogFragment;
+
 public class PalletIntroductionActivity extends ActionBarActivity {
 
     EditText palletEditText;
@@ -50,9 +52,11 @@ public class PalletIntroductionActivity extends ActionBarActivity {
         if (pallet.equals("")) {
             Toast.makeText(PalletIntroductionActivity.this, "Enter Pallet", Toast.LENGTH_LONG).show();
         } else {
-            palletCorrect();
+            //palletCorrect();
+            PalletValidationWebServiceDialogFragment pvws = new PalletValidationWebServiceDialogFragment(this, pallet);
+            pvws.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
-            CallerPallet c = new CallerPallet(this, pallet);
+            //CallerPallet c = new CallerPallet(this, pallet);
             //c.start();
         }
     }

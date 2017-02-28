@@ -23,7 +23,7 @@ public class ConfirmationLocationDialogFragment extends DialogFragment{
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 	    builder.setTitle("Confirmation Dialog")
-	           .setMessage("Do you want to place pallet" + palletTag + " in location" + location + "?");
+	           .setMessage("Do you want to place pallet " + palletTag + " in location " + location + "?");
 	    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   CallerLocation c = new CallerLocation(activity, location);

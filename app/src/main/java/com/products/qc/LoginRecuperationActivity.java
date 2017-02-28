@@ -14,6 +14,9 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import dialogs.LoginWebServiceDialogFragment;
+import dialogs.RecuperationLoginWebServiceDialogFragment;
+
 public class LoginRecuperationActivity extends ActionBarActivity {
 
     EditText emailEditText;
@@ -31,9 +34,11 @@ public class LoginRecuperationActivity extends ActionBarActivity {
         if (email.equals("")) {
             Toast.makeText(LoginRecuperationActivity.this, "Enter Email", Toast.LENGTH_LONG).show();
         } else {
-            emailCorrect();
+            //emailCorrect();
+            RecuperationLoginWebServiceDialogFragment rlws = new RecuperationLoginWebServiceDialogFragment(this);
+            rlws.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
-            CallerEmail c = new CallerEmail(this, email);
+            //CallerEmail c = new CallerEmail(this, email);
             //c.start();
         }
 
