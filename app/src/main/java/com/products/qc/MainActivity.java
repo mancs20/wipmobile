@@ -133,6 +133,10 @@ public class MainActivity extends ActionBarActivity {
 	    	}
 		}
 	}
+
+	public void back(View view){
+		this.finish();
+	}
     
     public void palletCorrect(String code) {
     	if (!saveManifestInDataBase(MainActivity.rslt, this)) {
