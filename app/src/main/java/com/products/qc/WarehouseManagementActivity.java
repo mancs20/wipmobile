@@ -22,4 +22,13 @@ public class WarehouseManagementActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    public void inquiryLocation(View view){
+        Intent intent = new Intent(this, InquireLocationActivity.class);
+        startActivity(intent);
+    }
+
+    public void unlocatePallet(View view){
+        Intent intent = new Intent(this, DeletePalletLocationActivity.class);
+        startActivity(intent);
+    }
 }
