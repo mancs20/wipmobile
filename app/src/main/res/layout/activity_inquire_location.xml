@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_inquire_location"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.products.qc.InquireLocationActivity">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.internal.widget.TintRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_pallet"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <android.support.v7.internal.widget.TintEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/check_pallet"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.internal.widget.TintRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_location"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <android.support.v7.internal.widget.TintEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/check_location"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_back"
+                android:onClick="back"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <Button
+                android:id="@+id/button_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_next"
+                android:onClick="next"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        </TableRow>
+
+    </TableLayout>
+</RelativeLayout>
