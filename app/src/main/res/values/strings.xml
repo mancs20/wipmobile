@@ -5,6 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="edit_code">Enter Code</string>
     <string name="button_next">Next</string>
+    <string name="button_back">Back</string>
     <string name="button_picture">Picture</string>
     <string name="button_restart">Restart</string>
     <string name="title_activity_display_manifest">DisplayManifestActivity</string>
@@ -42,14 +43,14 @@
     <string name="saved_finish_date">com.products.qc.finishdate</string>
     <string name="saved_incoming_id">com.products.qc.incomingid</string>
     <string name="saved_manifest_id">com.products.qc.manifestid</string>
-    
+
     <string name="saved_saveqcontrol">com.products.qc.saveqcontrol</string>
     <string name="saved_saveqcontroldetail">com.products.qc.saveqcontroldetail</string>
     <string name="saved_saveqcontroldetailfactor">com.products.qc.saveqcontroldetailfactor</string>
     <string name="saved_saveqcontroldetailpicture">com.products.qc.saveqcontroldetailpicture</string>
     <string name="saved_responsecontrol">com.products.qc.responsecontrol</string>
     <string name="saved_responsecontroldetail">com.products.qc.responsecontroldetail</string>
-    
+
     <string name="title_activity_qc_factor_table">QcFactorTableActivity</string>
     <string name="toast_error_sendindg_data">Something wrong. Try again</string>
 
@@ -96,5 +97,17 @@
     <string name="description_info">Info</string>
     <string name="request_permission">This sample needs camera permission.</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
-    
+    <string name="title_activity_inquire_location">Inquire Location</string>
+    <string name="check_pallet">Pallet</string>
+    <string name="check_location">Location</string>
+    <string name="title_activity_inquire_location51">InquireLocation</string>
+    <string name="pallet_id">Pallet ID:</string>
+    <string name="pallet_info">Pallet Info</string>
+    <string name="location">Location</string>
+    <string name="location_code">Location Code</string>
+    <string name="title_activity_inquire_location52">Inquire Location</string>
+    <string name="title_activity_delete_pallet_location">Delete Pallet Location</string>
+    <string name="pallet_tag">Pallet Tag</string>
+    <string name="pallet_tag_label">Pallet Tag:</string>
+
 </resources>
