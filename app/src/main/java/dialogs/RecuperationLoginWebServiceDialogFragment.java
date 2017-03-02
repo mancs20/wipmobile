@@ -31,7 +31,7 @@ public class RecuperationLoginWebServiceDialogFragment extends DialogFragment{
 
 	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 	    builder.setTitle("WebService Options").
-		setSingleChoiceItems(options, 0, new DialogInterface.OnClickListener(){
+		setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog, int id) {
 				if(id == 1)
 					option = "True";

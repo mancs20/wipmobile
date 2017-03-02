@@ -2,6 +2,7 @@ package com.products.qc;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 
 public class InquireLocation52Activity extends ActionBarActivity {
 
@@ -11,4 +12,5 @@ public class InquireLocation52Activity extends ActionBarActivity {
         setContentView(R.layout.activity_inquire_location52);
     }
 
+    public void back(View view){this.finish();}
 }

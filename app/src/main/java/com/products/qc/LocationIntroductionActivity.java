@@ -16,6 +16,8 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import dialogs.LocationValidationWebServiceDialogFragment;
+
 public class LocationIntroductionActivity extends ActionBarActivity {
     EditText locationEditText;
     public static String rslt = "";
@@ -39,9 +41,11 @@ public class LocationIntroductionActivity extends ActionBarActivity {
         if (location.equals("")) {
             Toast.makeText(LocationIntroductionActivity.this, "Enter Location", Toast.LENGTH_LONG).show();
         } else {
-            locationCorrect();
+            //locationCorrect();
+            LocationValidationWebServiceDialogFragment lvwsdf = new LocationValidationWebServiceDialogFragment(this, AppConstant.palletTag, location);
+            lvwsdf.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
-            CallerLocation c = new CallerLocation(this, location);
+            //CallerLocation c = new CallerLocation(this, location);
             //c.start();
         }
     }
@@ -53,7 +57,7 @@ public class LocationIntroductionActivity extends ActionBarActivity {
         }
         else{
             String palletTag = AppConstant.palletTag;
-            ConfirmationLocationDialogFragment ip = new ConfirmationLocationDialogFragment(this, palletTag, location);
+            ConfirmationLocationDialogFragment ip = new ConfirmationLocationDialogFragment(this, palletTag, location, "place");
             ip.show(this.getFragmentManager(), "connproblem");
             if(rslt.equals("1")){
                 rslt = "START";

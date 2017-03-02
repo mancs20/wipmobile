@@ -17,14 +17,19 @@
             android:layout_height="wrap_content">
 
             <android.support.v7.internal.widget.TintRadioButton
+                android:id="@+id/radio_button_pallet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/check_pallet"
+                android:onClick="checkPallet"
+                android:checked="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <android.support.v7.internal.widget.TintEditText
+                android:id="@+id/edit_text_pallet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text=""
                 android:hint="@string/check_pallet"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
@@ -35,12 +40,15 @@
             android:layout_height="wrap_content">
 
             <android.support.v7.internal.widget.TintRadioButton
+                android:id="@+id/radio_button_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="checkLocation"
                 android:text="@string/check_location"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <android.support.v7.internal.widget.TintEditText
+                android:id="@+id/edit_text_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/check_location"

@@ -8,14 +8,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.products.qc.ChoiceToolsActivity;
-import com.products.qc.InvalidLoginDialogFragment;
+import com.products.qc.ConfirmationLocationDialogFragment;
+import com.products.qc.InquireLocation51Activity;
+import com.products.qc.InquireLocation52Activity;
+import com.products.qc.InvalidLocationDialogFragment;
+import com.products.qc.InvalidPalletDialogFragment;
 
-public class LoginWebServiceDialogFragment extends DialogFragment{
+public class PalletWebServiceDialogFragment extends DialogFragment{
 
 	public static String option = "";
 	Activity activity;
-	public LoginWebServiceDialogFragment(Activity activity)
+	public PalletWebServiceDialogFragment(Activity activity)
 	{
 		this.activity = activity;
 	}
@@ -30,20 +33,21 @@ public class LoginWebServiceDialogFragment extends DialogFragment{
 	    builder.setTitle("WebService Options").
 		setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog, int id) {
-				if(id == 1)
+				if(id == 0)
 					option = "True";
 				else option = "False";
+
 			}
 		});
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
-				   if(option.equals("True")) {
-					   InvalidLoginDialogFragment il = new InvalidLoginDialogFragment(activity);
-					   il.show(activity.getFragmentManager(), "connproblem");
+				   if(option.equals("False")) {
+					   InvalidPalletDialogFragment ipdf = new InvalidPalletDialogFragment(activity, "Pallet doen't exist");
+					   ipdf.show(activity.getFragmentManager(), "connproblem");
 				   }
 				   else{
-					   Intent intent = new Intent(activity, ChoiceToolsActivity.class);
-					   startActivity(intent);
+					   Intent inquireLocation51Intent = new Intent(activity, InquireLocation51Activity.class);
+					   startActivity(inquireLocation51Intent);
 				   }
 	           }
 	       });

@@ -12,18 +12,20 @@ public class ConfirmationLocationDialogFragment extends DialogFragment{
 	String palletTag;
 	Activity activity;
 	String location;
-	public ConfirmationLocationDialogFragment(Activity activity, String palletTag, String location)
+	String text;
+	public ConfirmationLocationDialogFragment(Activity activity, String palletTag, String location, String text)
 	{
 		this.activity = activity;
 		this.palletTag = palletTag;
 		this.location = location;
+		this.text = text;
 	}
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 	    builder.setTitle("Confirmation Dialog")
-	           .setMessage("Do you want to place pallet " + palletTag + " in location " + location + "?");
+	           .setMessage("Do you want to " + text + " pallet " + palletTag + " in location " + location + "?");
 	    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   CallerLocation c = new CallerLocation(activity, location);
