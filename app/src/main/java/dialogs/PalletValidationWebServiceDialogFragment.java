@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.products.qc.AppConstant;
 import com.products.qc.ChoiceToolsActivity;
@@ -44,12 +45,10 @@ public class PalletValidationWebServiceDialogFragment extends DialogFragment{
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   if(option.equals("Pallet doesn’t exist")) {
-					   InvalidPalletDialogFragment ip = new InvalidPalletDialogFragment(activity, "Pallet doesn’t exist");
-					   ip.show(activity.getFragmentManager(), "connproblem");
+					   Toast.makeText(activity, "Pallet doesn’t exist", Toast.LENGTH_LONG).show();
 				   }
 				   if(option.equals("Pallet with location")){
-					   InvalidPalletDialogFragment ip = new InvalidPalletDialogFragment(activity, "Pallet with location ");
-					   ip.show(activity.getFragmentManager(), "connproblem");
+					   Toast.makeText(activity, "Pallet with location", Toast.LENGTH_LONG).show();
 				   }
 				   if(option.equals("True")){
 					   AppConstant.palletTag = pallet;

@@ -25,6 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/edit_user"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:inputType="text" />
         </TableRow>
         <TableRow
@@ -44,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/edit_password"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:inputType="textPassword" />
 
         </TableRow>
@@ -74,6 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/button_fgpass"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:onClick="recLogin" />
 
                 <Button
@@ -82,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/button_login"
                     android:onClick="login"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_gravity="right"/>
 
             </LinearLayout>

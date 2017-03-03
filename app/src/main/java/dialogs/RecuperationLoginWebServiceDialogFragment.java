@@ -41,8 +41,8 @@ public class RecuperationLoginWebServiceDialogFragment extends DialogFragment{
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   if(option.equals("True")) {
-					   InvalidEmailDialogFragment ie = new InvalidEmailDialogFragment(activity);
-					   ie.show(activity.getFragmentManager(), "connproblem");
+					   Toast.makeText(activity, "Incorrect email", Toast.LENGTH_LONG).show();
+					   activity.finish();
 				   }
 				   else{
 					   Toast.makeText(activity, "The password was sent to your email", Toast.LENGTH_LONG).show();

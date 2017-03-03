@@ -128,7 +128,7 @@
 
     <string name="title_activity_login">Login</string>
     <string name="title_activity_main">Send Code</string>
-    <string name="title_activity_login_recuperation">Login Recuperation</string>
+    <string name="title_activity_login_recuperation">Login Recovery</string>
     <string name="title_activity_choice_tools">Choice Tools</string>
     <string name="title_activity_warehouse_management">Warehouse Management</string>
     <string name="title_activity_pallet_introduction">Pallet Introduction</string>

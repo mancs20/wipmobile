@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.products.qc.ConfirmationLocationDialogFragment;
 import com.products.qc.InquireLocation51Activity;
@@ -42,8 +43,7 @@ public class PalletWebServiceDialogFragment extends DialogFragment{
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   if(option.equals("False")) {
-					   InvalidPalletDialogFragment ipdf = new InvalidPalletDialogFragment(activity, "Pallet doen't exist");
-					   ipdf.show(activity.getFragmentManager(), "connproblem");
+					   Toast.makeText(activity, "The pallet don't exist", Toast.LENGTH_LONG).show();
 				   }
 				   else{
 					   Intent inquireLocation51Intent = new Intent(activity, InquireLocation51Activity.class);

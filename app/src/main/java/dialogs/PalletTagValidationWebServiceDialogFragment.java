@@ -49,7 +49,7 @@ public class PalletTagValidationWebServiceDialogFragment extends DialogFragment{
 					   cldf.show(activity.getFragmentManager(), "connproblem");
 				   }
 				   else {
-					   Toast.makeText(activity, "The pallet don't exist or don't have location", Toast.LENGTH_LONG).show();
+					   Toast.makeText(activity, "The pallet don't exist or don't have a location", Toast.LENGTH_LONG).show();
 				   }
 	           }
 	       });

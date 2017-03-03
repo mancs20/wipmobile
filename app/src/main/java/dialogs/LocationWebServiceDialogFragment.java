@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.products.qc.ConfirmationLocationDialogFragment;
 import com.products.qc.InquireLocation52Activity;
@@ -40,8 +41,7 @@ public class LocationWebServiceDialogFragment extends DialogFragment{
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   if(option.equals("False")) {
-					   InvalidLocationDialogFragment ildf = new InvalidLocationDialogFragment(activity, "Location doen't exist");
-					   ildf.show(activity.getFragmentManager(), "connproblem");
+					   Toast.makeText(activity, "Location doesn't exist", Toast.LENGTH_LONG).show();
 				   }
 				   else{
 					   Intent inquireLocation52Intent = new Intent(activity, InquireLocation52Activity.class);

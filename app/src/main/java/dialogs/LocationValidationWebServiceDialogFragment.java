@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.products.qc.AppConstant;
 import com.products.qc.ConfirmationLocationDialogFragment;
@@ -46,18 +47,17 @@ public class LocationValidationWebServiceDialogFragment extends DialogFragment{
 		});
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
-				   if(option.equals("True")) {
-					   ConfirmationLocationDialogFragment cldf = new ConfirmationLocationDialogFragment(activity, pallet, location, "place ");
-					   cldf.show(activity.getFragmentManager(), "connproblem");
-				   }
-				   else if(option.equals("Location doesn't exist"))
-				   {
-					   InvalidLocationDialogFragment ildf = new InvalidLocationDialogFragment(activity, "Location doesn't exist");
-					   ildf.show(activity.getFragmentManager(), "connproblem");
-				   }
-				   else{
-					   InvalidLocationDialogFragment ildf = new InvalidLocationDialogFragment(activity, "Location is not empty");
-					   ildf.show(activity.getFragmentManager(), "connproblem");
+				   switch (option) {
+					   case "True":
+						   ConfirmationLocationDialogFragment cldf = new ConfirmationLocationDialogFragment(activity, pallet, location, "place ");
+						   cldf.show(activity.getFragmentManager(), "connproblem");
+						   break;
+					   case "Location doesn't exist":
+						   Toast.makeText(activity, "Location doesn't exist", Toast.LENGTH_LONG).show();
+						   break;
+					   default:
+						   Toast.makeText(activity, "Location is not empty", Toast.LENGTH_LONG).show();
+						   break;
 				   }
 	           }
 	       });

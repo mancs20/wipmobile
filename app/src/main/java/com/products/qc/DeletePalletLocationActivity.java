@@ -26,7 +26,7 @@ public class DeletePalletLocationActivity extends ActionBarActivity {
 
     public void next(View view){
         if(editTextPallet.getText().toString().equals(""))
-            Toast.makeText(this, "The pallet tag was doesn't empty", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Enter pallet tag", Toast.LENGTH_LONG).show();
         else{
             PalletTagValidationWebServiceDialogFragment ptvwsdf = new PalletTagValidationWebServiceDialogFragment(this, editTextPallet.getText().toString(), "unknown");
             ptvwsdf.show(this.getFragmentManager(), "connproblem");
