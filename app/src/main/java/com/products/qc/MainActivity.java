@@ -123,7 +123,7 @@ public class MainActivity extends ActionBarActivity {
 		    		palletCorrect(code);
 		    		rslt="START";
 		            Caller c = new Caller(this, code);
-		            //c.start();
+		            c.start();
 	    		}
 	    		else {
 	    			palletInDatabase(code);
@@ -275,12 +275,12 @@ public class MainActivity extends ActionBarActivity {
 	public boolean saveManifestInDataBase(String in, Activity activity){
 		AssetManager assetManager = getAssets();
 		try {
-			InputStream inn = assetManager.open("incoming3.xml");
+			//InputStream inn = assetManager.open("incoming3.xml");
 	        //ListView manifestListView = (ListView) findViewById(R.id.manifest_listview);
 	        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	        DocumentBuilder builder = factory.newDocumentBuilder();
-            //Document document = builder.parse(new InputSource(new StringReader(in)));
-	        Document document = builder.parse(inn);
+            Document document = builder.parse(new InputSource(new StringReader(in)));
+	        //Document document = builder.parse(inn);
             
             //XPathExpression xpath = XPathFactory.newInstance().newXPath().compile("//*[count(./*) = 0]");
             //NodeList leafs = (NodeList) xpath.evaluate(document, XPathConstants.NODESET);
