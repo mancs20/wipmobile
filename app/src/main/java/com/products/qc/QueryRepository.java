@@ -17,8 +17,7 @@ import com.products.qc.SamplingReaderContract.SamplingEntry;
 
 public class QueryRepository {
 	
-	public static int getPalletIdByCode(Activity activity, int code)
-	{
+	public static int getPalletIdByCode(Activity activity, int code) {
 		PalletReaderDbHelper mDbPalletHelper = new PalletReaderDbHelper(activity);
 		SQLiteDatabase palletDb = mDbPalletHelper.getReadableDatabase();
 		
@@ -632,7 +631,7 @@ public class QueryRepository {
 	public static void savePicture(Activity activity, String name, int samplingId) {
 		PictureReaderDbHelper mDbPictureHelper = new PictureReaderDbHelper(activity);
 		SQLiteDatabase pictureDb = mDbPictureHelper.getReadableDatabase();
-		
+
 		ContentValues values = new ContentValues();
         values.put(PictureEntry.COLUMN_NAME_NAME, name);
         values.put(PictureEntry.COLUMN_NAME_SAMPLING, samplingId);

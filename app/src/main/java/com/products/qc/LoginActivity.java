@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.ksoap2.SoapEnvelope;
@@ -29,6 +32,15 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_login);
         userEditText = (EditText) findViewById(R.id.edit_user);
         passwordEditText = (EditText) findViewById(R.id.edit_password);
+
+        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE) || actionId == EditorInfo.IME_ACTION_NEXT) {
+                    login(null);
+                }
+                return false;
+            }
+        });
     }
 
     public void login(View view) {
