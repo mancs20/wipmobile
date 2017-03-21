@@ -28,7 +28,7 @@ public class RemoveConfirmationDialogFragment extends DialogFragment{
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 	    builder.setTitle("Remove Confirmation")
-	           	.setMessage("Do you want to remove pallet " + palletTag + " from location " + palletLocation + " ?")
+	           	.setMessage("Remove pallet " + palletTag + " from location " + palletLocation + " ?")
 				.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 
