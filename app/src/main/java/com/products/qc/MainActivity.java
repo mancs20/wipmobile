@@ -387,11 +387,9 @@ public class MainActivity extends ActionBarActivity {
             editor.putString(activity.getString(R.string.saved_receiptdate), receiptdate_value);
             //data.add(node.getNodeName() + ": " + receiptdate_value);
             
-            editor.commit();
+            editor.apply();
             
             ProductReaderDbHelper mDbProductHelper = new ProductReaderDbHelper(activity);
-            
-            // Gets the data repository in write mode
             SQLiteDatabase productdb = mDbProductHelper.getWritableDatabase();
             productdb.execSQL(ProductEntry.SQL_CREATE_ENTRIES);
             
