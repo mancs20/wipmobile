@@ -120,7 +120,7 @@ public class MainActivity extends ActionBarActivity {
 	    	if(currentPallet.equals("0")){
 	    		String beginDate = sharedPref.getString(getString(R.string.saved_begin_date), "");
 	    		if (beginDate == "") {
-		    		palletCorrect(code);
+		    		//palletCorrect(code);
 		    		rslt="START";
 		            Caller c = new Caller(this, code);
 		            c.start();
@@ -138,11 +138,23 @@ public class MainActivity extends ActionBarActivity {
 		this.finish();
 	}
     
-    public void palletCorrect(String code) {
-    	if (!saveManifestInDataBase(MainActivity.rslt, this)) {
+    public void palletCorrect(String code, final Activity thisActivity) {
+		int valid = saveManifestInDataBase(MainActivity.rslt, this);
+    	if (valid == 1) {
     		PalletNotFoundDialogFragment pnf = new PalletNotFoundDialogFragment(this);
     		pnf.show(this.getFragmentManager(), "connproblem");
-    	} else palletInDatabase(code);
+
+    	} else if (valid == 2) {
+			ActionBarMethods.restart(thisActivity);
+			thisActivity.runOnUiThread(new Runnable() {
+				public void run() {
+					Toast.makeText(thisActivity, "The entered pallet do not have enough data.", Toast.LENGTH_LONG).show();
+				}
+			});
+
+		}
+		else
+			palletInDatabase(code);
     }
     
     public void palletInDatabase(String code) {
@@ -155,7 +167,7 @@ public class MainActivity extends ActionBarActivity {
 			SharedPreferences.Editor editor = sharedPref.edit();
 			editor.putInt(getString(R.string.saved_current_sampling), samplingId);
     	    editor.putInt(getString(R.string.saved_current_pallet), Integer.parseInt(code));
-    	    editor.commit();
+    	    editor.apply();
 			
 			Intent intent = new Intent(this, DisplayManifestActivity.class);
 		    startActivity(intent);
@@ -272,7 +284,7 @@ public class MainActivity extends ActionBarActivity {
 		return result;
 	}
 	
-	public boolean saveManifestInDataBase(String in, Activity activity){
+	public int saveManifestInDataBase(String in, Activity activity){
 		AssetManager assetManager = getAssets();
 		try {
 			//InputStream inn = assetManager.open("incoming3.xml");
@@ -310,7 +322,7 @@ public class MainActivity extends ActionBarActivity {
     			if (n.getNodeName().equals("Id")) {
     				String incomingIdValue = n.getTextContent().trim();
     				if (incomingIdValue.equals("") || incomingIdValue.equals("0"))
-    					return false;
+    					return 1;
     				editor.putString(activity.getString(R.string.saved_incoming_id), incomingIdValue);
     				break;
     			}
@@ -541,6 +553,8 @@ public class MainActivity extends ActionBarActivity {
     				Node n = nodes.item(j);
     				if (n.getNodeName().equals("ArrayOfQcReport")) {
     					NodeList icnodes = n.getChildNodes();
+						if (icnodes.getLength() == 0)
+							return 2;
     					for (int k = 0; k < icnodes.getLength(); k++) {
     						Node nodek = icnodes.item(k);
     						if (nodek.getNodeName().equals("QcReport")) {
@@ -655,7 +669,7 @@ public class MainActivity extends ActionBarActivity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		return true;
+		return 0;
 	}
 }
 
@@ -735,7 +749,7 @@ class Caller extends Thread
             	this.stop();
             }
             MainActivity.rslt=response.toString();
-            ((MainActivity)activity).palletCorrect(code);
+            ((MainActivity)activity).palletCorrect(code, activity);
             cp.dismiss();
         } catch(Exception ex) {
         	//MainActivity.rslt=ex.toString();

@@ -19,7 +19,7 @@ public class RestartDialogFragment extends DialogFragment{
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 	    builder.setTitle("Restart")
-	           .setMessage("Do you wanna restart?");
+	           .setMessage("Restart the application?");
 	    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 	        	   if(activity.getClass().getName().equals("com.products.qc.MainActivity")){

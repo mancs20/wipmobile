@@ -19,7 +19,7 @@ public class RemovePicturesDialogFragment extends DialogFragment{
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 	    builder.setTitle("Remove")
-	           .setMessage("Do you wanna remove this pictures?");
+	           .setMessage("Remove this pictures?");
 	    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 	        	   

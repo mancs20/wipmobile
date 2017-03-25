@@ -84,9 +84,12 @@ public abstract class ActionBarMethods {
         
         if(context.getLocalClassName().equals("MainActivity")) {
         	AppConstant.restarting = false;
-	        EditText codeEditText = (EditText) context.findViewById(R.id.edit_code);
-	                	
-			codeEditText.setText("");
+	        final EditText codeEditText = (EditText) context.findViewById(R.id.edit_code);
+			context.runOnUiThread(new Runnable() {
+				public void run() {
+					codeEditText.setText("");
+				}
+			});
         }
         else {
 	    	AppConstant.restarting = true;
