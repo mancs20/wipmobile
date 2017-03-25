@@ -28,7 +28,7 @@ public class ConfirmationLocationDialogFragment extends DialogFragment{
 	           .setMessage(text + " pallet " + palletTag + " in location " + location + "?");
 	    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
-				   CallerLocation c = new CallerLocation(activity, location);
+				   CallerPlacePallet c = new CallerPlacePallet(activity, location, AppConstant.palletTag);
 				   AppConstant.closing = true;
 				   activity.finish();
 	           }

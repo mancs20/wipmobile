@@ -148,7 +148,7 @@ public class MainActivity extends ActionBarActivity {
 			ActionBarMethods.restart(thisActivity);
 			thisActivity.runOnUiThread(new Runnable() {
 				public void run() {
-					Toast.makeText(thisActivity, "The entered pallet do not have enough data.", Toast.LENGTH_LONG).show();
+					Toast.makeText(thisActivity, "There is no QC template for this product pallet.", Toast.LENGTH_LONG).show();
 				}
 			});
 

@@ -23,6 +23,7 @@ public class LocationIntroductionActivity extends ActionBarActivity {
     public static String rslt = "";
     SharedPreferences sharedPref;
     String location;
+    String pallet = AppConstant.palletTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,37 +46,42 @@ public class LocationIntroductionActivity extends ActionBarActivity {
             LocationValidationWebServiceDialogFragment lvwsdf = new LocationValidationWebServiceDialogFragment(this, AppConstant.palletTag, location);
             lvwsdf.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
-            //CallerLocation c = new CallerLocation(this, location);
-            //c.start();
+            CallerPalletLocation c = new CallerPalletLocation(this, pallet, location);
+            c.start();
         }
+    }
+
+
+}
+
+class CallerPalletLocation extends Thread {
+    Activity activity;
+    String pallet;
+    String rack;
+
+    public CallerPalletLocation(Activity activity, String pallet, String rack) {
+        this.activity = activity;
+        this.pallet = pallet;
+        this.rack = rack;
     }
 
     public void locationCorrect()
     {
-        if (LocationIntroductionActivity.rslt.equals("0")) {
-            Toast.makeText(LocationIntroductionActivity.this, "Location with Pallet", Toast.LENGTH_LONG).show();
+        switch (LocationIntroductionActivity.rslt) {
+            case "0":
+                ConfirmationLocationDialogFragment cldf = new ConfirmationLocationDialogFragment(activity, pallet, rack, "place ");
+                cldf.show(activity.getFragmentManager(), "connproblem");
+                break;
+            case "1":
+                Toast.makeText(activity, "Wrong Pallet Tag.", Toast.LENGTH_LONG).show();
+                break;
+            case "2":
+                Toast.makeText(activity, "Wrong Location.", Toast.LENGTH_LONG).show();
+                break;
+            default:
+                Toast.makeText(activity, "Wrong Data.", Toast.LENGTH_LONG).show();
+                break;
         }
-        else{
-            String palletTag = AppConstant.palletTag;
-            ConfirmationLocationDialogFragment ip = new ConfirmationLocationDialogFragment(this, palletTag, location, "place");
-            ip.show(this.getFragmentManager(), "connproblem");
-            if(rslt.equals("1")){
-                rslt = "START";
-                CallerLocation c = new CallerLocation(this, location);
-                AppConstant.closing = true;
-                this.finish();
-            }
-        }
-    }
-}
-
-class CallerLocation extends Thread {
-    Activity activity;
-    String location;
-
-    public CallerLocation(Activity activity, String location) {
-        this.activity = activity;
-        this.location = location;
     }
 
     public void run() {
@@ -84,17 +90,96 @@ class CallerLocation extends Thread {
             cp.setCancelable(false);
             cp.show(activity.getFragmentManager(), "sendingdata");
 
-            String SOAP_ACTION = "http://tempuri.org/getIncomingbyTag";
-            String OPERATION_NAME = "getIncomingbyTag";
+            String SOAP_ACTION = "http://tempuri.org/getRackPallet";
+            String OPERATION_NAME = "getRackPallet";
             String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSQservice/QCService.asmx";
+            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
 
             SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
             PropertyInfo pi = new PropertyInfo();
             pi.setName("Tag");
-            pi.setValue(location);
-            pi.setType(Integer.class);
+            pi.setValue(pallet);
+            pi.setType(Long.class);
             request.addProperty(pi);
+
+            PropertyInfo pi1 = new PropertyInfo();
+            pi.setName("Rack");
+            pi.setValue(pallet);
+            pi.setType(Integer.class);
+            request.addProperty(pi1);
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            envelope.setOutputSoapObject(request);
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
+            Object response = null;
+            try {
+                httpTransport.call(SOAP_ACTION, envelope);
+                response = envelope.getResponse();
+            } catch (Exception exception) {
+                cp.dismiss();
+                response = exception.toString();
+                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
+                cp2.show(activity.getFragmentManager(), "connproblem");
+                this.stop();
+            }
+            LocationIntroductionActivity.rslt = response.toString();
+            activity.runOnUiThread(new Runnable() {
+                public void run() {
+                    locationCorrect();
+                }
+            });
+            //((PalletIntroductionActivity)activity).palletCorrect();
+            cp.dismiss();
+        } catch (Exception ex) {
+
+            cp.dismiss();
+
+            activity.runOnUiThread(new Runnable() {
+                public void run() {
+                    Toast.makeText(activity, "Try again. Something was wrong", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+    }
+}
+
+class CallerPlacePallet extends Thread {
+    Activity activity;
+    String pallet;
+    String rack;
+
+    public CallerPlacePallet(Activity activity, String pallet, String rack) {
+        this.activity = activity;
+        this.pallet = pallet;
+        this.rack = rack;
+    }
+
+    public void run() {
+        ProgressBarDialogFragment cp = new ProgressBarDialogFragment();
+        try {
+            cp.setCancelable(false);
+            cp.show(activity.getFragmentManager(), "sendingdata");
+
+            String SOAP_ACTION = "http://tempuri.org/placePallet";
+            String OPERATION_NAME = "placePallet";
+            String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
+            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
+            PropertyInfo pi = new PropertyInfo();
+            pi.setName("Tag");
+            pi.setValue(pallet);
+            pi.setType(Long.class);
+            request.addProperty(pi);
+
+            PropertyInfo pi1 = new PropertyInfo();
+            pi.setName("Rack");
+            pi.setValue(pallet);
+            pi.setType(Integer.class);
+            request.addProperty(pi1);
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             envelope.dotNet = true;
@@ -114,7 +199,7 @@ class CallerLocation extends Thread {
                 this.stop();
             }
             //LoginActivity.rslt = response.toString();
-            ((LocationIntroductionActivity)activity).locationCorrect();
+            ((PalletIntroductionActivity)activity).palletCorrect();
             cp.dismiss();
         } catch (Exception ex) {
 

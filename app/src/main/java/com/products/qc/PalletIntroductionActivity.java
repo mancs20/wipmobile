@@ -21,6 +21,7 @@ import dialogs.PalletValidationWebServiceDialogFragment;
 public class PalletIntroductionActivity extends ActionBarActivity {
 
     EditText palletEditText;
+    EditText rackEditText;
     public static String rslt = "";
     SharedPreferences sharedPref;
     String pallet;
@@ -56,7 +57,7 @@ public class PalletIntroductionActivity extends ActionBarActivity {
             PalletValidationWebServiceDialogFragment pvws = new PalletValidationWebServiceDialogFragment(this, pallet);
             pvws.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
-            //CallerPallet c = new CallerPallet(this, pallet);
+            //CallerPallet c = new CallerPallet(this, pallet, rack);
             //c.start();
         }
     }
@@ -79,62 +80,4 @@ public class PalletIntroductionActivity extends ActionBarActivity {
     }
 }
 
-class CallerPallet extends Thread {
-    Activity activity;
-    String pallet;
 
-    public CallerPallet(Activity activity, String pallet) {
-        this.activity = activity;
-        this.pallet = pallet;
-    }
-
-    public void run() {
-        ProgressBarDialogFragment cp = new ProgressBarDialogFragment();
-        try {
-            cp.setCancelable(false);
-            cp.show(activity.getFragmentManager(), "sendingdata");
-
-            String SOAP_ACTION = "http://tempuri.org/getIncomingbyTag";
-            String OPERATION_NAME = "getIncomingbyTag";
-            String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSQservice/QCService.asmx";
-
-            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
-            PropertyInfo pi = new PropertyInfo();
-            pi.setName("Tag");
-            pi.setValue(pallet);
-            pi.setType(Integer.class);
-            request.addProperty(pi);
-
-            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-            envelope.dotNet = true;
-
-            envelope.setOutputSoapObject(request);
-
-            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
-            Object response = null;
-            try {
-                httpTransport.call(SOAP_ACTION, envelope);
-                response = envelope.getResponse();
-            } catch (Exception exception) {
-                cp.dismiss();
-                response = exception.toString();
-                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
-                cp2.show(activity.getFragmentManager(), "connproblem");
-                this.stop();
-            }
-            //LoginActivity.rslt = response.toString();
-            ((PalletIntroductionActivity)activity).palletCorrect();
-            cp.dismiss();
-        } catch (Exception ex) {
-
-            cp.dismiss();
-
-            activity.runOnUiThread(new Runnable() {
-                public void run() {
-                    Toast.makeText(activity, "Try again. Something was wrong", Toast.LENGTH_LONG).show();
-                }
-            });
-        }
-    }
-}
