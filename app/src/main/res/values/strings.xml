@@ -118,9 +118,9 @@
     <string name="check_location">Location</string>
     <string name="title_activity_inquire_location51">InquireLocation</string>
     <string name="pallet_id">Pallet ID:</string>
-    <string name="pallet_info">Pallet Info</string>
-    <string name="location">Location</string>
-    <string name="location_code">Location Code</string>
+    <string name="pallet_inv_qty">InvQty:</string>
+    <string name="pallet_balance_qty">BalanceQty:</string>
+    <string name="pallet_rack_source_id">RackSourceId:</string>
     <string name="title_activity_inquire_location52">Inquire Location</string>
     <string name="title_activity_delete_pallet_location">Delete Pallet Location</string>
     <string name="pallet_tag">Pallet Tag</string>

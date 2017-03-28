@@ -1,5 +1,6 @@
 package com.products.qc;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -7,6 +8,24 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.io.StringReader;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import dialogs.LocationWebServiceDialogFragment;
 import dialogs.PalletWebServiceDialogFragment;
@@ -17,6 +36,10 @@ public class InquireLocationActivity extends ActionBarActivity {
     EditText editTextLocation;
     RadioButton radioButtonPallet;
     RadioButton radioButtonLocation;
+    public static String invQty;
+    public static String balanceQty;
+    public static String rackIdSource;
+    public static String palletTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +49,7 @@ public class InquireLocationActivity extends ActionBarActivity {
         editTextLocation = (EditText) findViewById(R.id.edit_text_location);
         radioButtonPallet = (RadioButton) findViewById(R.id.radio_button_pallet);
         radioButtonLocation = (RadioButton) findViewById(R.id.radio_button_location);
+        palletTag = editTextPallet.getText().toString();
 
 
         editTextLocation.setEnabled(false);
@@ -54,10 +78,10 @@ public class InquireLocationActivity extends ActionBarActivity {
             if(editTextPallet.getText().toString().equals(""))
                 Toast.makeText(this, "The pallet was doesn't empty", Toast.LENGTH_LONG).show();
             else {
-                PalletWebServiceDialogFragment pwsdf = new PalletWebServiceDialogFragment(this);
-                pwsdf.show(this.getFragmentManager(), "connproblem");
-                //Intent inquireLocation51Intent = new Intent(this, InquireLocation51Activity.class);
-                //startActivity(inquireLocation51Intent);
+                //PalletWebServiceDialogFragment pwsdf = new PalletWebServiceDialogFragment(this);
+                //pwsdf.show(this.getFragmentManager(), "connproblem");
+                Intent inquireLocation51Intent = new Intent(this, InquireLocation51Activity.class);
+                startActivity(inquireLocation51Intent);
             }
         }
         if(radioButtonLocation.isChecked()) {
@@ -69,6 +93,94 @@ public class InquireLocationActivity extends ActionBarActivity {
                 //Intent inquireLocation52Intent = new Intent(this, InquireLocation52Activity.class);
                 //startActivity(inquireLocation52Intent);
             }
+        }
+    }
+}
+
+class CallerTagInfo extends Thread {
+    Activity activity;
+    String pallet;
+
+    public CallerTagInfo(Activity activity, String pallet) {
+        this.activity = activity;
+        this.pallet = pallet;
+    }
+
+    public void tagCorrect() throws IOException, SAXException, ParserConfigurationException {
+        if(LocationIntroductionActivity.rslt.equals("")){
+            Toast.makeText(activity, "Pallet is not in the database.", Toast.LENGTH_LONG).show();
+        }
+        else{
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(new InputSource(new StringReader(LocationIntroductionActivity.rslt)));
+
+            InquireLocationActivity.invQty = document.getElementsByTagName("InvQty").item(0).getTextContent();
+            InquireLocationActivity.balanceQty = document.getElementsByTagName("BalanceQty").item(0).getTextContent();
+            InquireLocationActivity.rackIdSource = document.getElementsByTagName("Description").item(0).getTextContent();
+        }
+    }
+
+    public void run() {
+        ProgressBarDialogFragment cp = new ProgressBarDialogFragment();
+        try {
+            cp.setCancelable(false);
+            cp.show(activity.getFragmentManager(), "sendingdata");
+
+            String SOAP_ACTION = "http://tempuri.org/getTagInfo";
+            String OPERATION_NAME = "getTagInfo";
+            String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
+            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
+
+            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
+            PropertyInfo pi = new PropertyInfo();
+            pi.setName("Tag");
+            pi.setValue(pallet);
+            pi.setType(Long.class);
+            request.addProperty(pi);
+
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope.dotNet = true;
+
+            envelope.setOutputSoapObject(request);
+
+            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
+            Object response = null;
+            try {
+                httpTransport.call(SOAP_ACTION, envelope);
+                response = envelope.getResponse();
+            } catch (Exception exception) {
+                cp.dismiss();
+                response = exception.toString();
+                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
+                cp2.show(activity.getFragmentManager(), "connproblem");
+                this.stop();
+            }
+            LocationIntroductionActivity.rslt = response.toString();
+            activity.runOnUiThread(new Runnable() {
+                public void run() {
+                    try {
+                        tagCorrect();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (SAXException e) {
+                        e.printStackTrace();
+                    } catch (ParserConfigurationException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            //((PalletIntroductionActivity)activity).palletCorrect();
+            cp.dismiss();
+        } catch (Exception ex) {
+
+            cp.dismiss();
+
+            activity.runOnUiThread(new Runnable() {
+                public void run() {
+                    Toast.makeText(activity, "Try again. Something was wrong", Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 }

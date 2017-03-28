@@ -54,9 +54,12 @@ public class PalletIntroductionActivity extends ActionBarActivity {
             Toast.makeText(PalletIntroductionActivity.this, "Enter Pallet", Toast.LENGTH_LONG).show();
         } else {
             //palletCorrect();
-            PalletValidationWebServiceDialogFragment pvws = new PalletValidationWebServiceDialogFragment(this, pallet);
-            pvws.show(this.getFragmentManager(), "connproblem");
-            rslt = "START";
+            AppConstant.palletTag = pallet;
+            Intent intent = new Intent(this, LocationIntroductionActivity.class);
+            startActivity(intent);
+            //PalletValidationWebServiceDialogFragment pvws = new PalletValidationWebServiceDialogFragment(this, pallet);
+            //pvws.show(this.getFragmentManager(), "connproblem");
+            //rslt = "START";
             //CallerPallet c = new CallerPallet(this, pallet, rack);
             //c.start();
         }
