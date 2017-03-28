@@ -43,8 +43,8 @@ public class LocationIntroductionActivity extends ActionBarActivity {
             Toast.makeText(LocationIntroductionActivity.this, "Enter Location", Toast.LENGTH_LONG).show();
         } else {
             //locationCorrect();
-            LocationValidationWebServiceDialogFragment lvwsdf = new LocationValidationWebServiceDialogFragment(this, AppConstant.palletTag, location);
-            lvwsdf.show(this.getFragmentManager(), "connproblem");
+            //LocationValidationWebServiceDialogFragment lvwsdf = new LocationValidationWebServiceDialogFragment(this, AppConstant.palletTag, location);
+            //lvwsdf.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
             CallerPalletLocation c = new CallerPalletLocation(this, pallet, location);
             c.start();
@@ -103,9 +103,9 @@ class CallerPalletLocation extends Thread {
             request.addProperty(pi);
 
             PropertyInfo pi1 = new PropertyInfo();
-            pi.setName("Rack");
-            pi.setValue(pallet);
-            pi.setType(Integer.class);
+            pi1.setName("Rack");
+            pi1.setValue(pallet);
+            pi1.setType(Integer.class);
             request.addProperty(pi1);
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
