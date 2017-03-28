@@ -91,7 +91,7 @@ class CallerPalletLocation extends Thread {
             cp.show(activity.getFragmentManager(), "sendingdata");
 
             String SOAP_ACTION = "http://tempuri.org/getRackPallet";
-            String OPERATION_NAME = "getRackPallet";
+            String OPERATION_NAME = "placePallet";
             String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
             String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
 
@@ -164,7 +164,7 @@ class CallerPlacePallet extends Thread {
             cp.show(activity.getFragmentManager(), "sendingdata");
 
             String SOAP_ACTION = "http://tempuri.org/placePallet";
-            String OPERATION_NAME = "placePallet";
+            String OPERATION_NAME = "getRackPallet";
             String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
             String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
 
