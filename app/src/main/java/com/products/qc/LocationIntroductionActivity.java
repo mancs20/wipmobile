@@ -69,8 +69,10 @@ class CallerPalletLocation extends Thread {
     {
         switch (LocationIntroductionActivity.rslt) {
             case "0":
-                ConfirmationLocationDialogFragment cldf = new ConfirmationLocationDialogFragment(activity, pallet, rack, "place ");
-                cldf.show(activity.getFragmentManager(), "connproblem");
+//                ConfirmationLocationDialogFragment cldf = new ConfirmationLocationDialogFragment(activity, pallet, rack, "place ");
+//                cldf.show(activity.getFragmentManager(), "connproblem");
+                AppConstant.closing = true;
+                activity.finish();
                 break;
             case "1":
                 Toast.makeText(activity, "Wrong Pallet Tag.", Toast.LENGTH_LONG).show();
@@ -90,7 +92,7 @@ class CallerPalletLocation extends Thread {
             cp.setCancelable(false);
             cp.show(activity.getFragmentManager(), "sendingdata");
 
-            String SOAP_ACTION = "http://tempuri.org/getRackPallet";
+            String SOAP_ACTION = "http://tempuri.org/placePallet";
             String OPERATION_NAME = "placePallet";
             String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
             String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
@@ -104,7 +106,7 @@ class CallerPalletLocation extends Thread {
 
             PropertyInfo pi1 = new PropertyInfo();
             pi1.setName("Rack");
-            pi1.setValue(pallet);
+            pi1.setValue(rack);
             pi1.setType(Integer.class);
             request.addProperty(pi1);
 
@@ -115,16 +117,16 @@ class CallerPalletLocation extends Thread {
 
             HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
             Object response = null;
-            try {
+            //try {
                 httpTransport.call(SOAP_ACTION, envelope);
                 response = envelope.getResponse();
-            } catch (Exception exception) {
-                cp.dismiss();
-                response = exception.toString();
-                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
-                cp2.show(activity.getFragmentManager(), "connproblem");
-                this.stop();
-            }
+//            } catch (Exception exception) {
+//                cp.dismiss();
+//                response = exception.toString();
+//                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
+//                cp2.show(activity.getFragmentManager(), "connproblem");
+//                this.stop();
+//            }
             LocationIntroductionActivity.rslt = response.toString();
             activity.runOnUiThread(new Runnable() {
                 public void run() {
@@ -146,70 +148,70 @@ class CallerPalletLocation extends Thread {
     }
 }
 
-class CallerPlacePallet extends Thread {
-    Activity activity;
-    String pallet;
-    String rack;
-
-    public CallerPlacePallet(Activity activity, String pallet, String rack) {
-        this.activity = activity;
-        this.pallet = pallet;
-        this.rack = rack;
-    }
-
-    public void run() {
-        ProgressBarDialogFragment cp = new ProgressBarDialogFragment();
-        try {
-            cp.setCancelable(false);
-            cp.show(activity.getFragmentManager(), "sendingdata");
-
-            String SOAP_ACTION = "http://tempuri.org/placePallet";
-            String OPERATION_NAME = "getRackPallet";
-            String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
-
-            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
-            PropertyInfo pi = new PropertyInfo();
-            pi.setName("Tag");
-            pi.setValue(pallet);
-            pi.setType(Long.class);
-            request.addProperty(pi);
-
-            PropertyInfo pi1 = new PropertyInfo();
-            pi.setName("Rack");
-            pi.setValue(pallet);
-            pi.setType(Integer.class);
-            request.addProperty(pi1);
-
-            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-            envelope.dotNet = true;
-
-            envelope.setOutputSoapObject(request);
-
-            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
-            Object response = null;
-            try {
-                httpTransport.call(SOAP_ACTION, envelope);
-                response = envelope.getResponse();
-            } catch (Exception exception) {
-                cp.dismiss();
-                response = exception.toString();
-                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
-                cp2.show(activity.getFragmentManager(), "connproblem");
-                this.stop();
-            }
-            //LoginActivity.rslt = response.toString();
-            ((PalletIntroductionActivity)activity).palletCorrect();
-            cp.dismiss();
-        } catch (Exception ex) {
-
-            cp.dismiss();
-
-            activity.runOnUiThread(new Runnable() {
-                public void run() {
-                    Toast.makeText(activity, "Try again. Something was wrong", Toast.LENGTH_LONG).show();
-                }
-            });
-        }
-    }
-}
+//class CallerPlacePallet extends Thread {
+//    Activity activity;
+//    String pallet;
+//    String rack;
+//
+//    public CallerPlacePallet(Activity activity, String pallet, String rack) {
+//        this.activity = activity;
+//        this.pallet = pallet;
+//        this.rack = rack;
+//    }
+//
+//    public void run() {
+//        ProgressBarDialogFragment cp = new ProgressBarDialogFragment();
+//        try {
+//            cp.setCancelable(false);
+//            cp.show(activity.getFragmentManager(), "sendingdata");
+//
+//            String SOAP_ACTION = "http://tempuri.org/getRackPallet";
+//            String OPERATION_NAME = "getRackPallet";
+//            String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
+//            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
+//
+//            SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
+//            PropertyInfo pi = new PropertyInfo();
+//            pi.setName("Tag");
+//            pi.setValue(pallet);
+//            pi.setType(Long.class);
+//            request.addProperty(pi);
+//
+//            PropertyInfo pi1 = new PropertyInfo();
+//            pi.setName("Rack");
+//            pi.setValue(pallet);
+//            pi.setType(Integer.class);
+//            request.addProperty(pi1);
+//
+//            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+//            envelope.dotNet = true;
+//
+//            envelope.setOutputSoapObject(request);
+//
+//            HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
+//            Object response = null;
+//            try {
+//                httpTransport.call(SOAP_ACTION, envelope);
+//                response = envelope.getResponse();
+//            } catch (Exception exception) {
+//                cp.dismiss();
+//                response = exception.toString();
+//                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
+//                cp2.show(activity.getFragmentManager(), "connproblem");
+//                this.stop();
+//            }
+//            //LoginActivity.rslt = response.toString();
+//            ((PalletIntroductionActivity)activity).palletCorrect();
+//            cp.dismiss();
+//        } catch (Exception ex) {
+//
+//            cp.dismiss();
+//
+//            activity.runOnUiThread(new Runnable() {
+//                public void run() {
+//                    Toast.makeText(activity, "Try again. Something was wrong", Toast.LENGTH_LONG).show();
+//                }
+//            });
+//        }
+//    }
+//}

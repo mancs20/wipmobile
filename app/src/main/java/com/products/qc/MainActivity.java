@@ -122,8 +122,8 @@ public class MainActivity extends ActionBarActivity {
 	    		if (beginDate == "") {
 		    		//palletCorrect(code);
 		    		rslt="START";
-		            Caller c = new Caller(this, code);
-		            c.start();
+					Caller c = new Caller(this, code);
+					c.start();
 	    		}
 	    		else {
 	    			palletInDatabase(code);

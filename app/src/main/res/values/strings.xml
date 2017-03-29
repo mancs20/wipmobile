@@ -117,7 +117,7 @@
     <string name="check_pallet">Pallet</string>
     <string name="check_location">Location</string>
     <string name="title_activity_inquire_location51">InquireLocation</string>
-    <string name="pallet_id">Pallet ID:</string>
+    <string name="location_description">Description:</string>
     <string name="pallet_inv_qty">InvQty:</string>
     <string name="pallet_balance_qty">BalanceQty:</string>
     <string name="pallet_rack_source_id">RackSourceId:</string>
@@ -134,5 +134,7 @@
     <string name="title_activity_pallet_introduction">Pallet Introduction</string>
     <string name="title_activity_location_introduction">Location Introduction</string>
     <string name="location_enter">Enter Location</string>
+    <string name="total_balance_qty">Total BalanceQty:</string>
+    <string name="pallet_id">Pallet ID:</string>
 
 </resources>

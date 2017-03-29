@@ -7,35 +7,59 @@
     tools:context="com.products.qc.InquireLocation52Activity">
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/location_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/location"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/location_description"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="center"
+            android:layout_weight="5" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="90">
 
+                <TableLayout
+                    android:id="@+id/location_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:scrollbars="vertical"
+                    android:padding="10dp">
+
+                <TableRow>
+                    <TextView
+                        android:text="Id"
+                        android:padding="3dip"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:text="InvQty"
+                        android:padding="3dip"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:text="BalanceQty"
+                        android:padding="3dip"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textStyle="bold"/>
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
         <TextView
+            android:id="@+id/total_balance_qty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/location_code"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pallet_id"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pallet_info"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
+            android:text="@string/total_balance_qty"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/button_back"
@@ -43,7 +67,9 @@
             android:layout_height="wrap_content"
             android:text="@string/button_back"
             android:onClick="back"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 
