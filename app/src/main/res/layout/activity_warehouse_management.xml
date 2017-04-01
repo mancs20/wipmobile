@@ -12,7 +12,7 @@
 
         <Button
             android:id="@+id/button_place_pallet"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_place_pallet"
             android:onClick="placePallet"/>
@@ -27,14 +27,14 @@
 
         <Button
             android:id="@+id/button_unlocate_pallet"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_unlocate_pallet"
+            android:text="@string/button_inventory"
             android:onClick="unlocatePallet" />
 
         <Button
             android:id="@+id/button_back"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/edit_button_back"
             android:onClick="back"/>

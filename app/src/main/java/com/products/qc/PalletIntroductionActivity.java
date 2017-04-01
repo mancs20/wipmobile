@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.ksoap2.SoapEnvelope;
@@ -31,6 +34,15 @@ public class PalletIntroductionActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pallet_introduction);
         palletEditText = (EditText) findViewById(R.id.pallet_enter);
+
+        palletEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE) || actionId == EditorInfo.IME_ACTION_NEXT) {
+                    palletValidation(null);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -38,7 +50,7 @@ public class PalletIntroductionActivity extends ActionBarActivity {
     {
         super.onStart();
         if (AppConstant.closing){
-            AppConstant.closing = false;
+            //AppConstant.closing = false;
             finish();
         }
     }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_delete_pallet_location"
+    android:id="@+id/activity_rack_inventory"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.products.qc.DeletePalletLocationActivity">
+    tools:context="com.products.qc.RackInventoryActivity">
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -19,15 +19,16 @@
             <android.support.v7.internal.widget.CompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pallet_tag_label"
+                android:text="@string/rack_id"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <android.support.v7.internal.widget.TintEditText
-                android:id="@+id/edit_text_pallet_tag"
+                android:id="@+id/edit_text_rack_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/pallet_tag"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:hint="@string/enter_rack_id"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:inputType="number" />
 
         </TableRow>
 
@@ -52,7 +53,5 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </TableRow>
-
     </TableLayout>
-
 </RelativeLayout>

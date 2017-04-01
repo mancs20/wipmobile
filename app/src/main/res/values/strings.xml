@@ -14,7 +14,7 @@
     <string name="button_warehouse_management">Warehouse Management</string>
     <string name="button_place_pallet">Place Pallet</string>
     <string name="button_inquiry_location">Inquiry Location</string>
-    <string name="button_unlocate_pallet">Unlocate Pallet</string>
+    <string name="button_inventory">Inventory</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_fgpass">Forgot your password?</string>
     <string name="button_picture">Picture</string>
@@ -54,7 +54,7 @@
     <string name="saved_finish_date">com.products.qc.finishdate</string>
     <string name="saved_incoming_id">com.products.qc.incomingid</string>
     <string name="saved_manifest_id">com.products.qc.manifestid</string>
-    
+
     <string name="saved_saveqcontrol">com.products.qc.saveqcontrol</string>
     <string name="saved_saveqcontroldetail">com.products.qc.saveqcontroldetail</string>
     <string name="saved_saveqcontroldetailfactor">com.products.qc.saveqcontroldetailfactor</string>
@@ -122,9 +122,8 @@
     <string name="pallet_balance_qty">BalanceQty:</string>
     <string name="pallet_rack_source_id">RackSourceId:</string>
     <string name="title_activity_inquire_location52">Inquire Location</string>
-    <string name="title_activity_delete_pallet_location">Delete Pallet Location</string>
-    <string name="pallet_tag">Pallet Tag</string>
-    <string name="pallet_tag_label">Pallet Tag:</string>
+    <string name="enter_rack_id">Enter Rack</string>
+    <string name="quantity">Quantity:</string>
 
     <string name="title_activity_login">Login</string>
     <string name="title_activity_main">Send Code</string>
@@ -136,5 +135,8 @@
     <string name="location_enter">Enter Location</string>
     <string name="total_balance_qty">Total BalanceQty:</string>
     <string name="pallet_id">Pallet ID:</string>
+    <string name="enter_quantity">Enter Quantity</string>
+    <string name="rack_id">Rack ID:</string>
+    <string name="title_activity_rack_inventory">Rack Inventory</string>
 
 </resources>

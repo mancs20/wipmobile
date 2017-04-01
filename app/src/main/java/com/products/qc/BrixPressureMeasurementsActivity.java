@@ -90,8 +90,6 @@ public class BrixPressureMeasurementsActivity extends ActionBarActivity {
 			editBrix.setText(brixValue.toString());
 		if (pressureValue != null && brixValue != 0.0)
 			editPressure.setText(pressureValue.toString());
-		
-		
 	}
 
 	@Override

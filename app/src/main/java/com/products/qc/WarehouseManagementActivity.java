@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class WarehouseManagementActivity extends ActionBarActivity {
 
@@ -28,7 +29,17 @@ public class WarehouseManagementActivity extends ActionBarActivity {
     }
 
     public void unlocatePallet(View view){
-        Intent intent = new Intent(this, DeletePalletLocationActivity.class);
+        Intent intent = new Intent(this, RackInventoryActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        if (AppConstant.closing){
+            AppConstant.closing = false;
+            Toast.makeText(WarehouseManagementActivity.this, "Action successfully done.", Toast.LENGTH_LONG).show();
+        }
     }
 }

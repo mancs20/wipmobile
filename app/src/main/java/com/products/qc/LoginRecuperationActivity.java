@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.ksoap2.SoapEnvelope;
@@ -27,6 +30,15 @@ public class LoginRecuperationActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_recuperation);
         emailEditText = (EditText) findViewById(R.id.edit_email);
+
+        emailEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE) || actionId == EditorInfo.IME_ACTION_NEXT) {
+                    sendEmail(null);
+                }
+                return false;
+            }
+        });
     }
 
     public void sendEmail(View view) {
@@ -48,8 +60,7 @@ public class LoginRecuperationActivity extends ActionBarActivity {
         this.finish();
     }
 
-    public void emailCorrect()
-    {
+    public void emailCorrect() {
         if (LoginRecuperationActivity.rslt.equals("mm")) {
             InvalidEmailDialogFragment ie = new InvalidEmailDialogFragment(this);
             ie.show(this.getFragmentManager(), "connproblem");
@@ -59,8 +70,8 @@ public class LoginRecuperationActivity extends ActionBarActivity {
             this.finish();
         }
     }
-
 }
+
 class CallerEmail extends Thread {
     Activity activity;
     String email;
