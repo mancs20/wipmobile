@@ -21,4 +21,16 @@
         android:orderInCategory="100"
         android:title="Freight"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_main_menu"
+        android:orderInCategory="100"
+        android:title="Main Menu"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_signout"
+        android:orderInCategory="100"
+        android:title="Signout"
+        app:showAsAction="never" />
 </menu>

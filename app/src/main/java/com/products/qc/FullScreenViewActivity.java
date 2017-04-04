@@ -76,6 +76,14 @@ public class FullScreenViewActivity extends ActionBarActivity{
 	        case R.id.action_freight:
 	        	ActionBarMethods.freight(this);
 	        	return true;
+			case R.id.action_signout:
+				AppConstant.signout = true;
+				this.finish();
+				return true;
+			case R.id.action_main_menu:
+				AppConstant.mainMenu = true;
+				this.finish();
+				return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
@@ -99,7 +107,8 @@ public class FullScreenViewActivity extends ActionBarActivity{
 	public void onStart()
 	{
 		super.onStart();
-		if (AppConstant.restarting || AppConstant.freighting || AppConstant.resampling)
+		if (AppConstant.restarting || AppConstant.freighting || AppConstant.resampling ||
+				AppConstant.mainMenu || AppConstant.signout)
 			finish();
 	}
 }

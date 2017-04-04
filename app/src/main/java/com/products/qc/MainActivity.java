@@ -113,6 +113,14 @@ public class MainActivity extends ActionBarActivity {
 	        case R.id.action_freight:
 	        	ActionBarMethods.freight(this);	
 	        	return true;
+			case R.id.action_signout:
+				AppConstant.signout = true;
+				this.finish();
+				return true;
+			case R.id.action_main_menu:
+				AppConstant.mainMenu = true;
+				this.finish();
+				return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
     	}
@@ -212,6 +220,8 @@ public class MainActivity extends ActionBarActivity {
 			AppConstant.resampling = false;
 			codeEditText.setText("");
 		}
+		if (AppConstant.mainMenu || AppConstant.signout)
+			finish();
 		Restart();		
 	}
 	

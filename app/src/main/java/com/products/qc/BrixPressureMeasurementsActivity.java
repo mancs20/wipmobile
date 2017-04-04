@@ -105,18 +105,26 @@ public class BrixPressureMeasurementsActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
     	switch (item.getItemId()) {
-        case R.id.action_status:
-            ActionBarMethods.status(this);
-            return true;
-        case R.id.action_restart:
-        	RestartDialogFragment restart_dialog = new RestartDialogFragment(this);		
-    		restart_dialog.show(this.getFragmentManager(), "display");
-            return true;
-        case R.id.action_freight:
-        	ActionBarMethods.freight(this);
-        	return true;
-        default:
-            return super.onOptionsItemSelected(item);
+			case R.id.action_status:
+				ActionBarMethods.status(this);
+				return true;
+			case R.id.action_restart:
+				RestartDialogFragment restart_dialog = new RestartDialogFragment(this);
+				restart_dialog.show(this.getFragmentManager(), "display");
+				return true;
+			case R.id.action_freight:
+				ActionBarMethods.freight(this);
+				return true;
+			case R.id.action_signout:
+				AppConstant.signout = true;
+				this.finish();
+				return true;
+			case R.id.action_main_menu:
+				AppConstant.mainMenu = true;
+				this.finish();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
     	}
     }
 	
@@ -158,7 +166,8 @@ public class BrixPressureMeasurementsActivity extends ActionBarActivity {
 	public void onStart()
 	{
 		super.onStart();
-		if (AppConstant.restarting || AppConstant.freighting || AppConstant.resampling)
+		if (AppConstant.restarting || AppConstant.freighting || AppConstant.resampling ||
+				AppConstant.mainMenu || AppConstant.signout)
 			finish();
 	}	
 }
