@@ -78,6 +78,14 @@ public class LoginActivity extends ActionBarActivity {
         Intent intent = new Intent(this, LoginRecuperationActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        if (AppConstant.signout)
+            AppConstant.signout = false;
+    }
 }
 
 

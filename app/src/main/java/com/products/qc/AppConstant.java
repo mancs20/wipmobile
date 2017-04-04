@@ -31,4 +31,8 @@ public class AppConstant {
     public static boolean closing = false;
 
     public static String palletTag = "";
+
+    public static boolean signout = false;
+
+    public static boolean mainMenu = false;
 }

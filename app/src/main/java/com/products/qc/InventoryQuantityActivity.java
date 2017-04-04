@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -39,6 +41,34 @@ public class InventoryQuantityActivity extends ActionBarActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.new_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+
+        switch (item.getItemId()) {
+            case R.id.action_signout:
+                AppConstant.signout = true;
+                this.finish();
+                return true;
+            case R.id.action_main_menu:
+                AppConstant.mainMenu = true;
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     public void next(View view) {
         if(editTextQuantity.getText().toString().equals(""))
             Toast.makeText(this, "Enter quantity.", Toast.LENGTH_LONG).show();
@@ -49,6 +79,10 @@ public class InventoryQuantityActivity extends ActionBarActivity {
             CallerQuantity c = new CallerQuantity(this, rackId, quantity);
             c.start();
         }
+    }
+
+    public void back(View view) {
+        this.finish();
     }
 }
 
@@ -95,13 +129,13 @@ class CallerQuantity extends Thread {
 
             SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
             PropertyInfo pi = new PropertyInfo();
-            pi.setName("RackID");
+            pi.setName("Rack");
             pi.setValue(rackId);
             pi.setType(Integer.class);
             request.addProperty(pi);
 
             PropertyInfo pi1 = new PropertyInfo();
-            pi1.setName("Quantity");
+            pi1.setName("Qty");
             pi1.setValue(quantity);
             pi1.setType(Integer.class);
             request.addProperty(pi1);

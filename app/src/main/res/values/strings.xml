@@ -11,7 +11,7 @@
     <string name="button_login">Login</string>
     <string name="button_send_email">Send</string>
     <string name="button_quality_control">Quality Control</string>
-    <string name="button_warehouse_management">Warehouse Management</string>
+    <string name="button_floor_management">Floor Management</string>
     <string name="button_place_pallet">Place Pallet</string>
     <string name="button_inquiry_location">Inquiry Location</string>
     <string name="button_inventory">Inventory</string>
@@ -126,12 +126,13 @@
     <string name="quantity">Quantity:</string>
 
     <string name="title_activity_login">Login</string>
-    <string name="title_activity_main">Send Code</string>
+    <string name="title_activity_main">Tag</string>
     <string name="title_activity_login_recuperation">Login Recovery</string>
     <string name="title_activity_choice_tools">Choice Tools</string>
-    <string name="title_activity_warehouse_management">Warehouse Management</string>
+    <string name="title_activity_warehouse_management">Warehouse Managment</string>
     <string name="title_activity_pallet_introduction">Pallet Introduction</string>
     <string name="title_activity_location_introduction">Location Introduction</string>
+
     <string name="location_enter">Enter Location</string>
     <string name="total_balance_qty">Total BalanceQty:</string>
     <string name="pallet_id">Pallet ID:</string>

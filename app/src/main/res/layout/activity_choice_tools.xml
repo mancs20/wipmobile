@@ -20,7 +20,7 @@
                     android:id="@+id/warehouse_management"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/button_warehouse_management"
+                    android:text="@string/button_floor_management"
                     android:onClick="warehouseManagement" />
 
             </LinearLayout>

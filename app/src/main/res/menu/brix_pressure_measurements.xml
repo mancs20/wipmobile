@@ -8,15 +8,17 @@
         android:id="@+id/action_restart"
         android:orderInCategory="100"
         android:title="Restart"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/action_status"
         android:orderInCategory="100"
         android:title="Status"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/action_freight"
         android:orderInCategory="100"
         android:title="Freight"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 </menu>
