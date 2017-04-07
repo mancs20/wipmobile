@@ -30,6 +30,7 @@ public class LoginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        this.getSupportActionBar().setTitle("Login");
         userEditText = (EditText) findViewById(R.id.edit_user);
         passwordEditText = (EditText) findViewById(R.id.edit_password);
 

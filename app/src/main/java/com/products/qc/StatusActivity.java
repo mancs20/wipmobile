@@ -106,7 +106,7 @@ public class StatusActivity extends ActionBarActivity {
 			
 			String column1 =
 					products.getString(products.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_NAMESN)) +
-					" mmmmmmmmmmmmmmmmmmmmmmmm/ " + products.getString(products.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_VARIETYSN)) +
+					" / " + products.getString(products.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_VARIETYSN)) +
 					" / " + products.getString(products.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_STYLESN)) +
 					" / " + products.getString(products.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_SIZESN)) +
 					" / " + products.getString(products.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_LABELSN));
@@ -254,8 +254,8 @@ class QControlCaller extends Thread
 	public QControlCaller(Activity activity){
 		this.activity = activity;
 	}
+
     public void run() {
-    	
         try {
         	cp = new ProgressBarDialogFragment();
         	cp.setCancelable(false);

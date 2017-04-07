@@ -173,7 +173,7 @@ class CallerTagInfo extends Thread {
     }
 
     public void tagCorrect(Activity activity) throws IOException, SAXException, ParserConfigurationException {
-        if(InquireLocationActivity.rslt.equals("<string/>")){
+        if(InquireLocationActivity.rslt.equals("anyType{}")){
             Toast.makeText(activity, "Pallet is not in the database.", Toast.LENGTH_LONG).show();
         }
         else{
@@ -181,9 +181,15 @@ class CallerTagInfo extends Thread {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(new InputSource(new StringReader(InquireLocationActivity.rslt)));
 
-            InquireLocationActivity.invQty = document.getElementsByTagName("InvQty").item(0).getTextContent();
-            InquireLocationActivity.balanceQty = document.getElementsByTagName("BalanceQty").item(0).getTextContent();
-            InquireLocationActivity.rackIdSource = document.getElementsByTagName("Description").item(0).getTextContent();
+            InquireLocationActivity.invQty =
+                    document.getElementsByTagName("InvQty").getLength() != 0 ?
+                            document.getElementsByTagName("InvQty").item(0).getTextContent() : "";
+            InquireLocationActivity.balanceQty =
+                    document.getElementsByTagName("BalanceQty").getLength() != 0 ?
+                            document.getElementsByTagName("BalanceQty").item(0).getTextContent() : "";
+            InquireLocationActivity.rackIdSource =
+                    document.getElementsByTagName("Description").getLength() != 0 ?
+                            document.getElementsByTagName("Description").item(0).getTextContent() : "";
 
             Intent inquireLocation51Intent = new Intent(activity, InquireLocation51Activity.class);
             activity.startActivity(inquireLocation51Intent);

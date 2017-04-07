@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">QC</string>
+    <string name="app_name">WIP Mobile</string>
     <string name="action_settings">Settings</string>
     <string name="edit_code">Enter Code</string>
     <string name="pallet_enter">Pallet Enter</string>
@@ -120,7 +120,7 @@
     <string name="location_description">Description:</string>
     <string name="pallet_inv_qty">InvQty:</string>
     <string name="pallet_balance_qty">BalanceQty:</string>
-    <string name="pallet_rack_source_id">RackSourceId:</string>
+    <string name="pallet_rack">Rack:</string>
     <string name="title_activity_inquire_location52">Inquire Location</string>
     <string name="enter_rack_id">Enter Rack</string>
     <string name="quantity">Quantity:</string>
@@ -128,7 +128,7 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_main">Tag</string>
     <string name="title_activity_login_recuperation">Login Recovery</string>
-    <string name="title_activity_choice_tools">Choice Tools</string>
+    <string name="title_activity_choice_tools">Warehouse Managment</string>
     <string name="title_activity_warehouse_management">Warehouse Managment</string>
     <string name="title_activity_pallet_introduction">Pallet Introduction</string>
     <string name="title_activity_location_introduction">Location Introduction</string>
