@@ -54,20 +54,19 @@ public class LoginActivity extends ActionBarActivity {
             Toast.makeText(LoginActivity.this, "Enter Password", Toast.LENGTH_LONG).show();
         } else {
             //loginCorrect();
-            LoginWebServiceDialogFragment lws = new LoginWebServiceDialogFragment(this);
-            lws.show(this.getFragmentManager(), "connproblem");
+            //LoginWebServiceDialogFragment lws = new LoginWebServiceDialogFragment(this);
+            //lws.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
-            //Caller1 c = new Caller1(this, user, password);
-            //c.start();
+            Caller1 c = new Caller1(this, user, password);
+            c.start();
         }
 
     }
 
     public void loginCorrect()
     {
-        if (LoginActivity.rslt.equals("mm")) {
-            InvalidLoginDialogFragment il = new InvalidLoginDialogFragment(this);
-            il.show(this.getFragmentManager(), "connproblem");
+        if (LoginActivity.rslt.equals("1")) {
+            Toast.makeText(this, "Wrong user name or password", Toast.LENGTH_LONG).show();
         }
         else{
             Intent intent = new Intent(this, ChoiceToolsActivity.class);
@@ -107,8 +106,8 @@ class Caller1 extends Thread {
             cp.setCancelable(false);
             cp.show(activity.getFragmentManager(), "sendingdata");
 
-            String SOAP_ACTION = "http://tempuri.org/getIncomingbyTag";
-            String OPERATION_NAME = "getIncomingbyTag";
+            String SOAP_ACTION = "http://tempuri.org/login";
+            String OPERATION_NAME = "login";
             String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
             String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSQservice/QCService.asmx";
 
@@ -142,8 +141,13 @@ class Caller1 extends Thread {
                 cp2.show(activity.getFragmentManager(), "connproblem");
                 this.stop();
             }
-            //LoginActivity.rslt = response.toString();
-            ((LoginActivity)activity).loginCorrect();
+            LoginActivity.rslt = response.toString();
+            activity.runOnUiThread(new Runnable() {
+                public void run() {
+                    ((LoginActivity)activity).loginCorrect();
+                }
+            });
+
             cp.dismiss();
         } catch (Exception ex) {
 
