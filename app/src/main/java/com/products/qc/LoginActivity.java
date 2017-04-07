@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -106,22 +107,22 @@ class Caller1 extends Thread {
             cp.setCancelable(false);
             cp.show(activity.getFragmentManager(), "sendingdata");
 
-            String SOAP_ACTION = "http://tempuri.org/login";
-            String OPERATION_NAME = "login";
+            String SOAP_ACTION = "http://tempuri.org/Login";
+            String OPERATION_NAME = "Login";
             String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSQservice/QCService.asmx";
+            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSECService/SecurityService.asmx";
 
             SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
             PropertyInfo pi = new PropertyInfo();
-            pi.setName("Tag");
+            pi.setName("User");
             pi.setValue(user);
-            pi.setType(Integer.class);
+            pi.setType(String.class);
             request.addProperty(pi);
 
             PropertyInfo pi2 = new PropertyInfo();
-            pi2.setName("Tag");
+            pi2.setName("Password");
             pi2.setValue(password);
-            pi2.setType(Integer.class);
+            pi2.setType(String.class);
             request.addProperty(pi2);
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
@@ -131,16 +132,16 @@ class Caller1 extends Thread {
 
             HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
             Object response = null;
-            try {
+//            try {
                 httpTransport.call(SOAP_ACTION, envelope);
                 response = envelope.getResponse();
-            } catch (Exception exception) {
-                cp.dismiss();
-                response = exception.toString();
-                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
-                cp2.show(activity.getFragmentManager(), "connproblem");
-                this.stop();
-            }
+//            } catch (Exception exception) {
+//                cp.dismiss();
+                //response = exception.toString();
+                //ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
+                //cp2.show(activity.getFragmentManager(), "connproblem");
+//                this.stop();
+//            }
             LoginActivity.rslt = response.toString();
             activity.runOnUiThread(new Runnable() {
                 public void run() {
