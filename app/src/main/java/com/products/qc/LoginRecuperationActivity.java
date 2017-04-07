@@ -47,11 +47,11 @@ public class LoginRecuperationActivity extends ActionBarActivity {
             Toast.makeText(LoginRecuperationActivity.this, "Enter Email", Toast.LENGTH_LONG).show();
         } else {
             //emailCorrect();
-            RecuperationLoginWebServiceDialogFragment rlws = new RecuperationLoginWebServiceDialogFragment(this);
-            rlws.show(this.getFragmentManager(), "connproblem");
+            //RecuperationLoginWebServiceDialogFragment rlws = new RecuperationLoginWebServiceDialogFragment(this);
+            //rlws.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
-            //CallerEmail c = new CallerEmail(this, email);
-            //c.start();
+            CallerEmail c = new CallerEmail(this, email);
+            c.start();
         }
 
     }
@@ -61,9 +61,10 @@ public class LoginRecuperationActivity extends ActionBarActivity {
     }
 
     public void emailCorrect() {
-        if (LoginRecuperationActivity.rslt.equals("mm")) {
-            InvalidEmailDialogFragment ie = new InvalidEmailDialogFragment(this);
-            ie.show(this.getFragmentManager(), "connproblem");
+        if (LoginRecuperationActivity.rslt.equals("anyType{}")) {
+            //InvalidEmailDialogFragment ie = new InvalidEmailDialogFragment(this);
+            //ie.show(this.getFragmentManager(), "connproblem");
+            Toast.makeText(this, "Wrong user email", Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(LoginRecuperationActivity.this, "The password was sent to your email", Toast.LENGTH_LONG).show();
@@ -87,16 +88,16 @@ class CallerEmail extends Thread {
             cp.setCancelable(false);
             cp.show(activity.getFragmentManager(), "sendingdata");
 
-            String SOAP_ACTION = "http://tempuri.org/getIncomingbyTag";
-            String OPERATION_NAME = "getIncomingbyTag";
+            String SOAP_ACTION = "http://tempuri.org/forgotPassword";
+            String OPERATION_NAME = "forgotPassword";
             String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSQservice/QCService.asmx";
+            String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSECService/SecurityService.asmx";
 
             SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
             PropertyInfo pi = new PropertyInfo();
-            pi.setName("Tag");
+            pi.setName("User");
             pi.setValue(email);
-            pi.setType(Integer.class);
+            pi.setType(String.class);
             request.addProperty(pi);
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
@@ -106,18 +107,22 @@ class CallerEmail extends Thread {
 
             HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
             Object response = null;
-            try {
+            //try {
                 httpTransport.call(SOAP_ACTION, envelope);
                 response = envelope.getResponse();
-            } catch (Exception exception) {
-                cp.dismiss();
-                response = exception.toString();
-                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
-                cp2.show(activity.getFragmentManager(), "connproblem");
-                this.stop();
-            }
-            //LoginActivity.rslt = response.toString();
-            ((LoginRecuperationActivity)activity).emailCorrect();
+            //} catch (Exception exception) {
+               // cp.dismiss();
+                //response = exception.toString();
+                //ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
+                //cp2.show(activity.getFragmentManager(), "connproblem");
+                //this.stop();
+            //}
+            LoginRecuperationActivity.rslt = response.toString();
+            activity.runOnUiThread(new Runnable() {
+                public void run() {
+                    ((LoginRecuperationActivity)activity).emailCorrect();
+                }
+            });
             cp.dismiss();
         } catch (Exception ex) {
 
