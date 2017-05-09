@@ -23,12 +23,18 @@
     <item
         android:id="@+id/action_main_menu"
         android:orderInCategory="100"
-        android:title="Main Menu"
+        android:title="Main menu"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_signout"
         android:orderInCategory="100"
         android:title="Sign out"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_send_data"
+        android:orderInCategory="100"
+        android:title="Send data"
         app:showAsAction="never" />
 </menu>

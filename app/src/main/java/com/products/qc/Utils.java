@@ -1,6 +1,10 @@
 package com.products.qc;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -9,13 +13,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.util.Base64;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.products.qc.PictureReaderContract.PictureEntry;
- 
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+
 public class Utils {
  
     private Context _context;
@@ -115,3 +128,4 @@ public class Utils {
         return columnWidth;
     }
 }
+

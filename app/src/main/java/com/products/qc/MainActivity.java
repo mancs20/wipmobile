@@ -65,7 +65,7 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 	EditText codeEditText;
-	Menu menu;
+	public Menu menu;
 	public static String rslt="";
 	SharedPreferences sharedPref;
 	
@@ -83,16 +83,22 @@ public class MainActivity extends ActionBarActivity {
 				return false;
 			}
 		});
+		sharedPref = this.getSharedPreferences(
+				getString(R.string.preference_file_key), Context.MODE_PRIVATE);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        
         this.menu = menu;
         Restart();
-        
+		if (sharedPref.getInt(getString(R.string.saved_saveqcontrol), 0) == 0 &&
+				sharedPref.getInt(getString(R.string.saved_saveqcontroldetail), -1) == -1 &&
+				sharedPref.getInt(getString(R.string.saved_saveqcontroldetailfactor), -1) == -1 &&
+				sharedPref.getInt(getString(R.string.saved_saveqcontroldetailpicture), -1) == -1) {
+			menu.removeItem(R.id.action_send_data);
+		}
         return true;
     }
 
@@ -121,11 +127,38 @@ public class MainActivity extends ActionBarActivity {
 				AppConstant.mainMenu = true;
 				this.finish();
 				return true;
+			case R.id.action_send_data:
+				QControlCaller c = new QControlCaller(this);
+				c.start();
+				return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
     	}
     }
-    
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		if (AppConstant.restarting){
+			if (AppConstant.dataSended) {
+				Toast.makeText(MainActivity.this, "Quality control successfully saved", Toast.LENGTH_LONG).show();
+				AppConstant.dataSended = false;
+			}
+			ActionBarMethods.restart(this);
+			AppConstant.restarting = false;
+		}
+		else if (AppConstant.resampling) {
+			//SharedPreferences.Editor editor = sharedPref.edit();
+			//editor.remove(getString(R.string.saved_current_pallet));
+			//editor.commit();
+			AppConstant.resampling = false;
+			codeEditText.setText("");
+		}
+		if (AppConstant.mainMenu || AppConstant.signout)
+			finish();
+		Restart();
+	}
+
     public void sendCode(View view) {
 		
 		String code = codeEditText.getText().toString();
@@ -133,9 +166,6 @@ public class MainActivity extends ActionBarActivity {
 			Toast.makeText(MainActivity.this, "Enter Code", Toast.LENGTH_LONG).show();
 		}
 		else {
-			sharedPref = this.getSharedPreferences(
-	                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-	    	
 	    	String currentPallet = String.valueOf(sharedPref.getInt(getString(R.string.saved_current_pallet), 0));
 	    	if(currentPallet.equals("0")){
 	    		String beginDate = sharedPref.getString(getString(R.string.saved_begin_date), "");
@@ -201,30 +231,6 @@ public class MainActivity extends ActionBarActivity {
 		//Restart();
 	}
 	
-	@Override
-	public void onStart()
-	{
-		super.onStart();
-		if (AppConstant.restarting){
-			if (AppConstant.dataSended) {
-				Toast.makeText(MainActivity.this, "Quality control successfully saved", Toast.LENGTH_LONG).show();
-				AppConstant.dataSended = false;
-			}
-			ActionBarMethods.restart(this);
-			AppConstant.restarting = false;
-		}
-		else if (AppConstant.resampling) {
-			//SharedPreferences.Editor editor = sharedPref.edit();
-			//editor.remove(getString(R.string.saved_current_pallet));
-			//editor.commit();
-			AppConstant.resampling = false;
-			codeEditText.setText("");
-		}
-		if (AppConstant.mainMenu || AppConstant.signout)
-			finish();
-		Restart();		
-	}
-	
 	public void Restart(){
 		SharedPreferences sharedPref = this.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
@@ -240,8 +246,6 @@ public class MainActivity extends ActionBarActivity {
 	        }
 		}
 	}
-	
-
 	
 	public InputStream getInitialXML() throws TransformerException, ParserConfigurationException, ClientProtocolException, IOException {
 		
@@ -726,14 +730,15 @@ public class MainActivity extends ActionBarActivity {
     }
 }*/
 
-class Caller extends Thread
-{
+class Caller extends Thread {
 	Activity activity;
 	String code;
+
 	public Caller(Activity activity, String code) {
 		this.activity = activity;
 		this.code = code;
 	}
+
     public void run() {
     	ProgressBarDialogFragment cp = new ProgressBarDialogFragment();
         try {
