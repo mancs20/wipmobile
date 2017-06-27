@@ -102,6 +102,7 @@ class CallerQuantity extends Thread {
         switch (LocationIntroductionActivity.rslt) {
             case "0":
                 AppConstant.closing = true;
+                Toast.makeText(activity, "Quantity match correct.", Toast.LENGTH_LONG).show();
                 activity.finish();
                 break;
             case "1":

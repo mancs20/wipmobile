@@ -26,4 +26,10 @@
         android:orderInCategory="100"
         android:title="Sign out"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_send_data"
+        android:orderInCategory="100"
+        android:title="Send data"
+        app:showAsAction="never" />
 </menu>

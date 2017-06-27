@@ -30,7 +30,7 @@ import android.widget.Spinner;
 public class GridViewImageAdapter extends BaseAdapter {
 	private ImageView view0;
     private Activity _activity;
-    private ArrayList<String> _filePaths = new ArrayList<String>();
+    private ArrayList<String> _filePaths = new ArrayList<>();
     private int imageWidth;
     private ArrayList<View> selectedItems = new ArrayList<View>();
     private ArrayList<View> items = new ArrayList<View>();
@@ -79,8 +79,7 @@ public class GridViewImageAdapter extends BaseAdapter {
     	        }
     	 
     	        // get screen dimensions
-    	        Bitmap image = decodeFile(_filePaths.get(position), imageWidth,
-    	                imageWidth);
+    	        Bitmap image = decodeFile(_filePaths.get(position), imageWidth, imageWidth);
     	 
     	        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
     	        imageView.setLayoutParams(new GridView.LayoutParams(imageWidth,

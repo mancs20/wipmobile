@@ -1,6 +1,9 @@
 package com.products.qc;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -24,6 +27,7 @@ public class TemperatureGrowerPlusActivity extends ActionBarActivity {
 	EditText edit_plus;
 	TextView textview_plus;
 	CheckBox plusCheckBox;
+	public Menu menu;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +60,13 @@ public class TemperatureGrowerPlusActivity extends ActionBarActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.clear();
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.temperature_grower_plus, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
+		this.menu = menu;
+		String currentPallet = String.valueOf(sharedPref.getInt(getString(R.string.saved_current_pallet), 0));
+		if (currentPallet.equals("0") || Utils.sampledCount(this) == 0)
+			menu.removeItem(R.id.action_send_data);
 		return true;
 	}
 
@@ -85,10 +94,36 @@ public class TemperatureGrowerPlusActivity extends ActionBarActivity {
 				AppConstant.mainMenu = true;
 				this.finish();
 				return true;
+			case R.id.action_send_data:
+				if (Utils.requiredSample(this)) {
+					final Activity activity = this;
+					new AlertDialog.Builder(this)
+							.setTitle("Send Data")
+							.setMessage("Quality Control uncompleted")
+							.setNegativeButton(android.R.string.cancel, null) // dismisses by default
+							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+								@Override public void onClick(DialogInterface dialog, int which) {
+									QControlCaller c = new QControlCaller(activity);
+									c.start();
+								}
+							})
+							.create()
+							.show();
+				} else {
+					QControlCaller c = new QControlCaller(this);
+					c.start();
+				}
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
     	}
     }
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		onCreateOptionsMenu(menu);
+	}
 	
 	public void back(View view) {
 		this.finish();

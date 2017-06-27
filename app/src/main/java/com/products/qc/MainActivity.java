@@ -22,6 +22,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.apache.http.client.ClientProtocolException;
+import org.kobjects.util.Util;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
@@ -42,11 +43,15 @@ import com.products.qc.ProductReaderContract.ProductEntry;
 import com.products.qc.SamplingReaderContract.SamplingEntry;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -89,16 +94,20 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+		menu.clear();
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         this.menu = menu;
         Restart();
-		if (sharedPref.getInt(getString(R.string.saved_saveqcontrol), 0) == 0 &&
-				sharedPref.getInt(getString(R.string.saved_saveqcontroldetail), -1) == -1 &&
-				sharedPref.getInt(getString(R.string.saved_saveqcontroldetailfactor), -1) == -1 &&
-				sharedPref.getInt(getString(R.string.saved_saveqcontroldetailpicture), -1) == -1) {
+//		if (sharedPref.getInt(getString(R.string.saved_saveqcontrol), 0) == 0 &&
+//				sharedPref.getInt(getString(R.string.saved_saveqcontroldetail), -1) == -1 &&
+//				sharedPref.getInt(getString(R.string.saved_saveqcontroldetailfactor), -1) == -1 &&
+//				sharedPref.getInt(getString(R.string.saved_saveqcontroldetailpicture), -1) == -1) {
+//			menu.removeItem(R.id.action_send_data);
+//		}
+		String currentPallet = String.valueOf(sharedPref.getInt(getString(R.string.saved_current_pallet), 0));
+		if (currentPallet.equals("0") || Utils.sampledCount(this) == 0)
 			menu.removeItem(R.id.action_send_data);
-		}
         return true;
     }
 
@@ -128,8 +137,24 @@ public class MainActivity extends ActionBarActivity {
 				this.finish();
 				return true;
 			case R.id.action_send_data:
-				QControlCaller c = new QControlCaller(this);
-				c.start();
+				if (Utils.requiredSample(this)) {
+					final Activity activity = this;
+					new AlertDialog.Builder(this)
+							.setTitle("Send Data")
+							.setMessage("Quality Control uncompleted")
+							.setNegativeButton(android.R.string.cancel, null) // dismisses by default
+							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+								@Override public void onClick(DialogInterface dialog, int which) {
+									QControlCaller c = new QControlCaller(activity);
+									c.start();
+								}
+							})
+							.create()
+							.show();
+				} else {
+					QControlCaller c = new QControlCaller(this);
+					c.start();
+				}
 				return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -159,7 +184,13 @@ public class MainActivity extends ActionBarActivity {
 		Restart();
 	}
 
-    public void sendCode(View view) {
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		onCreateOptionsMenu(menu);
+	}
+
+	public void sendCode(View view) {
 		
 		String code = codeEditText.getText().toString();
 		if (code.equals("")) {
@@ -333,7 +364,7 @@ public class MainActivity extends ActionBarActivity {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             editor.putString(activity.getString(R.string.saved_begin_date), format.format(date));
             
-            Node node = ((NodeList) document.getElementsByTagName("ManifestId")).item(0);
+            Node node = document.getElementsByTagName("ManifestId").item(0);
             String manifestIdValue = node.getTextContent();
             editor.putString(activity.getString(R.string.saved_manifest_id), manifestIdValue);
             
@@ -341,7 +372,7 @@ public class MainActivity extends ActionBarActivity {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
             manifestListView.setAdapter(adapter);*/
             
-            node = ((NodeList) document.getElementsByTagName("IncomingTruck")).item(0);
+            node = document.getElementsByTagName("IncomingTruck").item(0);
             NodeList nodeList = node.getChildNodes();
     		for (int i = 0; i < nodeList.getLength(); i++) {
     			Node n = nodeList.item(i);
@@ -366,7 +397,7 @@ public class MainActivity extends ActionBarActivity {
     			}
     		}*/
             
-            node = ((NodeList) document.getElementsByTagName("WarehouseIdSource")).item(0);
+            node = document.getElementsByTagName("WarehouseIdSource").item(0);
             nodeList = node.getChildNodes();
     		for (int i = 0; i < nodeList.getLength(); i++) {
     			Node n = nodeList.item(i);
@@ -378,7 +409,7 @@ public class MainActivity extends ActionBarActivity {
     			}
     		}
             
-    		node = ((NodeList) document.getElementsByTagName("WarehouseCustomerIdSource")).item(0);
+    		node = document.getElementsByTagName("WarehouseCustomerIdSource").item(0);
             nodeList = node.getChildNodes();
     		for (int i = 0; i < nodeList.getLength(); i++) {
     			Node n = nodeList.item(i);
@@ -390,37 +421,37 @@ public class MainActivity extends ActionBarActivity {
     			}
     		}
             
-            node = ((NodeList) document.getElementsByTagName("ReferenceNo")).item(0);
+            node = document.getElementsByTagName("ReferenceNo").item(0);
             String referenceno_value = node.getTextContent();
             editor.putString(activity.getString(R.string.saved_referenceno), referenceno_value);
             //data.add(node.getNodeName() + ": " + referenceno_value);
             
-            node = ((NodeList) document.getElementsByTagName("Lot")).item(0);
+            node = document.getElementsByTagName("Lot").item(0);
             String lot_value = node.getTextContent();
             editor.putString(activity.getString(R.string.saved_lot), lot_value);
             //data.add(node.getNodeName() + ": " + lot_value);
             
-            node = ((NodeList) document.getElementsByTagName("Description")).item(0);
+            node = document.getElementsByTagName("Description").item(0);
             String description_value = node.getTextContent();
             editor.putString(activity.getString(R.string.saved_description), description_value);
             //data.add(node.getNodeName() + ": " + description_value);
             
-            node = ((NodeList) document.getElementsByTagName("AuxiliarReference")).item(0);
+            node = document.getElementsByTagName("AuxiliarReference").item(0);
             String auxiliarreference_value = node.getTextContent();
             editor.putString(activity.getString(R.string.saved_auxiliarreference), auxiliarreference_value);
             //data.add(node.getNodeName() + ": " + auxiliarreference_value);
             
-            node = ((NodeList) document.getElementsByTagName("ShipperId")).item(0);
+            node = document.getElementsByTagName("ShipperId").item(0);
             String shipperid_value = node.getTextContent();
             editor.putString(activity.getString(R.string.saved_shipperid), shipperid_value);
             //data.add(node.getNodeName() + ": " + shipperid_value);
             
-            node = ((NodeList) document.getElementsByTagName("TruckNo")).item(0);
+            node = document.getElementsByTagName("TruckNo").item(0);
             String truckno_value = node.getTextContent();
             editor.putString(activity.getString(R.string.saved_truckno), truckno_value);
             //data.add(node.getNodeName() + ": " + truckno_value);
             
-            node = ((NodeList) document.getElementsByTagName("DateReceived")).item(0);
+            node = document.getElementsByTagName("DateReceived").item(0);
             String receiptdate_value = node.getTextContent();
             editor.putString(activity.getString(R.string.saved_receiptdate), receiptdate_value);
             //data.add(node.getNodeName() + ": " + receiptdate_value);
@@ -443,7 +474,7 @@ public class MainActivity extends ActionBarActivity {
             SQLiteDatabase icfactorDatadb = mDbIcfactorDataHelper.getWritableDatabase();
             icfactorDatadb.execSQL(IcfactorDataEntry.SQL_CREATE_ENTRIES);
 
-            NodeList products = (NodeList) document.getElementsByTagName("ManifestDetail");
+            NodeList products = document.getElementsByTagName("ManifestDetail");
             for (int i = 0; i < products.getLength(); i++) {
     			NodeList nodes = products.item(i).getChildNodes();
         		String productName = "";
@@ -696,6 +727,10 @@ public class MainActivity extends ActionBarActivity {
 			e.printStackTrace();
 		} 
 		return 0;
+	}
+
+	public Menu getMenu() {
+		return menu;
 	}
 }
 

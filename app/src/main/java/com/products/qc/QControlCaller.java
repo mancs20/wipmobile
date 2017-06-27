@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.util.Base64;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ public class QControlCaller extends Thread {
     Activity activity;
     ProgressBarDialogFragment cp;
 
-    public QControlCaller(Activity activity){
+    public QControlCaller(Activity activity) {
         this.activity = activity;
     }
 
@@ -35,21 +36,21 @@ public class QControlCaller extends Thread {
             cp.setCancelable(false);
             cp.show(activity.getFragmentManager(), "sendingdata");
 
-            SharedPreferences sharedPref = activity.getSharedPreferences(activity.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
+//            SharedPreferences sharedPref = activity.getSharedPreferences(activity.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+//            SharedPreferences.Editor editor = sharedPref.edit();
 
             String response;
-            if (sharedPref.getInt(activity.getString(R.string.saved_saveqcontrol), 0) == 0) {
+//            if (sharedPref.getInt(activity.getString(R.string.saved_saveqcontrol), 0) == 0) {
                 response = connectToWebService("saveQControl", CreateQControl());
-                editor.putInt(activity.getString(R.string.saved_saveqcontrol), 1);
-                editor.putString(activity.getString(R.string.saved_responsecontrol), response);
-                editor.apply();
-            } else {
-                response = sharedPref.getString(activity.getString(R.string.saved_responsecontrol), "");
-            }
-            boolean sendQcontroldetail = false,
-                    sendQcontroldetailFactor = false,
-                    sendQcontroldetailPicture = false;
+//                editor.putInt(activity.getString(R.string.saved_saveqcontrol), 1);
+//                editor.putString(activity.getString(R.string.saved_responsecontrol), response);
+//                editor.apply();
+//            } else {
+//                response = sharedPref.getString(activity.getString(R.string.saved_responsecontrol), "");
+//            }
+//            boolean sendQcontroldetail = false,
+//                    sendQcontroldetailFactor = false,
+//                    sendQcontroldetailPicture = false;
             Cursor pallets = QueryRepository.getAllPallets(activity);
             for (int i = 0; i < pallets.getCount(); i++) {
                 int palletId = pallets.getInt(pallets.getColumnIndexOrThrow(PalletReaderContract.PalletEntry.COLUMN_NAME_ENTRY_ID));
@@ -61,55 +62,53 @@ public class QControlCaller extends Thread {
                     int samplingId = samplings.getInt(samplings.getColumnIndexOrThrow(SamplingReaderContract.SamplingEntry.COLUMN_NAME_ENTRY_ID));
                     String qControlDetailString = CreateQControlDetail(response, pallets, samplings);
                     String response2 = "";
-                    if (sendQcontroldetail || sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetail), -1) == -1) {
+//                    if (sendQcontroldetail || sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetail), -1) == -1) {
                         response2 = connectToWebService("saveQcontrolDetail", qControlDetailString);
-                        editor.putInt(activity.getString(R.string.saved_saveqcontroldetail), samplingId);
-                        editor.putString(activity.getString(R.string.saved_responsecontroldetail), response2);
-                        editor.commit();
-                        sendQcontroldetail = true;
-                    } else if (sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetail), -1) == samplingId) {
-                        response2 = sharedPref.getString(activity.getString(R.string.saved_responsecontroldetail), "");
-                        editor.putInt(activity.getString(R.string.saved_saveqcontroldetail), -1);
-                        editor.commit();
-                        sendQcontroldetail = true;
-                    }
+//                        editor.putInt(activity.getString(R.string.saved_saveqcontroldetail), samplingId);
+//                        editor.putString(activity.getString(R.string.saved_responsecontroldetail), response2);
+//                        editor.commit();
+//                        sendQcontroldetail = true;
+//                    } else if (sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetail), -1) == samplingId) {
+//                        response2 = sharedPref.getString(activity.getString(R.string.saved_responsecontroldetail), "");
+//                        editor.putInt(activity.getString(R.string.saved_saveqcontroldetail), -1);
+//                        editor.commit();
+//                        sendQcontroldetail = true;
+//                    }
                     int tableNumber = QueryRepository.getTableNumberBySamplingId(activity, samplingId);
                     Cursor qcFactorDataTable = QueryRepository.getQCFactorTablesByNumberAndSamplingId(activity, samplingId, tableNumber);
                     for (int k = 0; k < qcFactorDataTable.getCount(); k++) {
                         int qcFactorDataTableId = qcFactorDataTable.getInt(qcFactorDataTable.getColumnIndexOrThrow(IcfactorDataReaderContract.IcfactorDataEntry._ID));
-
-                        if (sendQcontroldetailFactor || sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetailfactor), -1) == -1) {
-                            editor.putInt(activity.getString(R.string.saved_saveqcontroldetailfactor), qcFactorDataTableId);
-                            editor.commit();
+//                        if (sendQcontroldetailFactor || sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetailfactor), -1) == -1) {
+//                            editor.putInt(activity.getString(R.string.saved_saveqcontroldetailfactor), qcFactorDataTableId);
+//                            editor.commit();
                             String qControlDetailFactor = CreateQControlDetailFactor(response2, qcFactorDataTable, qcFactorTable);
                             String response3 = connectToWebService("saveQcontrolDetailFactor", qControlDetailFactor);
-                            sendQcontroldetailFactor = true;
-                        } else if (sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetailfactor), -1) == qcFactorDataTableId) {
-                            editor.putInt(activity.getString(R.string.saved_saveqcontroldetailfactor), -1);
-                            editor.commit();
-                            sendQcontroldetailFactor = true;
-                        }
+//                            sendQcontroldetailFactor = true;
+//                        } else if (sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetailfactor), -1) == qcFactorDataTableId) {
+//                            editor.putInt(activity.getString(R.string.saved_saveqcontroldetailfactor), -1);
+//                            editor.commit();
+//                            sendQcontroldetailFactor = true;
+//                        }
                         qcFactorDataTable.moveToNext();
                     }
                     Cursor pictures = QueryRepository.getAllPictureBySampling(activity, samplingId);
                     for (int k = 0; k < pictures.getCount(); k++) {
                         int pictureId = pictures.getInt(pictures.getColumnIndexOrThrow(PictureReaderContract.PictureEntry.COLUMN_NAME_ENTRY_ID));
-
-                        if (sendQcontroldetailPicture || sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetailpicture), -1) == -1) {
+//                        if (sendQcontroldetailPicture || sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetailpicture), -1) == -1) {
                             String picName = pictures.getString(pictures.getColumnIndexOrThrow(PictureReaderContract.PictureEntry.COLUMN_NAME_NAME));
                             String qControlDetailPicture = CreateQControlDetailPicture(response2, pictures);
-
+//
                             Bitmap bitmap = scalePicture(picName);
                             String qPicture = CreatePicture(pictures, bitmap);
                             String response4 = connectToWebServicePicture("saveQcontrolDetailPicture", qControlDetailPicture, qPicture);
-                            editor.putInt(activity.getString(R.string.saved_saveqcontroldetailpicture), pictureId);
-                            editor.commit();
-                            sendQcontroldetailPicture = true;
-                        } else if (sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetailpicture), -1) == pictureId) {
-                            editor.putInt(activity.getString(R.string.saved_saveqcontroldetailpicture), -1);
-                            editor.commit();
-                            sendQcontroldetailPicture = true;
-                        }
+//                            editor.putInt(activity.getString(R.string.saved_saveqcontroldetailpicture), pictureId);
+//                            editor.commit();
+//                            sendQcontroldetailPicture = true;
+//                        } else if (sharedPref.getInt(activity.getString(R.string.saved_saveqcontroldetailpicture), -1) == pictureId) {
+//                            editor.putInt(activity.getString(R.string.saved_saveqcontroldetailpicture), -1);
+//                            editor.commit();
+//                            sendQcontroldetailPicture = true;
+//                        }
                         pictures.moveToNext();
                     }
                     samplings.moveToNext();
@@ -119,22 +118,28 @@ public class QControlCaller extends Thread {
             if (activity instanceof MainActivity) {
                 activity.runOnUiThread(new Runnable() {
                     public void run() {
-                        ((MainActivity) activity).menu.removeItem(R.id.action_send_data);
-                        cp.dismiss();
+//                        ((MainActivity) activity).menu.removeItem(R.id.action_send_data);
                         ActionBarMethods.restart(activity);
+                        MainActivity mainActivity = ((MainActivity)activity);
+                        mainActivity.onCreateOptionsMenu(mainActivity.getMenu());
                         Toast.makeText(activity, "Quality control successfully saved", Toast.LENGTH_LONG).show();
                     }
                 });
             } else {
-                AppConstant.restarting = true;
-                AppConstant.dataSended = true;
-                activity.finish();
+                if (activity instanceof MainActivity) {
+                    AppConstant.dataSended = true;
+                    ActionBarMethods.restart(activity);
+                } else {
+                    AppConstant.restarting = true;
+                    AppConstant.dataSended = true;
+                    activity.finish();
+                }
             }
+            cp.dismiss();
             MainActivity.rslt = response;
-        } catch(Exception ex) {
-            MainActivity.rslt=ex.toString();
-
-
+        } catch (Exception ex) {
+            MainActivity.rslt = ex.toString();
+            cp.dismiss();
             activity.runOnUiThread(new Runnable() {
                 public void run() {
                     Toast.makeText(activity, "Try again. Something was wrong", Toast.LENGTH_LONG).show();
@@ -143,12 +148,12 @@ public class QControlCaller extends Thread {
         }
     }
 
-    public String connectToWebService(String OPERATION_NAME, String data){
+    public String connectToWebService(String OPERATION_NAME, String data) {
         String SOAP_ACTION = "http://tempuri.org/" + OPERATION_NAME;
         String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
         String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSQservice/QCService.asmx";
 
-        SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE,OPERATION_NAME);
+        SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
         PropertyInfo pi = new PropertyInfo();
         pi.setName("objInput");
         pi.setValue(data);
@@ -161,14 +166,13 @@ public class QControlCaller extends Thread {
         envelope.setOutputSoapObject(request);
 
         HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
-        Object response=null;
+        Object response = null;
         try {
             httpTransport.call(SOAP_ACTION, envelope);
             response = envelope.getResponse();
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             cp.dismiss();
-            response=exception.toString();
+            response = exception.toString();
             ConnectionProblemDialogFragment cp = new ConnectionProblemDialogFragment(activity);
             cp.show(activity.getFragmentManager(), "connproblem");
             this.stop();
@@ -176,12 +180,12 @@ public class QControlCaller extends Thread {
         return response.toString();
     }
 
-    public String connectToWebServicePicture(String OPERATION_NAME, String data, String picture){
+    public String connectToWebServicePicture(String OPERATION_NAME, String data, String picture) {
         String SOAP_ACTION = "http://tempuri.org/" + OPERATION_NAME;
         String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
         String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSQservice/QCService.asmx";
 
-        SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE,OPERATION_NAME);
+        SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
         PropertyInfo pi = new PropertyInfo();
         pi.setName("objInput");
         pi.setValue(data);
@@ -200,14 +204,13 @@ public class QControlCaller extends Thread {
         envelope.setOutputSoapObject(request);
 
         HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
-        Object response=null;
+        Object response = null;
         try {
             httpTransport.call(SOAP_ACTION, envelope);
             response = envelope.getResponse();
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             cp.dismiss();
-            response=exception.toString();
+            response = exception.toString();
             ConnectionProblemDialogFragment cp = new ConnectionProblemDialogFragment(activity);
             cp.show(activity.getFragmentManager(), "connproblem");
             this.stop();
@@ -227,14 +230,14 @@ public class QControlCaller extends Thread {
         String incomingIdString = sharedPref.getString(activity.getString(R.string.saved_incoming_id), "");
         String manifestIdString = sharedPref.getString(activity.getString(R.string.saved_manifest_id), "");
 
-        return "<Qcontrol>"+
-                "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""+
-                "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">"+
-                "<Id>0</Id>"+
-                "<BeginDateTime>" + beginDateString.substring(0, 10) + "T" + beginDateString.substring(11, 19) + "</BeginDateTime>"+
-                "<FinishDateTime>" + finishDateString.substring(0, 10) + "T" + finishDateString.substring(11, 19) + "</FinishDateTime>"+
-                "<IncomingId>" + incomingIdString + "</IncomingId>"+
-                "<ManifestId>" + manifestIdString + "</ManifestId>"+
+        return "<Qcontrol>" +
+                "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"" +
+                "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" +
+                "<Id>0</Id>" +
+                "<BeginDateTime>" + beginDateString.substring(0, 10) + "T" + beginDateString.substring(11, 19) + "</BeginDateTime>" +
+                "<FinishDateTime>" + finishDateString.substring(0, 10) + "T" + finishDateString.substring(11, 19) + "</FinishDateTime>" +
+                "<IncomingId>" + incomingIdString + "</IncomingId>" +
+                "<ManifestId>" + manifestIdString + "</ManifestId>" +
                 "</Qcontrol>";
     }
 
@@ -262,8 +265,8 @@ public class QControlCaller extends Thread {
                 "<Id>0</Id>" +
                 "<QcontrolId>" + qControlId + "</QcontrolId>" +
                 "<TagPallet>" + tagIdString + "</TagPallet>" +
-                "<BeginDateTime>" + beginDateString.substring(0, 10) + "T" + beginDateString.substring(11, 19) + "</BeginDateTime>"+
-                "<FinishDateTime>" + finishDateString.substring(0, 10) + "T" + finishDateString.substring(11, 19) + "</FinishDateTime>"+
+                "<BeginDateTime>" + beginDateString.substring(0, 10) + "T" + beginDateString.substring(11, 19) + "</BeginDateTime>" +
+                "<FinishDateTime>" + finishDateString.substring(0, 10) + "T" + finishDateString.substring(11, 19) + "</FinishDateTime>" +
                 "<Temperature>" + temperatureString + "</Temperature>" +
                 "<Grower>" + growerString + "</Grower>" +
                 "<PlusPercent>" + plusString + "</PlusPercent>" +
@@ -310,7 +313,7 @@ public class QControlCaller extends Thread {
                 activity.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
         String fileNameString = pictures.getString(pictures.getColumnIndexOrThrow(PictureReaderContract.PictureEntry.COLUMN_NAME_NAME));
-        String directory = activity.getDir("images", Context.MODE_PRIVATE).getAbsolutePath() + File.separator + fileNameString;
+        String directory = activity.getExternalFilesDir(Environment.DIRECTORY_PICTURES).getAbsolutePath() + File.separator + fileNameString;
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
@@ -346,13 +349,13 @@ public class QControlCaller extends Thread {
 
         return pictureString;
     }*/
-    public String CreatePicture(Cursor pictures , Bitmap bitmap) {
+    public String CreatePicture(Cursor pictures, Bitmap bitmap) {
 
-        SharedPreferences sharedPref = activity.getSharedPreferences(
-                activity.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+//        SharedPreferences sharedPref = activity.getSharedPreferences(
+//                activity.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
-        String fileNameString = pictures.getString(pictures.getColumnIndexOrThrow(PictureReaderContract.PictureEntry.COLUMN_NAME_NAME));
-        String directory = activity.getDir("images", Context.MODE_PRIVATE).getAbsolutePath() + File.separator + fileNameString;
+        //String fileNameString = pictures.getString(pictures.getColumnIndexOrThrow(PictureReaderContract.PictureEntry.COLUMN_NAME_NAME));
+        //String directory = activity.getDir("images", Context.MODE_PRIVATE).getAbsolutePath() + File.separator + fileNameString;
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
@@ -385,11 +388,11 @@ public class QControlCaller extends Thread {
     }*/
     private Bitmap scalePicture(String pictureName) throws IOException {
         // Rotate Picture
-        File f = new File(activity.getDir("images", Context.MODE_PRIVATE) + File.separator + pictureName);
-        Bitmap bitmap= decodeFile(f);
+        File f = new File(activity.getExternalFilesDir(Environment.DIRECTORY_PICTURES) + File.separator + pictureName);
+        Bitmap bitmap = decodeFile(f);
 
 /*
-	//*long fileSize = f.length() / 1024;
+    //*long fileSize = f.length() / 1024;
 		Boolean existe = f.exists(); //Si es verdadero existe el fichero
 
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -415,33 +418,34 @@ public class QControlCaller extends Thread {
             fileSize = f.length() / 1024;
         }
         fos.close();*/
-        boolean deleted = f.delete();
+        //boolean deleted = f.delete();
         return bitmap;
     }
 
-    private Bitmap decodeFile(File f){
+    private Bitmap decodeFile(File f) {
         try {
             //decode image size
             BitmapFactory.Options o = new BitmapFactory.Options();
             o.inJustDecodeBounds = true;
-            BitmapFactory.decodeStream(new FileInputStream(f),null,o);
+            BitmapFactory.decodeStream(new FileInputStream(f), null, o);
             //Find the correct scale value. It should be the power of 2.
-            final int REQUIRED_SIZE=120;
-            int width_tmp=o.outWidth, height_tmp=o.outHeight;
-            int scale=1;
-            while(true){
-                if(width_tmp/2<REQUIRED_SIZE || height_tmp/2<REQUIRED_SIZE)
+            final int REQUIRED_SIZE = 120;
+            int width_tmp = o.outWidth, height_tmp = o.outHeight;
+            int scale = 1;
+            while (true) {
+                if (width_tmp / 2 < REQUIRED_SIZE || height_tmp / 2 < REQUIRED_SIZE)
                     break;
-                width_tmp/=2;
-                height_tmp/=2;
+                width_tmp /= 2;
+                height_tmp /= 2;
                 scale++;
             }
 
             //decode with inSampleSize
             BitmapFactory.Options o2 = new BitmapFactory.Options();
-            o2.inSampleSize=scale;
+            o2.inSampleSize = scale;
             return BitmapFactory.decodeStream(new FileInputStream(f), null, o2);
-        } catch (FileNotFoundException e) {}
+        } catch (FileNotFoundException e) {
+        }
         return null;
     }
 }

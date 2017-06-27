@@ -12,7 +12,9 @@ import com.products.qc.PalletReaderContract.PalletEntry;
 import com.products.qc.ProductReaderContract.ProductEntry;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -41,9 +43,9 @@ public class GridViewActivity extends ActionBarActivity {
     private GridViewImageAdapter adapter;
     private GridView gridView;
     private int columnWidth;
+    private String nombreFoto;
     
     static final int REQUEST_IMAGE_CAPTURE = 1;
-	static final int REQUEST_TAKE_PHOTO = 1;
 	SharedPreferences sharedPref;
 	
 	private OnClickListener btnPictureOnClickListener;
@@ -76,9 +78,9 @@ public class GridViewActivity extends ActionBarActivity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(activity, CameraActivity.class);
-			    startActivity(intent);
-				//dispatchTakePictureIntent();
+//				Intent intent = new Intent(activity, CameraActivity.class);
+//			    startActivity(intent);
+				dispatchTakePictureIntent();
 			}
 		};
 		btnNextOnClickListener = new OnClickListener() {
@@ -98,7 +100,9 @@ public class GridViewActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.grid_view, menu);
-        
+        String currentPallet = String.valueOf(sharedPref.getInt(getString(R.string.saved_current_pallet), 0));
+        if (currentPallet.equals("0") || Utils.sampledCount(this) == 0)
+            menu.removeItem(R.id.action_send_data);
         return true;
     }
     
@@ -125,6 +129,26 @@ public class GridViewActivity extends ActionBarActivity {
             case R.id.action_main_menu:
                 AppConstant.mainMenu = true;
                 this.finish();
+                return true;
+            case R.id.action_send_data:
+                if (Utils.requiredSample(this)) {
+                    final Activity activity = this;
+                    new AlertDialog.Builder(this)
+                            .setTitle("Send Data")
+                            .setMessage("Quality Control uncompleted")
+                            .setNegativeButton(android.R.string.cancel, null) // dismisses by default
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override public void onClick(DialogInterface dialog, int which) {
+                                    QControlCaller c = new QControlCaller(activity);
+                                    c.start();
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    QControlCaller c = new QControlCaller(this);
+                    c.start();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -165,30 +189,6 @@ public class GridViewActivity extends ActionBarActivity {
         gridView.setHorizontalSpacing((int) padding);
         gridView.setVerticalSpacing((int) padding);
     }
-	
-    /*public void openCamera(View view) {
-		dispatchTakePictureIntent();
-	}*/
-    
-    String mCurrentPhotoPath;
-
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date(1));
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        //File storageDir = ((Context)this).getDir("images", Context.MODE_PRIVATE);
-        File storageDir = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-            imageFileName,  /* prefix */
-            ".jpg",         /* suffix */
-            storageDir      /* directory */
-        );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
-        return image;
-    }
     
     private File createMyImageFile() throws IOException {
     	SharedPreferences sharedPref = this.getSharedPreferences(
@@ -196,7 +196,7 @@ public class GridViewActivity extends ActionBarActivity {
         
         int currenPallet = sharedPref.getInt(getString(R.string.saved_current_pallet), 0);
         //int palletId = QueryRepository.getPalletIdByPalletId(currenPallet, this);
-        int samplingId = sharedPref.getInt(getString(R.string.saved_current_sampling), 0);
+
         String lot = sharedPref.getString(getString(R.string.saved_lot), "");
         String tag = String.valueOf(currenPallet);
         
@@ -204,57 +204,82 @@ public class GridViewActivity extends ActionBarActivity {
         Cursor product = QueryRepository.getVarietySizeByProductId(this, productId);
         
         String variety = product.getString(product.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_VARIETY));
-        String size = String.valueOf(product.getInt(product.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_SIZE)));
+//        String size = String.valueOf(product.getInt(product.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_SIZE)));
         
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
         String pictureNumber = format.format(date);
         
-		String nombreFoto = lot + "-" + tag + "-" + variety + "-" + pictureNumber + ".jpg";
+		nombreFoto = lot + "-" + tag + "-" + variety + "-" + pictureNumber + ".jpg";
 		nombreFoto = nombreFoto.replaceAll(" ", "");
 		nombreFoto = nombreFoto.replaceAll("/", "");
-		QueryRepository.savePicture(this, nombreFoto, samplingId);
+
 		
-		Context context = (Context)this;
+//		Context context = (Context)this;
 		
-		File path = new File(this.getFilesDir(), nombreFoto);
+//		File path = new File(this.getFilesDir(), nombreFoto);
 	    //if (!path.exists()) path.mkdirs();
 	    
-	    FileOutputStream fos = openFileOutput(nombreFoto, Context.MODE_WORLD_WRITEABLE);
-		fos.close();
+//	    FileOutputStream fos = openFileOutput(nombreFoto, Context.MODE_WORLD_WRITEABLE);
+//		fos.close();
 	    
-		path = new File(this.getFilesDir(), nombreFoto);
-	    
-        return path;
+//		path = new File(context.getDir("images", Context.MODE_PRIVATE), nombreFoto);
+//        File directory = getDir("images", MODE_PRIVATE);
+//
+//        directory.mkdirs();
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//        File[] files = storageDir.listFiles();
+//        for (File file : files)
+//            file.length();
+//        if (!storageDir.exists())
+//            storageDir.mkdirs();
+//        return File.createTempFile(
+//                nombreFoto,  /* prefix */
+//                ".jpg",         /* suffix */
+//                directory
+//        );
+//        File image = File.createTempFile(
+//                nombreFoto,  /* prefix */
+//                ".jpg",         /* suffix */
+//                storageDir      /* directory */
+//        );
+
+//        File storageDir = getDir("images", Context.MODE_PRIVATE);
+        File image = new File(storageDir, nombreFoto);
+//        if (!image.exists())
+//            image.createNewFile();
+        return image;
     }
 
 	private void dispatchTakePictureIntent() {
-	    Intent takePictureIntent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+	    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 	    // Ensure that there's a camera activity to handle the intent
-	    //if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-	        // Create the File where the photo should go
-	        //File photoFile = null;
-	        //try {
-	        //    photoFile = createMyImageFile();
-	        //} catch (IOException ex) {
-	            // Error occurred while creating the File
-	        //    Toast.makeText(GridViewActivity.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-	        //}
-	        // Continue only if the File was successfully created
-	        //if (photoFile != null) {
-	        	/*Uri imageUri = FileProvider.getUriForFile(this, CAPTURE_IMAGE_FILE_PROVIDER, photoFile);
-	        	takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-	    	    startActivityForResult(takePictureIntent, IMAGE_REQUEST_CODE);*/
-	    	    
-	            //takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-	            //        Uri.fromFile(photoFile));
-	            startActivityForResult(takePictureIntent, 2);
-	        //}
-	    //}
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createMyImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+                Toast.makeText(GridViewActivity.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+//                Uri imageUri = FileProvider.getUriForFile(this, CAPTURE_IMAGE_FILE_PROVIDER, photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            }
+        }
 	}
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data){
+//        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            int samplingId = sharedPref.getInt(getString(R.string.saved_current_sampling), 0);
+            QueryRepository.savePicture(this, nombreFoto, samplingId);
+            dispatchTakePictureIntent();
+        }
 		//if(requestCode == 2 && data.getExtras() != null){
 			/*Bitmap foto = (Bitmap)data.getExtras().get("data");
 			

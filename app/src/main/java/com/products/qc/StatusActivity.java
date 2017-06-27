@@ -1,6 +1,9 @@
 package com.products.qc;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -29,7 +32,6 @@ public class StatusActivity extends ActionBarActivity {
 	
 	public static String rslt="";
 	QControlCaller c;
-	TimerTask timer;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,11 @@ public class StatusActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.status, menu);
+		SharedPreferences sharedPref = this.getSharedPreferences(
+				getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+		String currentPallet = String.valueOf(sharedPref.getInt(getString(R.string.saved_current_pallet), 0));
+		if (currentPallet.equals("0") || Utils.sampledCount(this) == 0)
+			menu.removeItem(R.id.action_send_data);
 		return true;
 	}
 
@@ -127,28 +134,33 @@ public class StatusActivity extends ActionBarActivity {
 				AppConstant.mainMenu = true;
 				this.finish();
 				return true;
+			case R.id.action_send_data:
+				if (Utils.requiredSample(this)) {
+					final Activity activity = this;
+					new AlertDialog.Builder(this)
+							.setTitle("Send Data")
+							.setMessage("Quality Control uncompleted")
+							.setNegativeButton(android.R.string.cancel, null) // dismisses by default
+							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+								@Override public void onClick(DialogInterface dialog, int which) {
+									QControlCaller c = new QControlCaller(activity);
+									c.start();
+								}
+							})
+							.create()
+							.show();
+				} else {
+					QControlCaller c = new QControlCaller(this);
+					c.start();
+				}
+				return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 		}
 	}
 	
 	public void next(View view){
-		Cursor products = QueryRepository.getAllProducts(this);
-        boolean requiredSampled = false;
-        
-        for (int i = 0; i < products.getCount(); i++) {
-        	int min = products.getInt(products.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_MIN));
-        	int productId = products.getInt(products.getColumnIndexOrThrow(ProductEntry.COLUMN_NAME_ENTRY_ID));
-        	int sampled = QueryRepository.getSampledSamplingCountByProduct(this, productId);
-        	
-        	if (sampled < min) {
-        		requiredSampled = true;
-        		//SendDataDialogFragment sendDatadialog = new SendDataDialogFragment();						
-           		//sendDatadialog.show(getFragmentManager(), "sendDatadialog");
-        		break;
-        	}
-        	products.moveToNext();
-		}
+		boolean requiredSampled = Utils.requiredSample(this);
         
         if (!requiredSampled) {
         	FinishSamplingDialogFragment finishDatadialog = new FinishSamplingDialogFragment();						
@@ -200,6 +212,5 @@ public class StatusActivity extends ActionBarActivity {
 		next.setVisibility(View.VISIBLE);
 		back.setVisibility(View.VISIBLE);
 		pb.setVisibility(View.VISIBLE);
-		
 	}
 }

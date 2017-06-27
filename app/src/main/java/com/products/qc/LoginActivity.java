@@ -46,6 +46,10 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     public void login(View view) {
+//        // Pa probar
+//        Intent intent = new Intent(this, ChoiceToolsActivity.class);
+//        startActivity(intent);
+
         String user = userEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         if (user.equals("")) {
@@ -61,17 +65,12 @@ public class LoginActivity extends ActionBarActivity {
             Caller1 c = new Caller1(this, user, password);
             c.start();
         }
-
     }
 
     public void loginCorrect()
     {
-        if (LoginActivity.rslt.equals("1")) {
+        if (LoginActivity.rslt.equals("1"))
             Toast.makeText(this, "Wrong user name or password", Toast.LENGTH_LONG).show();
-            // Pa probar
-            Intent intent = new Intent(this, ChoiceToolsActivity.class);
-            startActivity(intent);
-        }
         else {
             Intent intent = new Intent(this, ChoiceToolsActivity.class);
             startActivity(intent);

@@ -113,15 +113,15 @@
     <string name="description_info">Info</string>
     <string name="request_permission">This sample needs camera permission.</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
-    <string name="title_activity_inquire_location">Inquire Location</string>
+    <string name="title_activity_inquire_location">Inquire</string>
     <string name="check_pallet">Pallet</string>
     <string name="check_location">Location</string>
-    <string name="title_activity_inquire_location51">InquireLocation</string>
+    <string name="title_activity_inquire_location51">Inquire</string>
     <string name="location_description">Description:</string>
     <string name="pallet_inv_qty">InvQty:</string>
     <string name="pallet_balance_qty">BalanceQty:</string>
     <string name="pallet_rack">Rack:</string>
-    <string name="title_activity_inquire_location52">Inquire Location</string>
+    <string name="title_activity_inquire_location52">Inquire</string>
     <string name="enter_rack_id">Enter Rack</string>
     <string name="quantity">Quantity:</string>
 

@@ -16,6 +16,9 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.net.Uri;
+import android.os.Environment;
+import android.support.v4.content.FileProvider;
 import android.util.Base64;
 import android.view.Display;
 import android.view.WindowManager;
@@ -45,8 +48,11 @@ public class Utils {
         //File directory = new File(
         //        android.os.Environment.getExternalStorageDirectory()
         //                + File.separator + AppConstant.PHOTO_ALBUM);
-        
-        File directory = _context.getDir("images", Context.MODE_PRIVATE);
+        File directory = activity.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//        File directory = _context.getDir("images", Context.MODE_PRIVATE);
+//        File[] files = directory.listFiles();
+//        for (File file : files)
+//            file.length();
         SharedPreferences sharedPref = activity.getSharedPreferences(
         		activity.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         int currenPallet = sharedPref.getInt(activity.getString(R.string.saved_current_pallet), 0);
@@ -66,11 +72,14 @@ public class Utils {
                 	String pictureName = pictures.getString(pictures.getColumnIndexOrThrow(PictureEntry.COLUMN_NAME_NAME));
                     // get file path
                     String filePath = directory.getAbsolutePath() + File.separator + pictureName;
- 
+                    File photoFile = new File(filePath);
+//                    Uri imageUri = FileProvider.getUriForFile(activity, "com.products.qc.fileprovider", photoFile);
+//                    String filePath = imageUri + File.separator + pictureName;
+
                     // check for supported file extension
                     //if (IsSupportedFile(filePath)) {
                         // Add image path to array list
-                        filePaths.add(filePath);
+                        filePaths.add(photoFile.getAbsolutePath());
                     //}
                     pictures.moveToNext();
                 }
@@ -126,6 +135,59 @@ public class Utils {
         }
         columnWidth = point.x;
         return columnWidth;
+    }
+
+    public static boolean requiredSample(Activity activity) {
+        Cursor products = QueryRepository.getAllProducts(activity);
+        boolean requiredSampled = false;
+
+        for (int i = 0; i < products.getCount(); i++) {
+            int min = products.getInt(products.getColumnIndexOrThrow(ProductReaderContract.ProductEntry.COLUMN_NAME_MIN));
+            int productId = products.getInt(products.getColumnIndexOrThrow(ProductReaderContract.ProductEntry.COLUMN_NAME_ENTRY_ID));
+            int sampled = QueryRepository.getSampledSamplingCountByProduct(activity, productId);
+
+            if (sampled < min) {
+                requiredSampled = true;
+                //SendDataDialogFragment sendDatadialog = new SendDataDialogFragment();
+                //sendDatadialog.show(getFragmentManager(), "sendDatadialog");
+                break;
+            }
+            products.moveToNext();
+        }
+        return requiredSampled;
+    }
+
+    public static int sampledCount(Activity activity) {
+        Cursor products = QueryRepository.getAllProducts(activity);
+        int count = 0;
+
+        for (int i = 0; i < products.getCount(); i++) {
+            int productId = products.getInt(products.getColumnIndexOrThrow(ProductReaderContract.ProductEntry.COLUMN_NAME_ENTRY_ID));
+            int sampled = QueryRepository.getSampledSamplingCountByProduct(activity, productId);
+
+            count += sampled;
+            products.moveToNext();
+        }
+        return count;
+    }
+
+    /* Checks if external storage is available for read and write */
+    public static boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
+    }
+
+    /* Checks if external storage is available to at least read */
+    public static boolean isExternalStorageReadable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+            return true;
+        }
+        return false;
     }
 }
 

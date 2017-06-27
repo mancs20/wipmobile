@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -20,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class DisplayManifestActivity extends ActionBarActivity {
+    public Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +74,15 @@ public class DisplayManifestActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        menu.clear();
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.display_manifest, menu);
-
+        getMenuInflater().inflate(R.menu.main, menu);
+        this.menu = menu;
+        SharedPreferences sharedPref = this.getSharedPreferences(
+                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        String currentPallet = String.valueOf(sharedPref.getInt(getString(R.string.saved_current_pallet), 0));
+        if (currentPallet.equals("0") || Utils.sampledCount(this) == 0)
+            menu.removeItem(R.id.action_send_data);
         return true;
     }
 
@@ -129,6 +139,26 @@ public class DisplayManifestActivity extends ActionBarActivity {
                 AppConstant.mainMenu = true;
                 this.finish();
                 return true;
+            case R.id.action_send_data:
+                if (Utils.requiredSample(this)) {
+                    final Activity activity = this;
+                    new AlertDialog.Builder(this)
+                            .setTitle("Send Data")
+                            .setMessage("Quality Control uncompleted")
+                            .setNegativeButton(android.R.string.cancel, null) // dismisses by default
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override public void onClick(DialogInterface dialog, int which) {
+                                    QControlCaller c = new QControlCaller(activity);
+                                    c.start();
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    QControlCaller c = new QControlCaller(this);
+                    c.start();
+                }
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -141,6 +171,12 @@ public class DisplayManifestActivity extends ActionBarActivity {
     public void next(View view) {
         Intent intent = new Intent(this, TemperatureGrowerPlusActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        onCreateOptionsMenu(menu);
     }
 
     @Override

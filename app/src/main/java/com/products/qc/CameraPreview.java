@@ -2,6 +2,7 @@ package com.products.qc;
 
 import java.io.IOException;
 
+import android.app.Activity;
 import android.content.Context;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
@@ -38,7 +39,10 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         	//It is better to use defined constraints as opposed to String, thanks to AbdelHady
         	//params.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
         	//mCamera.setParameters(params);
-        	mCamera.setDisplayOrientation(90);
+//            Camera.Parameters parameters = mCamera.getParameters();
+//            parameters.setRotation(90);
+//            mCamera.setParameters(parameters);
+//        	mCamera.setDisplayOrientation(90);
             mCamera.setPreviewDisplay(holder);
             mCamera.startPreview();
         } catch (IOException e) {
@@ -79,9 +83,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             Log.d("", "Error starting camera preview: " + e.getMessage());
         }
     }
-    
 
-    
     public void refreshCamera(Camera camera) {
     	if (mHolder.getSurface() == null) {
     	    // preview surface does not exist
@@ -120,17 +122,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     /** A safe way to get an instance of the Camera object. */
     public static Camera getCameraInstance(){
     	//releaseCamera();
-    	int cameraId = -1;
-    	// Search for the front facing camera
-    	int numberOfCameras = Camera.getNumberOfCameras();
-    	for (int i = 0; i < numberOfCameras; i++) {
-	    	CameraInfo info = new CameraInfo();
-	    	Camera.getCameraInfo(i, info);
-	    	if (info.facing == CameraInfo.CAMERA_FACING_BACK) {
-		    	cameraId = i;
-		    	break;
-	    	}
-    	}
+    	int cameraId = getCameraId();
     	
         Camera c = null;
         try {
@@ -141,5 +133,56 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             // Camera is not available (in use or does not exist) Fail to connect to camera service
         }
         return c; // returns null if camera is unavailable
+    }
+
+    public static int getCameraId(){
+        int cameraId = -1;
+        // Search for the front facing camera
+        int numberOfCameras = Camera.getNumberOfCameras();
+        for (int i = 0; i < numberOfCameras; i++) {
+            CameraInfo info = new CameraInfo();
+            Camera.getCameraInfo(i, info);
+            if (info.facing == CameraInfo.CAMERA_FACING_BACK) {
+                cameraId = i;
+                break;
+            }
+        }
+        return cameraId;
+    }
+
+    public static void setCameraDisplayOrientation(Activity activity,
+                                                   int cameraId, android.hardware.Camera camera)
+    {
+        android.hardware.Camera.CameraInfo info = new android.hardware.Camera.CameraInfo();
+        android.hardware.Camera.getCameraInfo(cameraId, info);
+        int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+        int degrees = 0;
+        switch (rotation)
+        {
+            case Surface.ROTATION_0:
+                degrees = 0;
+                break;
+            case Surface.ROTATION_90:
+                degrees = 90;
+                break;
+            case Surface.ROTATION_180:
+                degrees = 180;
+                break;
+            case Surface.ROTATION_270:
+                degrees = 270;
+                break;
+        }
+
+        int result;
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT)
+        {
+            result = (info.orientation + degrees) % 360;
+            result = (360 - result) % 360; // compensate the mirror
+        }
+        else
+        { // back-facing
+            result = (info.orientation - degrees + 360) % 360;
+        }
+        camera.setDisplayOrientation(result);
     }
 }

@@ -2,7 +2,9 @@ package com.products.qc;
 
 import android.R.integer;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -55,8 +57,12 @@ public class QcFactorTableActivity extends ActionBarActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.qc_factor_table, menu);		
-		
+		getMenuInflater().inflate(R.menu.qc_factor_table, menu);
+		SharedPreferences sharedPref = this.getSharedPreferences(
+				getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+		String currentPallet = String.valueOf(sharedPref.getInt(getString(R.string.saved_current_pallet), 0));
+		if (currentPallet.equals("0") || Utils.sampledCount(this) == 0)
+			menu.removeItem(R.id.action_send_data);
 		Cursor icFactorTables =  QueryRepository.getAllQcFactorTables(this);
 		if(icFactorTables.getCount() < 2)		
 			menu.getItem(3).setVisible(false);
@@ -90,6 +96,26 @@ public class QcFactorTableActivity extends ActionBarActivity {
 			case R.id.action_main_menu:
 				AppConstant.mainMenu = true;
 				this.finish();
+				return true;
+			case R.id.action_send_data:
+				if (Utils.requiredSample(this)) {
+					final Activity activity = this;
+					new AlertDialog.Builder(this)
+							.setTitle("Send Data")
+							.setMessage("Quality Control uncompleted")
+							.setNegativeButton(android.R.string.cancel, null) // dismisses by default
+							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+								@Override public void onClick(DialogInterface dialog, int which) {
+									QControlCaller c = new QControlCaller(activity);
+									c.start();
+								}
+							})
+							.create()
+							.show();
+				} else {
+					QControlCaller c = new QControlCaller(this);
+					c.start();
+				}
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);

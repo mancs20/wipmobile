@@ -24,6 +24,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
@@ -96,6 +98,9 @@ public class BrixPressureMeasurementsActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.brix_pressure_measurements, menu);
+		String currentPallet = String.valueOf(sharedPref.getInt(getString(R.string.saved_current_pallet), 0));
+		if (currentPallet.equals("0") || Utils.sampledCount(this) == 0)
+			menu.removeItem(R.id.action_send_data);
 		return true;
 	}
 
@@ -122,6 +127,26 @@ public class BrixPressureMeasurementsActivity extends ActionBarActivity {
 			case R.id.action_main_menu:
 				AppConstant.mainMenu = true;
 				this.finish();
+				return true;
+			case R.id.action_send_data:
+				if (Utils.requiredSample(this)) {
+					final Activity activity = this;
+					new AlertDialog.Builder(this)
+							.setTitle("Send Data")
+							.setMessage("Quality Control uncompleted")
+							.setNegativeButton(android.R.string.cancel, null) // dismisses by default
+							.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+								@Override public void onClick(DialogInterface dialog, int which) {
+									QControlCaller c = new QControlCaller(activity);
+									c.start();
+								}
+							})
+							.create()
+							.show();
+				} else {
+					QControlCaller c = new QControlCaller(this);
+					c.start();
+				}
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);

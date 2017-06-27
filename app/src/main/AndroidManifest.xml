@@ -10,16 +10,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
@@ -49,35 +45,34 @@
         <activity
             android:name=".DisplayManifestActivity"
             android:label="@string/title_activity_display_manifest"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".FullScreenViewActivity"
             android:label="@string/title_activity_full_screen_view"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GridViewActivity"
             android:label="@string/title_activity_grid_view"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".TemperatureGrowerPlusActivity"
             android:label="@string/title_activity_temperature_grower_plus"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QcFactorTableActivity"
             android:label="@string/title_activity_qc_factor_table"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".BrixPressureMeasurementsActivity"
             android:label="@string/title_activity_brix_pressure_measurements"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".StatusActivity"
             android:label="@string/title_activity_status"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CameraActivity"
-            android:label="@string/title_activity_camera"
-            android:screenOrientation="portrait" />
+            android:label="@string/title_activity_camera" />
         <activity
             android:name=".InquireLocationActivity"
             android:label="@string/title_activity_inquire_location"
@@ -118,7 +113,9 @@
             android:name=".LocationIntroductionActivity"
             android:label="@string/title_activity_location_introduction"
             android:screenOrientation="portrait" />
-        <activity android:name=".InventoryQuantityActivity"></activity>
+        <activity android:name=".InventoryQuantityActivity"
+            android:label="@string/title_activity_rack_inventory"
+            android:screenOrientation="portrait"  />
     </application>
 
 </manifest>
