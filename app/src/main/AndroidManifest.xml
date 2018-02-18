@@ -127,7 +127,8 @@
             android:label="@string/title_activity_altag_altag" />
         <activity
             android:name=".InquireLocation53Activity"
-            android:label="@string/title_activity_inquire_location53"></activity>
+            android:label="@string/title_activity_inquire_location53" />
+        <activity android:name=".CameraToolActivity"></activity>
     </application>
 
 </manifest>

@@ -11,6 +11,7 @@
     <string name="button_back">Back</string>
     <string name="button_login">Login</string>
     <string name="button_send_email">Send</string>
+    <string name="button_go_cameratool">Camera Tool</string>
     <string name="button_quality_control">Quality Control</string>
     <string name="button_floor_management">Floor Management</string>
     <string name="button_place_pallet">Place Pallet</string>
@@ -147,5 +148,7 @@
     <string name="title_activity_altag_pallet">Tag</string>
     <string name="title_activity_altag_altag">Alternative Tag</string>
     <string name="title_activity_inquire_location53">Lot Inquiry</string>
+    <string name="lot_string">Lot</string>
+    <string name="tag_string">Tag</string>
 
 </resources>

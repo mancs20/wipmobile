@@ -49,6 +49,11 @@ public class ChoiceToolsActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    public void cameraTool(View view){
+        Intent intent = new Intent(this, CameraToolActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onStart()
     {

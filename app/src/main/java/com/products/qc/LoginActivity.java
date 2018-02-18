@@ -46,11 +46,11 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     public void login(View view) {
-//        // Pa probar
-//        Intent intent = new Intent(this, ChoiceToolsActivity.class);
-//        startActivity(intent);
-
-        String user = userEditText.getText().toString();
+        //TODO comment this (code between the 2 TODOs) in production version, this is only to test camera tool without login in the system
+        Intent intent = new Intent(this, ChoiceToolsActivity.class);
+        startActivity(intent);
+        //TODO uncomment the following in production version. This is comment to try the new tool without necessity of getting connected with the system
+        /*String user = userEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         if (user.equals("")) {
             Toast.makeText(LoginActivity.this, "Enter User", Toast.LENGTH_LONG).show();
@@ -64,7 +64,7 @@ public class LoginActivity extends ActionBarActivity {
             rslt = "START";
             Caller1 c = new Caller1(this, user, password);
             c.start();
-        }
+        }*/
     }
 
     public void loginCorrect()
