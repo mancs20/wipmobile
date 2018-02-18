@@ -10,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -52,7 +53,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/check_location"
-                android:inputType="number"
+                android:inputType="text"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.internal.widget.TintRadioButton
+                android:id="@+id/radio_button_lot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkLot"
+                android:text="@string/check_lot"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <android.support.v7.internal.widget.TintEditText
+                android:id="@+id/edit_text_lot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/check_lot"
+                android:inputType="text"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         </TableRow>

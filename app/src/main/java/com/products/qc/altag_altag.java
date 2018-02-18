@@ -1,9 +1,9 @@
 package com.products.qc;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,26 +19,31 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-public class InventoryQuantityActivity extends ActionBarActivity {
-
+public class altag_altag extends ActionBarActivity {
+    EditText altTagEditText;
     public static String rslt = "";
-    private EditText editTextQuantity;
+    SharedPreferences sharedPref;
+    String altTag;
+    String pallet = AppConstant.palletTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inventory_quantity);
+        setContentView(R.layout.activity_altag_altag);
 
-        editTextQuantity = (EditText) findViewById(R.id.edit_text_quantity);
+        altTagEditText = (EditText) findViewById(R.id.altag_enter);
 
-        editTextQuantity.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        altTagEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE) || actionId == EditorInfo.IME_ACTION_NEXT) {
-                    next(null);
+                    locationValidation(null);
                 }
                 return false;
             }
         });
+
+        altTagEditText.requestFocus();
+        altTagEditText.setSelected(true);
     }
 
     @Override
@@ -69,47 +74,62 @@ public class InventoryQuantityActivity extends ActionBarActivity {
         }
     }
 
-    public void next(View view) {
-        if(editTextQuantity.getText().toString().equals(""))
-            Toast.makeText(this, "Enter quantity.", Toast.LENGTH_LONG).show();
-        else {
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        if (AppConstant.mainMenu || AppConstant.signout)
+            finish();
+    }
+
+    public void back(View view){
+        this.finish();
+    }
+
+    public void locationValidation(View view)
+    {
+        altTag = altTagEditText.getText().toString();
+        if (altTag.equals("")) {
+            Toast.makeText(altag_altag.this, "Enter Alternative Tag", Toast.LENGTH_LONG).show();
+        } else {
+            //locationCorrect();
+            //LocationValidationWebServiceDialogFragment lvwsdf = new LocationValidationWebServiceDialogFragment(this, AppConstant.palletTag, location);
+            //lvwsdf.show(this.getFragmentManager(), "connproblem");
             rslt = "START";
-            String rackId = RackInventoryActivity.rackId;
-            String quantity = editTextQuantity.getText().toString();
-            CallerQuantity c = new CallerQuantity(this, rackId, quantity);
+            CallerPalletAltTag c = new CallerPalletAltTag(this, pallet, altTag);
             c.start();
         }
     }
 
-    public void back(View view) {
-        this.finish();
-    }
 }
 
-class CallerQuantity extends Thread {
+class CallerPalletAltTag extends Thread {
     Activity activity;
-    String rackId;
-    String quantity;
+    String pallet;
+    String alttag;
 
-    public CallerQuantity(Activity activity, String rackId, String quantity) {
+    public CallerPalletAltTag(Activity activity, String pallet, String altTag) {
         this.activity = activity;
-        this.rackId = rackId;
-        this.quantity = quantity;
+        this.pallet = pallet;
+        this.alttag = altTag;
     }
 
-    public void locationCorrect()
+    public void altTagCorrect()
     {
-        switch (LocationIntroductionActivity.rslt) {
+        switch (altag_altag.rslt) {
             case "0":
+//                ConfirmationLocationDialogFragment cldf = new ConfirmationLocationDialogFragment(activity, pallet, rack, "place ");
+//                cldf.show(activity.getFragmentManager(), "connproblem");
                 AppConstant.closing = true;
-                Toast.makeText(activity, "Saved correctly.", Toast.LENGTH_LONG).show();
                 activity.finish();
+                //Intent intent = new Intent(activity, PalletIntroductionActivity.class);
+                //activity.startActivity(intent);
                 break;
             case "1":
-                Toast.makeText(activity, "Rack is not in the database.", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, "Wrong Pallet Tag.", Toast.LENGTH_LONG).show();
                 break;
             case "2":
-                Toast.makeText(activity, "Something went wrong.", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, "Try again. Something was wrong", Toast.LENGTH_LONG).show();
                 break;
             default:
                 Toast.makeText(activity, "Wrong Data.", Toast.LENGTH_LONG).show();
@@ -123,22 +143,22 @@ class CallerQuantity extends Thread {
             cp.setCancelable(false);
             cp.show(activity.getFragmentManager(), "sendingdata");
 
-            String SOAP_ACTION = "http://tempuri.org/physicalInventory";
-            String OPERATION_NAME = "physicalInventory";
+            String SOAP_ACTION = "http://tempuri.org/altTagPallet";
+            String OPERATION_NAME = "altTagPallet";
             String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
             String SOAP_ADDRESS = "http://www.gmendez.net/WIP.WSWMService/WMService.asmx";
 
             SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
             PropertyInfo pi = new PropertyInfo();
-            pi.setName("Rack");
-            pi.setValue(rackId);
-            pi.setType(String.class);
+            pi.setName("Tag");
+            pi.setValue(pallet);
+            pi.setType(Long.class);
             request.addProperty(pi);
 
             PropertyInfo pi1 = new PropertyInfo();
-            pi1.setName("Qty");
-            pi1.setValue(quantity);
-            pi1.setType(Integer.class);
+            pi1.setName("altTag");
+            pi1.setValue(alttag);
+            pi1.setType(String.class);
             request.addProperty(pi1);
 
             PropertyInfo pi2 = new PropertyInfo();
@@ -170,10 +190,10 @@ class CallerQuantity extends Thread {
 //                cp2.show(activity.getFragmentManager(), "connproblem");
 //                this.stop();
 //            }
-            LocationIntroductionActivity.rslt = response.toString();
+            altag_altag.rslt = response.toString();
             activity.runOnUiThread(new Runnable() {
                 public void run() {
-                    locationCorrect();
+                    altTagCorrect();
                 }
             });
             //((PalletIntroductionActivity)activity).palletCorrect();

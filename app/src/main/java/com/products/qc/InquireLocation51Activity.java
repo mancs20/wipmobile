@@ -18,11 +18,15 @@ public class InquireLocation51Activity extends ActionBarActivity {
         TextView invQty = (TextView)findViewById(R.id.pallet_inv_qty);
         TextView balanceQty = (TextView)findViewById(R.id.pallet_balance_qty);
         TextView rackSourceId = (TextView)findViewById(R.id.pallet_rack_source_id);
+        TextView lot = (TextView)findViewById(R.id.pallet_lot);
+        TextView size = (TextView)findViewById(R.id.pallet_size);
 
         palletID.setText(palletID.getText() + " " + InquireLocationActivity.palletTag);
         invQty.setText(invQty.getText() + " " + InquireLocationActivity.invQty);
         balanceQty.setText(balanceQty.getText() + " " + InquireLocationActivity.balanceQty);
         rackSourceId.setText(rackSourceId.getText() + " " + InquireLocationActivity.rackIdSource);
+        lot.setText(lot.getText() + " " + InquireLocationActivity.lot);
+        size.setText(size.getText() + " " + InquireLocationActivity.size);
     }
 
     @Override

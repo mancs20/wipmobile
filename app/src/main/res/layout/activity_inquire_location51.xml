@@ -34,6 +34,20 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
+            android:id="@+id/pallet_lot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pallet_lot"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/pallet_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pallet_size"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
             android:id="@+id/pallet_rack_source_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

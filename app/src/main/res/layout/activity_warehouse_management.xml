@@ -19,18 +19,25 @@
 
         <Button
             android:id="@+id/button_inquiry_location"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_inquiry_location"
             android:onClick="inquiryLocation"
             android:layout_gravity="right"/>
 
         <Button
-            android:id="@+id/button_unlocate_pallet"
+        android:id="@+id/button_physical_inventory"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_inventory"
+        android:onClick="physicalInventory" />
+
+        <Button
+            android:id="@+id/button_alt_tag"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_inventory"
-            android:onClick="unlocatePallet" />
+            android:text="@string/button_alttag"
+            android:onClick="enterAltTag" />
 
         <Button
             android:id="@+id/button_back"

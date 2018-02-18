@@ -30,10 +30,16 @@ public class InquireLocation52Activity extends ActionBarActivity {
             invQtyText.setText(InquireLocationActivity.racks.get(i).getIntQty());
             TextView idBalanceQty = new TextView(this);
             idBalanceQty.setText(InquireLocationActivity.racks.get(i).getBalanceQty());
+            TextView lot = new TextView(this);
+            lot.setText(InquireLocationActivity.racks.get(i).getLot());
+            TextView size = new TextView(this);
+            size.setText(InquireLocationActivity.racks.get(i).getSize());
 
             row.addView(idText);
             row.addView(invQtyText);
             row.addView(idBalanceQty);
+            row.addView(lot);
+            row.addView(size);
 
             table.addView(row);
 

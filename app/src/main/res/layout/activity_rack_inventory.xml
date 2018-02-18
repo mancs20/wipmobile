@@ -6,52 +6,41 @@
     android:layout_height="match_parent"
     tools:context="com.products.qc.RackInventoryActivity">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerInParent="true">
 
-        <TableRow
+        <EditText
+            android:id="@+id/edit_text_rack_id"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_rack_id"
+            android:inputType="text"
+            android:layout_gravity="center">
+            <requestFocus />
+        </EditText>
 
-            <android.support.v7.internal.widget.CompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/rack_id"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <android.support.v7.internal.widget.TintEditText
-                android:id="@+id/edit_text_rack_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_rack_id"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:inputType="number" />
-
-        </TableRow>
-
-        <TableRow
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_back"
                 android:onClick="back"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
+                android:text="@string/edit_button_back" />
             <Button
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_next"
                 android:onClick="next"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="@string/button_next" />
 
-        </TableRow>
-    </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>

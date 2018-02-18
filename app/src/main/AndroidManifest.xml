@@ -17,6 +17,8 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -113,9 +115,19 @@
             android:name=".LocationIntroductionActivity"
             android:label="@string/title_activity_location_introduction"
             android:screenOrientation="portrait" />
-        <activity android:name=".InventoryQuantityActivity"
+        <activity
+            android:name=".InventoryQuantityActivity"
             android:label="@string/title_activity_rack_inventory"
-            android:screenOrientation="portrait"  />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".altag_pallet"
+            android:label="@string/title_activity_altag_pallet" />
+        <activity
+            android:name=".altag_altag"
+            android:label="@string/title_activity_altag_altag" />
+        <activity
+            android:name=".InquireLocation53Activity"
+            android:label="@string/title_activity_inquire_location53"></activity>
     </application>
 
 </manifest>

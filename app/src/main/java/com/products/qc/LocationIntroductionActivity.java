@@ -20,11 +20,22 @@ import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+
+import java.io.StringReader;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import dialogs.LocationValidationWebServiceDialogFragment;
 
 public class LocationIntroductionActivity extends ActionBarActivity {
     EditText locationEditText;
+    TextView tv1;
     public static String rslt = "";
     SharedPreferences sharedPref;
     String location;
@@ -35,7 +46,7 @@ public class LocationIntroductionActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_introduction);
         locationEditText = (EditText) findViewById(R.id.location_enter);
-
+        tv1=(TextView)findViewById(R.id.textView1);
         locationEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE) || actionId == EditorInfo.IME_ACTION_NEXT) {
@@ -44,6 +55,11 @@ public class LocationIntroductionActivity extends ActionBarActivity {
                 return false;
             }
         });
+
+        locationEditText.requestFocus();
+        locationEditText.setSelected(true);
+
+        loadLot();
     }
 
     @Override
@@ -82,6 +98,68 @@ public class LocationIntroductionActivity extends ActionBarActivity {
             finish();
     }
 
+    public void loadLot()
+    {
+
+        String test="";
+
+
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            StringReader sr = new StringReader( AppConstant.currentLot);
+            InputSource is = new InputSource(sr);
+            Document doc = dBuilder.parse(is);
+
+            Element element=doc.getDocumentElement();
+            element.normalize();
+
+            NodeList nList = doc.getElementsByTagName("LineLot");
+
+            for (int i=0; i<nList.getLength(); i++) {
+
+                Node node = nList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+
+                    test = test + getValue("description", (Element) node) + " \n";
+
+                    NodeList tagList = ((Element) node).getElementsByTagName("LineTag");
+                    for (int j = 0; j < tagList.getLength(); j++) {
+
+                        Node nodetag = tagList.item(j);
+                        if (nodetag.getNodeType() == Node.ELEMENT_NODE) {
+                            test = test + "     Tag: " + getValue("tagid", (Element) nodetag) + "   ";
+                            test = test + "     InvQty:" + getValue("invqty", (Element) nodetag) + "   ";
+                            test = test + "     BalanceQty: " + getValue("balanceqty", (Element) nodetag) + "   ";
+                            test = test + "     Lot:" + getValue("lot", (Element) nodetag) + "   ";
+
+                            test = test + "     Loc:" + getValue("loc", (Element) nodetag) + "   ";
+
+                            test = test+"\n";
+                        }
+
+                    }
+                }
+                test=test+"--------------------------------------------\n";
+            }tv1.setText(test);
+
+
+
+
+        }catch(Exception ex)
+        {
+
+        }
+    }
+
+    private String getValue(String tag, Element element) {
+        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
+        if (nodeList.getLength()>0) {
+            Node node = nodeList.item(0);
+            return node.getNodeValue();
+        }
+        return "";
+    }
     public void back(View view){
         this.finish();
     }
@@ -123,6 +201,8 @@ class CallerPalletLocation extends Thread {
 //                cldf.show(activity.getFragmentManager(), "connproblem");
                 AppConstant.closing = true;
                 activity.finish();
+                //Intent intent = new Intent(activity, PalletIntroductionActivity.class);
+                //activity.startActivity(intent);
                 break;
             case "1":
                 Toast.makeText(activity, "Wrong Pallet Tag.", Toast.LENGTH_LONG).show();
@@ -157,8 +237,20 @@ class CallerPalletLocation extends Thread {
             PropertyInfo pi1 = new PropertyInfo();
             pi1.setName("Rack");
             pi1.setValue(rack);
-            pi1.setType(Integer.class);
+            pi1.setType(String.class);
             request.addProperty(pi1);
+
+            PropertyInfo pi2 = new PropertyInfo();
+            pi2.setName("User");
+            pi2.setValue(AppConstant.user);
+            pi2.setType(String.class);
+            request.addProperty(pi2);
+
+            PropertyInfo pi3 = new PropertyInfo();
+            pi3.setName("Password");
+            pi3.setValue(AppConstant.password);
+            pi3.setType(String.class);
+            request.addProperty(pi3);
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             envelope.dotNet = true;

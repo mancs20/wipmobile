@@ -68,7 +68,12 @@ public class RackInventoryActivity extends ActionBarActivity {
     public void onStart()
     {
         super.onStart();
-        if (AppConstant.closing || AppConstant.mainMenu || AppConstant.signout)
+
+        editTextRackId.getText().clear();
+        editTextRackId.requestFocus();
+        editTextRackId.setSelected(true);
+
+        if ( AppConstant.mainMenu || AppConstant.signout)
             finish();
     }
 

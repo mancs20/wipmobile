@@ -49,6 +49,16 @@
                         android:padding="3dip"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textStyle="bold"/>
+                    <TextView
+                        android:text="Lot"
+                        android:padding="3dip"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:text="Size"
+                        android:padding="3dip"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textStyle="bold"/>
                 </TableRow>
             </TableLayout>
         </ScrollView>

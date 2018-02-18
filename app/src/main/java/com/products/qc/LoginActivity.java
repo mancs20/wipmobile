@@ -72,6 +72,8 @@ public class LoginActivity extends ActionBarActivity {
         if (LoginActivity.rslt.equals("1"))
             Toast.makeText(this, "Wrong user name or password", Toast.LENGTH_LONG).show();
         else {
+            AppConstant.user=userEditText.getText().toString();
+            AppConstant.password=passwordEditText.getText().toString();
             Intent intent = new Intent(this, ChoiceToolsActivity.class);
             startActivity(intent);
         }

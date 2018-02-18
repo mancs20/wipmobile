@@ -32,7 +32,13 @@ public class AppConstant {
 
     public static String palletTag = "";
 
+    public static String currentLot = "";
+
     public static boolean signout = false;
+
+    public static String user="";
+
+    public static String password="";
 
     public static boolean mainMenu = false;
 }

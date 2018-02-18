@@ -30,8 +30,13 @@ public class WarehouseManagementActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void unlocatePallet(View view){
+    public void physicalInventory(View view){
         Intent intent = new Intent(this, RackInventoryActivity.class);
+        startActivity(intent);
+    }
+
+    public void enterAltTag(View view){
+        Intent intent = new Intent(this, altag_pallet.class);
         startActivity(intent);
     }
 
@@ -67,10 +72,7 @@ public class WarehouseManagementActivity extends ActionBarActivity {
     public void onStart()
     {
         super.onStart();
-        if (AppConstant.closing){
-            AppConstant.closing = false;
-            Toast.makeText(WarehouseManagementActivity.this, "Action successfully done.", Toast.LENGTH_LONG).show();
-        }
+
         if (AppConstant.signout || AppConstant.mainMenu)
             this.finish();
     }

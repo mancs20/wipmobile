@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "25.0.1"
+    //buildToolsVersion "25.0.1"
 
     defaultConfig {
         applicationId "com.products.qc"
@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
+    compile files('libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar')
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
-    compile files('libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar')
 }

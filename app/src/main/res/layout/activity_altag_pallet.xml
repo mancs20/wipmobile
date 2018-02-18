@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_inventory_quantity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.products.qc.InventoryQuantityActivity">
-
-
+    tools:context="com.products.qc.altag_pallet">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -15,10 +13,10 @@
         android:layout_centerInParent="true">
 
         <EditText
-            android:id="@+id/edit_text_quantity"
+            android:id="@+id/pallet_enter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_quantity"
+            android:hint="@string/pallet_enter"
             android:inputType="number"
             android:layout_gravity="center">
             <requestFocus />
@@ -39,7 +37,7 @@
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="next"
+                android:onClick="palletValidation"
                 android:text="@string/button_next" />
 
         </LinearLayout>
