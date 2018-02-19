@@ -134,8 +134,8 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_main">Tag</string>
     <string name="title_activity_login_recuperation">Login Recovery</string>
-    <string name="title_activity_choice_tools">Warehouse Managment</string>
-    <string name="title_activity_warehouse_management">Warehouse Managment</string>
+    <string name="title_activity_choice_tools">Warehouse Management</string>
+    <string name="title_activity_warehouse_management">Warehouse Management</string>
     <string name="title_activity_pallet_introduction">Pallet Introduction</string>
     <string name="title_activity_location_introduction">Location Introduction</string>
 
@@ -150,5 +150,6 @@
     <string name="title_activity_inquire_location53">Lot Inquiry</string>
     <string name="lot_string">Lot</string>
     <string name="tag_string">Tag</string>
+    <string name="cameras_string">Cameras</string>
 
 </resources>
