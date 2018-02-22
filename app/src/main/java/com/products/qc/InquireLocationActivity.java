@@ -3,7 +3,7 @@ package com.products.qc;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,7 +37,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import dialogs.LocationWebServiceDialogFragment;
 import dialogs.PalletWebServiceDialogFragment;
 
-public class InquireLocationActivity extends ActionBarActivity {
+public class InquireLocationActivity extends AppCompatActivity {
     public static String rslt = "";
     EditText editTextPallet;
     EditText editTextLocation;

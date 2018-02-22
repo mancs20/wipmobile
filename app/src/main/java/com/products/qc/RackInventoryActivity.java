@@ -2,7 +2,7 @@ package com.products.qc;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import dialogs.PalletTagValidationWebServiceDialogFragment;
 
-public class RackInventoryActivity extends ActionBarActivity {
+public class RackInventoryActivity extends AppCompatActivity {
 
     public static String rackId;
     private EditText editTextRackId;

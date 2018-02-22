@@ -2,11 +2,12 @@ package com.products.qc;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 
-public class CamerasSettingActivity extends ActionBarActivity {
+public class CamerasSettingActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;

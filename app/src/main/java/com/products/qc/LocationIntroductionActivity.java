@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +33,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import dialogs.LocationValidationWebServiceDialogFragment;
 
-public class LocationIntroductionActivity extends ActionBarActivity {
+public class LocationIntroductionActivity extends AppCompatActivity {
     EditText locationEditText;
     TextView tv1;
     public static String rslt = "";

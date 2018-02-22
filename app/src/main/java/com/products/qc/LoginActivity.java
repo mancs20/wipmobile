@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -22,7 +22,7 @@ import org.ksoap2.transport.HttpTransportSE;
 import dialogs.LoginWebServiceDialogFragment;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends AppCompatActivity {
     EditText userEditText;
     EditText passwordEditText;
     public static String rslt = "";

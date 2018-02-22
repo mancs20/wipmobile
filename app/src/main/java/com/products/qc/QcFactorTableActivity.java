@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,9 +34,9 @@ import com.products.qc.IcfactorDataReaderContract.IcfactorDataEntry;
 import com.products.qc.IcfactorReaderContract.IcfactorEntry;
 import com.products.qc.PalletReaderContract.PalletEntry;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
-public class QcFactorTableActivity extends ActionBarActivity {
+public class QcFactorTableActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

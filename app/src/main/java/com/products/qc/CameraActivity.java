@@ -31,7 +31,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Surface;
 import android.view.View;
 import android.widget.Button;
@@ -47,7 +47,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CameraActivity extends ActionBarActivity {
+public class CameraActivity extends AppCompatActivity {
 
     private Camera mCamera;
     private CameraPreview mPreview;

@@ -3,7 +3,7 @@ package com.products.qc;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -20,7 +20,7 @@ import org.ksoap2.transport.HttpTransportSE;
 import dialogs.LoginWebServiceDialogFragment;
 import dialogs.RecuperationLoginWebServiceDialogFragment;
 
-public class LoginRecuperationActivity extends ActionBarActivity {
+public class LoginRecuperationActivity extends AppCompatActivity {
 
     EditText emailEditText;
     public static String rslt = "";

@@ -34,9 +34,9 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
  
-public class GridViewActivity extends ActionBarActivity {
+public class GridViewActivity extends AppCompatActivity {
  
     private Utils utils;
     private ArrayList<String> imagePaths = new ArrayList<String>();

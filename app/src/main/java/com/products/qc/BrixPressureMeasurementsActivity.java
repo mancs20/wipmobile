@@ -50,9 +50,9 @@ import com.products.qc.PalletReaderContract.PalletEntry;
 import com.products.qc.PictureReaderContract.PictureEntry;
 import com.products.qc.ProductReaderContract.ProductEntry;
 import com.products.qc.SamplingReaderContract.SamplingEntry;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
-public class BrixPressureMeasurementsActivity extends ActionBarActivity {
+public class BrixPressureMeasurementsActivity extends AppCompatActivity {
 	SharedPreferences sharedPref;
 	ArrayAdapter<CharSequence> adapter;
 	Spinner measurementsSpinner;

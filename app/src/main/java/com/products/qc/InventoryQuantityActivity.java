@@ -2,7 +2,7 @@ package com.products.qc;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -19,7 +19,7 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-public class InventoryQuantityActivity extends ActionBarActivity {
+public class InventoryQuantityActivity extends AppCompatActivity {
 
     public static String rslt = "";
     private EditText editTextQuantity;

@@ -12,13 +12,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 
-public class FullScreenViewActivity extends ActionBarActivity{
+public class FullScreenViewActivity extends AppCompatActivity {
 
 	private Utils utils;
 	private FullScreenImageAdapter adapter;

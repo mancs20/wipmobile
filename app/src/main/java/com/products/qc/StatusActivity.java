@@ -9,7 +9,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +28,7 @@ import com.products.qc.ProductReaderContract.ProductEntry;
 import java.util.ArrayList;
 import java.util.TimerTask;
 
-public class StatusActivity extends ActionBarActivity {
+public class StatusActivity extends AppCompatActivity {
 	
 	public static String rslt="";
 	QControlCaller c;

@@ -3,7 +3,7 @@ package com.products.qc;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +19,7 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-public class altag_altag extends ActionBarActivity {
+public class altag_altag extends AppCompatActivity {
     EditText altTagEditText;
     public static String rslt = "";
     SharedPreferences sharedPref;

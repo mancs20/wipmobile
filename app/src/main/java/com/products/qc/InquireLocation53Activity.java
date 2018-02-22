@@ -1,7 +1,7 @@
 package com.products.qc;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +18,7 @@ import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class InquireLocation53Activity extends ActionBarActivity {
+public class InquireLocation53Activity extends AppCompatActivity {
     TextView tv1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

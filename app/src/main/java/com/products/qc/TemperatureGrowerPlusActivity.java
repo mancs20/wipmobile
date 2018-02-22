@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import com.products.qc.SamplingReaderContract.SamplingEntry;
 
-public class TemperatureGrowerPlusActivity extends ActionBarActivity {
+public class TemperatureGrowerPlusActivity extends AppCompatActivity {
 	SharedPreferences sharedPref;
 	EditText edit_plus;
 	TextView textview_plus;
