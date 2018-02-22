@@ -151,5 +151,6 @@
     <string name="lot_string">Lot</string>
     <string name="tag_string">Tag</string>
     <string name="cameras_string">Cameras</string>
+    <string name="menu_camera_tool_ip">Cameras IP</string>
 
 </resources>
