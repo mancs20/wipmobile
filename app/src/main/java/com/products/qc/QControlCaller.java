@@ -173,7 +173,7 @@ public class QControlCaller extends Thread {
         } catch (Exception exception) {
             cp.dismiss();
             response = exception.toString();
-            ConnectionProblemDialogFragment cp = new ConnectionProblemDialogFragment(activity);
+            ConnectionProblemDialogFragment cp = new ConnectionProblemDialogFragment();
             cp.show(activity.getFragmentManager(), "connproblem");
             this.stop();
         }
@@ -211,7 +211,7 @@ public class QControlCaller extends Thread {
         } catch (Exception exception) {
             cp.dismiss();
             response = exception.toString();
-            ConnectionProblemDialogFragment cp = new ConnectionProblemDialogFragment(activity);
+            ConnectionProblemDialogFragment cp = new ConnectionProblemDialogFragment();
             cp.show(activity.getFragmentManager(), "connproblem");
             this.stop();
         }

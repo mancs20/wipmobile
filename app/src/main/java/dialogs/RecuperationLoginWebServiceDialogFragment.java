@@ -17,11 +17,6 @@ import com.products.qc.LoginRecuperationActivity;
 public class RecuperationLoginWebServiceDialogFragment extends DialogFragment{
 
 	public static String option = "";
-	Activity activity;
-	public RecuperationLoginWebServiceDialogFragment(Activity activity)
-	{
-		this.activity = activity;
-	}
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -29,7 +24,7 @@ public class RecuperationLoginWebServiceDialogFragment extends DialogFragment{
 		String[] options = new String[]{"True", "False"};
 
 
-	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    builder.setTitle("WebService Options").
 		setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog, int id) {
@@ -41,12 +36,12 @@ public class RecuperationLoginWebServiceDialogFragment extends DialogFragment{
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   if(option.equals("True")) {
-					   Toast.makeText(activity, "Incorrect email", Toast.LENGTH_LONG).show();
-					   activity.finish();
+					   Toast.makeText(getActivity(), "Incorrect email", Toast.LENGTH_LONG).show();
+					   getActivity().finish();
 				   }
 				   else{
-					   Toast.makeText(activity, "The password was sent to your email", Toast.LENGTH_LONG).show();
-					   activity.finish();
+					   Toast.makeText(getActivity(), "The password was sent to your email", Toast.LENGTH_LONG).show();
+					   getActivity().finish();
 				   }
 	           }
 	       });

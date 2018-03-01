@@ -24,12 +24,19 @@ import android.widget.TextView;
 public class ButtonType1DialogFragment extends DialogFragment {
 	int icFactorId;
 	int sl;
-	
-	public ButtonType1DialogFragment(int icFactorId, int sl){
-		this.icFactorId = icFactorId;
-		this.sl = sl;
-	}	
-	
+
+    static public ButtonType1DialogFragment newInstance(int icFactorId, int sl) {
+        ButtonType1DialogFragment f = new ButtonType1DialogFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("icFactorId", icFactorId);
+        args.putInt("sl", sl);
+        f.setArguments(args);
+
+        return f;
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction

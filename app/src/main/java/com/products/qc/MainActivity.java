@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 	            ActionBarMethods.status(this);
 	            return true;
 	        case R.id.action_restart:
-	        	RestartDialogFragment restart_dialog = new RestartDialogFragment(this);		
+	        	RestartDialogFragment restart_dialog = new RestartDialogFragment();
 	    		restart_dialog.show(this.getFragmentManager(), "display");
 	            return true;
 	        case R.id.action_freight:
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
     public void palletCorrect(String code, final Activity thisActivity) {
 		int valid = saveManifestInDataBase(MainActivity.rslt, this);
     	if (valid == 1) {
-    		PalletNotFoundDialogFragment pnf = new PalletNotFoundDialogFragment(this);
+    		PalletNotFoundDialogFragment pnf = new PalletNotFoundDialogFragment();
     		pnf.show(this.getFragmentManager(), "connproblem");
 
     	} else if (valid == 2) {
@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
 	
 	public void restartApp(View view) {
 		//ActionBarMethods.restart(this);
-		RestartDialogFragment restart_dialog = new RestartDialogFragment(this);		
+		RestartDialogFragment restart_dialog = new RestartDialogFragment();
 		restart_dialog.show(this.getFragmentManager(), "display");
 		//Restart();
 	}
@@ -806,7 +806,7 @@ class Caller extends Thread {
             catch (Exception exception) {
                 cp.dismiss();
                 response=exception.toString();
-                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment(activity);
+                ConnectionProblemDialogFragment cp2 = new ConnectionProblemDialogFragment();
             	cp2.show(activity.getFragmentManager(), "connproblem");
             	this.stop();
             }

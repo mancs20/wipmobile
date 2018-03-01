@@ -23,6 +23,21 @@ public class StatusDialogFragment extends DialogFragment {
 	public StatusDialogFragment(ArrayList<TableRow> tableRows){
 		this.tableRows = tableRows;
 	}
+
+	/**
+	 * Create a new instance of MyDialogFragment, providing "num"
+	 * as an argument.
+	 */
+	/*static StatusDialogFragment newInstance(ArrayList<TableRow> tableRows) {
+		StatusDialogFragment f = new StatusDialogFragment();
+
+		// Supply num input as an argument.
+		Bundle args = new Bundle();
+		args.arrayl("num", num);
+		f.setArguments(args);
+
+		return f;
+	}*/
 	
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

@@ -79,7 +79,7 @@ public class QcFactorTableActivity extends AppCompatActivity {
 				ActionBarMethods.status(this);
 				return true;
 			case R.id.action_restart:
-				RestartDialogFragment restart_dialog = new RestartDialogFragment(this);
+				RestartDialogFragment restart_dialog = new RestartDialogFragment();
 				restart_dialog.show(this.getFragmentManager(), "display");
 				return true;
 			case R.id.action_freight:

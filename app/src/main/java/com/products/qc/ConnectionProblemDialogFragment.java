@@ -9,15 +9,15 @@ import android.os.Bundle;
 
 public class ConnectionProblemDialogFragment extends DialogFragment{
 
-	Activity activity;
+	/*Activity activity;
 	public ConnectionProblemDialogFragment(Activity activity)
 	{
 		this.activity = activity;
-	}
-	
+	}*/
+
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    builder.setTitle("Connection Problem")
 	           .setMessage("Fail to connect to server");
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {

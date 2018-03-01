@@ -128,7 +128,7 @@ public class DisplayManifestActivity extends AppCompatActivity {
             case R.id.action_restart:
                 //AppConstant.restarting = true;
                 //finish();
-                RestartDialogFragment restart_dialog = new RestartDialogFragment(this);
+                RestartDialogFragment restart_dialog = new RestartDialogFragment();
                 restart_dialog.show(this.getFragmentManager(), "display");
                 return true;
             case R.id.action_signout:

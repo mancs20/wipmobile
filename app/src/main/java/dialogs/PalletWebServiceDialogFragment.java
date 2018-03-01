@@ -18,11 +18,6 @@ import com.products.qc.InvalidPalletDialogFragment;
 public class PalletWebServiceDialogFragment extends DialogFragment{
 
 	public static String option = "";
-	Activity activity;
-	public PalletWebServiceDialogFragment(Activity activity)
-	{
-		this.activity = activity;
-	}
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -30,7 +25,7 @@ public class PalletWebServiceDialogFragment extends DialogFragment{
 		String[] options = new String[]{"True", "False"};
 
 
-	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    builder.setTitle("WebService Options").
 		setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog, int id) {
@@ -43,10 +38,10 @@ public class PalletWebServiceDialogFragment extends DialogFragment{
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   if(option.equals("False")) {
-					   Toast.makeText(activity, "The pallet don't exist", Toast.LENGTH_LONG).show();
+					   Toast.makeText(getActivity(), "The pallet don't exist", Toast.LENGTH_LONG).show();
 				   }
 				   else{
-					   Intent inquireLocation51Intent = new Intent(activity, InquireLocation51Activity.class);
+					   Intent inquireLocation51Intent = new Intent(getActivity(), InquireLocation51Activity.class);
 					   startActivity(inquireLocation51Intent);
 				   }
 	           }

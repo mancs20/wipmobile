@@ -15,11 +15,6 @@ import com.products.qc.InvalidLoginDialogFragment;
 public class LoginWebServiceDialogFragment extends DialogFragment{
 
 	public static String option = "";
-	Activity activity;
-	public LoginWebServiceDialogFragment(Activity activity)
-	{
-		this.activity = activity;
-	}
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -27,7 +22,7 @@ public class LoginWebServiceDialogFragment extends DialogFragment{
 		String[] options = new String[]{"True", "False"};
 
 
-	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    builder.setTitle("WebService Options").
 		setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog, int id) {
@@ -39,11 +34,11 @@ public class LoginWebServiceDialogFragment extends DialogFragment{
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   if(option.equals("True")) {
-					   Intent intent = new Intent(activity, ChoiceToolsActivity.class);
+					   Intent intent = new Intent(getActivity(), ChoiceToolsActivity.class);
 					   startActivity(intent);
 				   }
 				   else{
-					   Toast.makeText(activity, "Incorrect user or password", Toast.LENGTH_LONG).show();
+					   Toast.makeText(getActivity(), "Incorrect user or password", Toast.LENGTH_LONG).show();
 				   }
 	           }
 	       });

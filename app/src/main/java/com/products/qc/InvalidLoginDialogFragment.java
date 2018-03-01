@@ -9,15 +9,9 @@ import android.os.Bundle;
 
 public class InvalidLoginDialogFragment extends DialogFragment{
 
-	Activity activity;
-	public InvalidLoginDialogFragment(Activity activity)
-	{
-		this.activity = activity;
-	}
-	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    builder.setTitle("Invalid Login")
 	           .setMessage("Invalid User or Password");
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {

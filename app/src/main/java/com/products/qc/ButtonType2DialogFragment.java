@@ -26,13 +26,21 @@ public class ButtonType2DialogFragment extends DialogFragment {
 	int sl;
 	int m;
 	int s;
-	
-	public ButtonType2DialogFragment(int icFactorId, int sl, int m, int s){
-		this.icFactorId = icFactorId;
-		this.sl = sl;
-		this.m = m;
-		this.s = s;
-	}	
+
+    static public ButtonType2DialogFragment newInstance(int icFactorId, int sl, int m, int s) {
+        ButtonType2DialogFragment f = new ButtonType2DialogFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("icFactorId", icFactorId);
+        args.putInt("sl", sl);
+        args.putInt("m", m);
+        args.putInt("s", s);
+        f.setArguments(args);
+
+        return f;
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction

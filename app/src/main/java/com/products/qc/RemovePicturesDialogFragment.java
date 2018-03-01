@@ -9,15 +9,9 @@ import android.os.Bundle;
 
 public class RemovePicturesDialogFragment extends DialogFragment{
 
-	Activity activity;
-	public RemovePicturesDialogFragment(Activity activity)
-	{
-		this.activity = activity;
-	}
-	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    builder.setTitle("Remove")
 	           .setMessage("Remove this pictures?");
 	    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

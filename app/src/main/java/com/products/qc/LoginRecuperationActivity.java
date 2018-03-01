@@ -62,7 +62,7 @@ public class LoginRecuperationActivity extends AppCompatActivity {
 
     public void emailCorrect() {
         if (LoginRecuperationActivity.rslt.equals("anyType{}")) {
-            //InvalidEmailDialogFragment ie = new InvalidEmailDialogFragment(this);
+            //InvalidEmailDialogFragment ie = new InvalidEmailDialogFragment();
             //ie.show(this.getFragmentManager(), "connproblem");
             Toast.makeText(this, "Wrong user email", Toast.LENGTH_LONG).show();
         }

@@ -9,26 +9,20 @@ import android.os.Bundle;
 
 public class RestartDialogFragment extends DialogFragment{
 
-	Activity activity;
-	public RestartDialogFragment(Activity activity)
-	{
-		this.activity = activity;
-	}
-	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    builder.setTitle("Restart")
 	           .setMessage("Restart the application?");
 	    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
-	        	   if(activity.getClass().getName().equals("com.products.qc.MainActivity")){
-	        		   ActionBarMethods.restart(activity);
-	        		   ((MainActivity)activity).Restart();
+	        	   if(getActivity().getClass().getName().equals("com.products.qc.MainActivity")){
+	        		   ActionBarMethods.restart(getActivity());
+	        		   ((MainActivity)getActivity()).Restart();
 	        	   }
 	        	   else{
 		        	   AppConstant.restarting = true;
-		               activity.finish();
+					   getActivity().finish();
 	        	   }
 	           }
 	       });

@@ -38,10 +38,10 @@ public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAd
         public ConstraintLayout cameraSettingLayout;
         public ViewHolder(View v) {
             super(v);
-            nameTextView = v.findViewById(R.id.cameraName);
-            ipTextView = v.findViewById(R.id.cameraIP);
-            cameraRemoveButton = v.findViewById(R.id.buttonRemoveCamera);
-            cameraSettingLayout = v.findViewById(R.id.cameraSettingLayout);
+            nameTextView = (TextView) v.findViewById(R.id.cameraName);
+            ipTextView = (TextView) v.findViewById(R.id.cameraIP);
+            cameraRemoveButton = (Button) v.findViewById(R.id.buttonRemoveCamera);
+            cameraSettingLayout = (ConstraintLayout) v.findViewById(R.id.cameraSettingLayout);
         }
     }
 

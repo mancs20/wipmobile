@@ -16,11 +16,6 @@ import com.products.qc.InvalidLocationDialogFragment;
 public class LocationWebServiceDialogFragment extends DialogFragment{
 
 	public static String option = "";
-	Activity activity;
-	public LocationWebServiceDialogFragment(Activity activity)
-	{
-		this.activity = activity;
-	}
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -28,7 +23,7 @@ public class LocationWebServiceDialogFragment extends DialogFragment{
 		String[] options = new String[]{"True", "False"};
 
 
-	    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 	    builder.setTitle("WebService Options").
 		setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog, int id) {
@@ -41,10 +36,10 @@ public class LocationWebServiceDialogFragment extends DialogFragment{
 	    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
 				   if(option.equals("False")) {
-					   Toast.makeText(activity, "Location doesn't exist", Toast.LENGTH_LONG).show();
+					   Toast.makeText(getActivity(), "Location doesn't exist", Toast.LENGTH_LONG).show();
 				   }
 				   else{
-					   Intent inquireLocation52Intent = new Intent(activity, InquireLocation52Activity.class);
+					   Intent inquireLocation52Intent = new Intent(getActivity(), InquireLocation52Activity.class);
 					   startActivity(inquireLocation52Intent);
 				   }
 	           }
