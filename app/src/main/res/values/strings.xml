@@ -153,5 +153,9 @@
     <string name="cameras_string">Cameras</string>
     <string name="menu_camera_tool_ip">Cameras IP</string>
     <string name="title_activity_cameras_setting">CamerasSettingActivity</string>
+    <string name="dialog_sure">Are you sure?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

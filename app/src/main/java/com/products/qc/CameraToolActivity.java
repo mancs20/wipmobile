@@ -1,5 +1,6 @@
 package com.products.qc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -23,6 +24,7 @@ public class CameraToolActivity extends AppCompatActivity {
     }
 
     public void showCameraIPSettings(MenuItem item){
-        Toast.makeText(getApplicationContext(), "funcino", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, CamerasSettingActivity.class);
+        startActivity(intent);
     }
 }

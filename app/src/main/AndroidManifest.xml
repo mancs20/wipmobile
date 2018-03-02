@@ -131,7 +131,8 @@
         <activity android:name=".CameraToolActivity" />
         <activity
             android:name=".CamerasSettingActivity"
-            android:label="@string/title_activity_cameras_setting"></activity>
+            android:label="@string/title_activity_cameras_setting" />
+        <activity android:name=".OneCameraSettingActivity"></activity>
     </application>
 
 </manifest>
