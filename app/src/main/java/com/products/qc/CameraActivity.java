@@ -110,10 +110,10 @@ public class CameraActivity extends AppCompatActivity {
                 //out.close();
 				rotatePicture(nombreFoto, data);
             } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
             mPreview.refreshCamera(mCamera);

@@ -59,7 +59,7 @@ public class StatusDialogFragment extends DialogFragment {
         builder.setTitle("Status").setItems(adapter, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
+
 				
 			}
 		})

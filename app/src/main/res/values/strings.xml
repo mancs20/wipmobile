@@ -100,7 +100,9 @@
     <string name="textview_pressure">Pressure:</string>
     <string name="textview_measurements">Measurements:</string>
     <string name="textview_user">User:</string>
+    <string name="user">User</string>
     <string name="textview_password">Password:</string>
+    <string name="password">Password</string>
     <string name="edit_brix">Enter Brix</string>
     <string name="edit_pressure">Enter Pressure</string>
     <string name="edit_measurements">Enter Measurements</string>
@@ -152,10 +154,10 @@
     <string name="tag_string">Tag</string>
     <string name="cameras_string">Cameras</string>
     <string name="menu_camera_tool_ip">Cameras IP</string>
+    <string name="camera_ip">Camera IP</string>
+    <string name="camera_name">Camera Name</string>
     <string name="title_activity_cameras_setting">CamerasSettingActivity</string>
     <string name="dialog_sure">Are you sure?</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="toast_camera_name_or_ip_empty">Camera must have name and ip</string>
 
 </resources>

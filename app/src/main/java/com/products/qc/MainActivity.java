@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
 			
 			@Override
 			public int read() throws IOException {
-				// TODO Auto-generated method stub
+
 				return 0;
 			}
 		};
@@ -717,13 +717,13 @@ public class MainActivity extends AppCompatActivity {
          	productdb.close();
             //dfs(document, leafs, data, 0);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} 
 		return 0;

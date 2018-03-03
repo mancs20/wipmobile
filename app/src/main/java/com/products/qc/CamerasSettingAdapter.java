@@ -3,7 +3,9 @@ package com.products.qc;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +31,7 @@ public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAd
     private Activity activity;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CamerasSettingAdapter(List<CameraSettings> myCamerasDataset, Activity activity) {
+    public CamerasSettingAdapter(ArrayList<CameraSettings> myCamerasDataset, Activity activity) {
         mCamerasDataSet = myCamerasDataset;
         this.activity = activity;
     }
@@ -75,7 +78,7 @@ public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAd
     private View.OnClickListener removeListener(final int position){
         return new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 final AlertDialog.Builder alertbox = new AlertDialog.Builder(activity);
                 alertbox.setMessage(R.string.dialog_sure);
                 alertbox.setPositiveButton(R.string.button_yes,
@@ -90,6 +93,11 @@ public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAd
                                 notifyItemRemoved(position);
                                 notifyItemRangeChanged(position,mCamerasDataSet.size());
                                 // Show the removed item label
+
+                                ArrayList<CameraSettings> cameras = CameraSettings.getCamerasFromSharedPreferences(v.getContext());
+                                cameras.remove(position);
+                                CameraSettings.saveCamerasToSharedPreferences(v.getContext(),cameras);
+
                                 Toast.makeText(activity,"Removed : " + itemLabel,Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -108,7 +116,19 @@ public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAd
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO go to OneCameraSettingActivity
+                CameraSettings camera = mCamerasDataSet.get(position);
+
+                Intent intent = new Intent(v.getContext(), OneCameraSettingActivity.class);
+                //Bundle b = new Bundle();
+                //b.put("editCamera", 1); //Your id
+                Bundle b = new Bundle();
+                b.putParcelable("cameraObject", camera);
+                b.putInt("cameraId", position);
+                /*intent.putExtra("cameraObject", camera); //Put your id to your next Intent
+                intent.putExtra("cameraId", position);*/
+                intent.putExtras(b);
+                activity.startActivity(intent);
+                activity.finish();
             }
         };
     }

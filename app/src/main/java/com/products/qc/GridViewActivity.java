@@ -312,7 +312,7 @@ public class GridViewActivity extends AppCompatActivity {
 				FileOutputStream out = new FileOutputStream(directory);
 				foto.compress(Bitmap.CompressFormat.JPEG, 100, out);
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}*/
 			//dispatchTakePictureIntent();
