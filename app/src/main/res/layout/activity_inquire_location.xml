@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <android.support.v7.internal.widget.TintRadioButton
+            <RadioButton
                 android:id="@+id/radio_button_pallet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
                 android:checked="true"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-            <android.support.v7.internal.widget.TintEditText
+            <EditText
                 android:id="@+id/edit_text_pallet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <android.support.v7.internal.widget.TintRadioButton
+            <RadioButton
                 android:id="@+id/radio_button_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 android:text="@string/check_location"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-            <android.support.v7.internal.widget.TintEditText
+            <EditText
                 android:id="@+id/edit_text_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <android.support.v7.internal.widget.TintRadioButton
+            <RadioButton
                 android:id="@+id/radio_button_lot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:text="@string/check_lot"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-            <android.support.v7.internal.widget.TintEditText
+            <EditText
                 android:id="@+id/edit_text_lot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

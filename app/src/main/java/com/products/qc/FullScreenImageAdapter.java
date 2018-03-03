@@ -24,8 +24,7 @@ public class FullScreenImageAdapter extends PagerAdapter {
  
     private Activity _activity;
     private ArrayList<String> _imagePaths;
-    private LayoutInflater inflater;
- 
+
     // constructor
     public FullScreenImageAdapter(Activity activity,
             ArrayList<String> imagePaths) {
@@ -47,8 +46,8 @@ public class FullScreenImageAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         TouchImageView imgDisplay;
         Button btnClose;
-  
-        inflater = (LayoutInflater) _activity
+
+        LayoutInflater inflater = (LayoutInflater) _activity
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View viewLayout = inflater.inflate(R.layout.layout_fullscreen_image, container,
                 false);

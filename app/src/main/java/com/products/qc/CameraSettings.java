@@ -95,7 +95,7 @@ public class CameraSettings implements Parcelable{
     }*/
 
     public static ArrayList<CameraSettings> getCamerasFromSharedPreferences(Context context){
-        ArrayList<CameraSettings> cameras = new ArrayList<>();
+        ArrayList<CameraSettings> cameras;
         SharedPreferences sharedPrefs = context.getSharedPreferences("CamerasIP", Context.MODE_PRIVATE);
 
         if (sharedPrefs.contains("CamerasIP")){

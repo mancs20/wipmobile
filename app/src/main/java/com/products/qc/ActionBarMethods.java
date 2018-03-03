@@ -3,12 +3,8 @@ package com.products.qc;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -16,10 +12,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Environment;
 import android.view.Gravity;
-import android.view.Menu;
-import android.webkit.WebView.FindListener;
 import android.widget.EditText;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 

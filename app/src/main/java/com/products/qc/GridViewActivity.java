@@ -39,8 +39,6 @@ import android.support.v7.app.AppCompatActivity;
 public class GridViewActivity extends AppCompatActivity {
  
     private Utils utils;
-    private ArrayList<String> imagePaths = new ArrayList<String>();
-    private GridViewImageAdapter adapter;
     private GridView gridView;
     private int columnWidth;
     private String nombreFoto;
@@ -164,10 +162,10 @@ public class GridViewActivity extends AppCompatActivity {
         InitilizeGridLayout();
  
         // loading all image paths from SD card
-        imagePaths = utils.getFilePaths(this);
+        ArrayList<String> imagePaths = utils.getFilePaths(this);
  
         // Gridview adapter
-        adapter = new GridViewImageAdapter(GridViewActivity.this, imagePaths,
+        GridViewImageAdapter adapter = new GridViewImageAdapter(GridViewActivity.this, imagePaths,
                 columnWidth, btnPictureOnClickListener, btnNextOnClickListener);
  
         // setting grid view adapter

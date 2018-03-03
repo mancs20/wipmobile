@@ -4,34 +4,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class CamerasSettingActivity extends AppCompatActivity {
-
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mCameraSettingAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<CameraSettings> cameras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cameras_setting);
+        RecyclerView mRecyclerView;
+        RecyclerView.Adapter mCameraSettingAdapter;
+        RecyclerView.LayoutManager mLayoutManager;
+        ArrayList<CameraSettings> cameras;
+
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         FloatingActionButton addCamera = (FloatingActionButton) findViewById(R.id.floatingBtnAddCamera);
@@ -56,12 +47,12 @@ public class CamerasSettingActivity extends AppCompatActivity {
         //TODO Get elements from SharedPreferences
         cameras = CameraSettings.getCamerasFromSharedPreferences(this.getBaseContext());
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        if (sharedPref.contains("CamerasIP")){
+/*        if (sharedPref.contains("CamerasIP")){
             Gson gson = new Gson();
             String json = sharedPref.getString("CamerasIP", null);
             Type type = new TypeToken<ArrayList<CameraSettings>>() {}.getType();
             ArrayList cameras = gson.fromJson(json, type);
-        }
+        }*/
 
         if (cameras != null){
 

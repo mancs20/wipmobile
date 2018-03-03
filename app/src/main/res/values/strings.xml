@@ -159,5 +159,6 @@
     <string name="title_activity_cameras_setting">CamerasSettingActivity</string>
     <string name="dialog_sure">Are you sure?</string>
     <string name="toast_camera_name_or_ip_empty">Camera must have name and ip</string>
+    <string name="title_activity_camera_visualization">CameraVisualizationActivity</string>
 
 </resources>

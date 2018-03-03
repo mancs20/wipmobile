@@ -21,22 +21,20 @@ import android.support.v7.app.ActionBar;
 public class FullScreenViewActivity extends AppCompatActivity {
 
 	private Utils utils;
-	private FullScreenImageAdapter adapter;
-	private ViewPager viewPager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_full_screen_view);
 
-		viewPager = (ViewPager) findViewById(R.id.pager);
+		ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
 
 		utils = new Utils(getApplicationContext());
 
 		Intent i = getIntent();
 		int position = i.getIntExtra("position", 0);
 
-		adapter = new FullScreenImageAdapter(FullScreenViewActivity.this,
+		FullScreenImageAdapter adapter = new FullScreenImageAdapter(FullScreenViewActivity.this,
 				utils.getFilePaths(this));
 
 		viewPager.setAdapter(adapter);

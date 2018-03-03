@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class CameraToolActivity extends AppCompatActivity {
 
@@ -26,5 +25,14 @@ public class CameraToolActivity extends AppCompatActivity {
     public void showCameraIPSettings(MenuItem item){
         Intent intent = new Intent(this, CamerasSettingActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getBaseContext(), ChoiceToolsActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
