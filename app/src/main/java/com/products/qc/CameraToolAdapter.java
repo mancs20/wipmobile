@@ -1,6 +1,7 @@
 package com.products.qc;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,17 +80,18 @@ public class CameraToolAdapter extends RecyclerView.Adapter<CameraToolAdapter.Vi
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO call validation before start activity, surround all this with validation result
-                CameraSettings camera = mCamerasDataSet.get(position);
-                String picName = lotText.getText().toString() + '.' + tagText.getText().toString() + '.'
-                        + camera.getCameraName();//TODO add serial to picName
+                if (validation(v.getContext())) {
+                    CameraSettings camera = mCamerasDataSet.get(position);
+                    String picName = lotText.getText().toString() + '.' + tagText.getText().toString() + '.'
+                            + camera.getCameraName();//TODO add serial to picName
 
-                Intent intent = new Intent(v.getContext(), CameraIPVisualizationActivity.class);
-                Bundle b = new Bundle();
-                b.putParcelable("cameraObject", camera);
-                b.putString("picName", picName);
-                intent.putExtras(b);
-                activity.startActivity(intent);
+                    Intent intent = new Intent(v.getContext(), CameraIPVisualizationActivity.class);
+                    Bundle b = new Bundle();
+                    b.putParcelable("cameraObject", camera);
+                    b.putString("picName", picName);
+                    intent.putExtras(b);
+                    activity.startActivity(intent);
+                }
             }
         };
     }
@@ -99,10 +102,14 @@ public class CameraToolAdapter extends RecyclerView.Adapter<CameraToolAdapter.Vi
         return mCamerasDataSet.size();
     }
 
-    private boolean validation(){
-        boolean validated = true;
-        if (lotText.getText().toString().isEmpty() && tagText.getText().toString().isEmpty()){
-            validated = false;
+    private boolean validation(Context context){
+        boolean validated = false;
+        if (lotText.getText().toString().isEmpty()){
+            Toast.makeText(context,R.string.toast_empty_lot,Toast.LENGTH_SHORT).show();
+        }else if(tagText.getText().toString().isEmpty()){
+            Toast.makeText(context,R.string.toast_empty_tag,Toast.LENGTH_SHORT).show();
+        }else{
+            validated = true;
         }
         return validated;
     }

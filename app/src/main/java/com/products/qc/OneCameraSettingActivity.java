@@ -1,15 +1,16 @@
 package com.products.qc;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class OneCameraSettingActivity extends AppCompatActivity {
 
@@ -19,6 +20,11 @@ public class OneCameraSettingActivity extends AppCompatActivity {
     EditText cameraUser;
     EditText cameraPass;
     int idCameraPosition;
+    private static final String PATTERN =
+            "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +35,8 @@ public class OneCameraSettingActivity extends AppCompatActivity {
         cameraIP = (EditText) findViewById(R.id.edTxtCamIP);
         cameraUser = (EditText) findViewById(R.id.edTxtCamUser);
         cameraPass = (EditText) findViewById(R.id.edTxtCamPass);
-        Button btnOk = (Button) findViewById(R.id.btnCreateEditCam);
-        Button btnCancel = (Button) findViewById(R.id.btnCancelCreateEditCam);
 
         CameraSettings cameraSettings;
-
         Bundle b = getIntent().getExtras();
         if(b != null){
             edit = true;
@@ -50,50 +53,56 @@ public class OneCameraSettingActivity extends AppCompatActivity {
             }
             idCameraPosition = b.getInt("cameraId");
         }
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.ok_bar_button, menu);
+        return true;
+    }
 
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ValidateFields()) {
-                    ArrayList<CameraSettings> cameras = CameraSettings.getCamerasFromSharedPreferences(getBaseContext());
-                    if (cameras != null){
-                        if (!edit){
-                            //add camera
-                            cameras.add(CreateEditCamera());
-                        }else{
-                            CameraSettings editedCamera = CreateEditCamera();
-                            cameras.set(idCameraPosition, editedCamera);
-                        }
-                        CameraSettings.saveCamerasToSharedPreferences(getBaseContext(),cameras);
-                    }else{
-                        //there are no cameras saved
-                        ArrayList<CameraSettings> cameraAdd = new ArrayList<>();
-                        cameraAdd.add(CreateEditCamera());
-                        CameraSettings.saveCamerasToSharedPreferences(getBaseContext(),cameraAdd);
-                    }
-
-                    GoToCamerasSettings();
+    public void onOkButton(MenuItem item){
+        if (ValidateFields()) {
+            ArrayList<CameraSettings> cameras = CameraSettings.getCamerasFromSharedPreferences(getBaseContext());
+            if (cameras != null){
+                if (!edit){
+                    //add camera
+                    cameras.add(CreateEditCamera());
+                }else{
+                    CameraSettings editedCamera = CreateEditCamera();
+                    cameras.set(idCameraPosition, editedCamera);
                 }
+                CameraSettings.saveCamerasToSharedPreferences(getBaseContext(),cameras);
+            }else{
+                //there are no cameras saved
+                ArrayList<CameraSettings> cameraAdd = new ArrayList<>();
+                cameraAdd.add(CreateEditCamera());
+                CameraSettings.saveCamerasToSharedPreferences(getBaseContext(),cameraAdd);
             }
-        });
 
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GoToCamerasSettings();
-            }
-        });
+            GoToCamerasSettings();
+        }
     }
 
     private boolean ValidateFields(){
-        //TODO validate entries, ip
-        boolean validation = true;
-        if (cameraName.getText().toString().matches("")&&cameraIP.getText().toString().matches("")){
-            Toast.makeText(getBaseContext(),R.string.toast_camera_name_or_ip_empty,Toast.LENGTH_LONG).show();
-            validation = false;
+        boolean validation = false;
+        if (cameraName.getText().toString().isEmpty()){
+            Toast.makeText(getBaseContext(),R.string.toast_camera_name_empty,Toast.LENGTH_SHORT).show();
+        }else if(cameraIP.getText().toString().isEmpty()){
+            Toast.makeText(getBaseContext(),R.string.toast_camera_ip_empty,Toast.LENGTH_SHORT).show();
+        }else if(!validateIsIP(cameraIP.getText().toString())){
+            Toast.makeText(getBaseContext(),R.string.toast_camera_ip_wrong,Toast.LENGTH_SHORT).show();
+        }else{
+            validation = true;
         }
         return validation;
+    }
+
+    private boolean validateIsIP(final String ip){
+        Pattern pattern = Pattern.compile(PATTERN);
+        Matcher matcher = pattern.matcher(ip);
+        return matcher.matches();
     }
 
     private CameraSettings CreateEditCamera(){
@@ -106,8 +115,6 @@ public class OneCameraSettingActivity extends AppCompatActivity {
     }
 
     public void GoToCamerasSettings(){
-        Intent intent = new Intent(getBaseContext(), CamerasSettingActivity.class);
-        startActivity(intent);
-        finish();
+        onBackPressed();
     }
 }

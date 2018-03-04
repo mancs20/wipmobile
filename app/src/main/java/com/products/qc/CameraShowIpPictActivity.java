@@ -18,11 +18,6 @@ public class CameraShowIpPictActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_show_ip_pict);
-/*
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-*/
-
         Bitmap picture;
         String picName;
         Bundle b = getIntent().getExtras();

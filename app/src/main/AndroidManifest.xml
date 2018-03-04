@@ -145,7 +145,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CameraIPVisualizationActivity"
-            android:parentActivityName=".CameraToolActivity" />
+            android:parentActivityName=".CameraToolActivity"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".CameraShowIpPictActivity"
             android:label="@string/title_activity_show_cam_ip_pict"

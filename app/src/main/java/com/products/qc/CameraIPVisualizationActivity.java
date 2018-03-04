@@ -93,14 +93,6 @@ public class CameraIPVisualizationActivity extends AppCompatActivity {
         });
     }
 
-    /*@SuppressLint("HandlerLeak")
-    final Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg){
-            Log.d("State : ",msg.obj.toString());
-        }
-    };*/
-
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -110,18 +102,6 @@ public class CameraIPVisualizationActivity extends AppCompatActivity {
     @Override
     protected void onStop(){
         super.onStop();
-        mv.Stop();
-    }
-
-    /*@Override
-    protected void onPause() {
-        super.onPause();
-        mv.Stop();
-    }*/
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
         mv.Stop();
     }
 }
