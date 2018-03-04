@@ -45,5 +45,20 @@ public class CamerasSettingActivity extends AppCompatActivity {
             mCameraSettingAdapter = new CamerasSettingAdapter(cameras, this);
             mRecyclerView.setAdapter(mCameraSettingAdapter);
         }
+
+        /*mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                LinearLayoutManager layoutManager=LinearLayoutManager.class.cast(recyclerView.getLayoutManager());
+                int totalItemCount = layoutManager.getItemCount();
+                int lastVisible = layoutManager.findLastVisibleItemPosition();
+
+                boolean endHasBeenReached = lastVisible + 5 >= totalItemCount;
+                if (totalItemCount > 0 && endHasBeenReached) {
+                    //you have reached to the bottom of your recycler view
+
+                }
+            }
+        });*/
     }
 }

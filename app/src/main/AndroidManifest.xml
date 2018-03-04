@@ -128,22 +128,29 @@
         <activity
             android:name=".InquireLocation53Activity"
             android:label="@string/title_activity_inquire_location53" />
-        <activity android:name=".CameraToolActivity"
+        <activity
+            android:name=".CameraToolActivity"
             android:label="@string/button_go_cameratool"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".ChoiceToolsActivity"/>
+            android:parentActivityName=".ChoiceToolsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CamerasSettingActivity"
             android:label="@string/title_activity_cameras_setting"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".CameraToolActivity"/>
-        <activity android:name=".OneCameraSettingActivity"
+            android:parentActivityName=".CameraToolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OneCameraSettingActivity"
             android:label="@string/title_activity_one_camera_setting"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".CamerasSettingActivity"/>
+            android:parentActivityName=".CamerasSettingActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CameraIPVisualizationActivity"
-            android:parentActivityName=".CameraToolActivity"></activity>
+            android:parentActivityName=".CameraToolActivity" />
+        <activity
+            android:name=".CameraShowIpPictActivity"
+            android:label="@string/title_activity_show_cam_ip_pict"
+            android:parentActivityName=".CameraIPVisualizationActivity">
+        </activity>
     </application>
 
 </manifest>

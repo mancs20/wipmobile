@@ -1,5 +1,6 @@
 package com.products.qc;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,20 +10,19 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 
 import yjkim.mjpegviewer.MjpegView;
 
 public class CameraIPVisualizationActivity extends AppCompatActivity {
-    MjpegView mv;
-    FloatingActionButton btn;
-    ImageView imageView;
-    String ip;
-    String user;
-    String password;
-    Handler handler;
-
+    private MjpegView mv;
+    private String ip;
+    private String user;
+    private String password;
+    private Handler handler;
+    private String picName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,8 @@ public class CameraIPVisualizationActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         if (b != null){
             cameraSettings = b.getParcelable("cameraObject");
-            if (cameraSettings != null) {
+            picName = b.getString("picName");
+            if (cameraSettings != null && picName != null) {
                 ip = "http://" + cameraSettings.getCameraIP() + "/mjpeg.cgi?";
                 user = cameraSettings.getCameraUser();
                 password = cameraSettings.getCameraPassword();
@@ -52,9 +53,7 @@ public class CameraIPVisualizationActivity extends AppCompatActivity {
         }
 
         mv = (MjpegView) findViewById(R.id.videoView);
-        btn = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-        imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setVisibility(View.INVISIBLE);
+        FloatingActionButton btn = (FloatingActionButton) findViewById(R.id.floatingActionButton);
 
         handler = new Handler(Looper.getMainLooper()) { /*
          * handleMessage() defines the operations to perform when
@@ -79,14 +78,17 @@ public class CameraIPVisualizationActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imageView.getVisibility() == View.INVISIBLE) {
-                    Bitmap bitmap = mv.getImage();
-                    mv.setVisibility(View.GONE);
-                    imageView.setImageBitmap(bitmap);
-                    imageView.setVisibility(View.VISIBLE);
-                    mv.Stop();
+                Bitmap bitmap = mv.getImage();
+                ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bStream);
+                byte[] byteArray = bStream.toByteArray();
 
-                }
+                Bundle bundle = new Bundle();
+                bundle.putByteArray("image" ,byteArray);
+                bundle.putString("picName", picName);
+                Intent intent = new Intent(getBaseContext(), CameraShowIpPictActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,11 +23,15 @@ public class CameraToolAdapter extends RecyclerView.Adapter<CameraToolAdapter.Vi
 
     private List<CameraSettings> mCamerasDataSet;
     private Activity activity;
+    private EditText lotText;
+    private EditText tagText;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CameraToolAdapter(ArrayList<CameraSettings> myCamerasDataset, Activity activity) {
+    public CameraToolAdapter(ArrayList<CameraSettings> myCamerasDataset, Activity activity, EditText lotEdText, EditText tagEdText) {
         mCamerasDataSet = myCamerasDataset;
         this.activity = activity;
+        lotText = lotEdText;
+        tagText = tagEdText;
     }
 
     // Provide a reference to the views for each data item
@@ -73,10 +78,15 @@ public class CameraToolAdapter extends RecyclerView.Adapter<CameraToolAdapter.Vi
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO call validation before start activity, surround all this with validation result
                 CameraSettings camera = mCamerasDataSet.get(position);
+                String picName = lotText.getText().toString() + '.' + tagText.getText().toString() + '.'
+                        + camera.getCameraName();//TODO add serial to picName
+
                 Intent intent = new Intent(v.getContext(), CameraIPVisualizationActivity.class);
                 Bundle b = new Bundle();
                 b.putParcelable("cameraObject", camera);
+                b.putString("picName", picName);
                 intent.putExtras(b);
                 activity.startActivity(intent);
             }
@@ -87,5 +97,13 @@ public class CameraToolAdapter extends RecyclerView.Adapter<CameraToolAdapter.Vi
     @Override
     public int getItemCount() {
         return mCamerasDataSet.size();
+    }
+
+    private boolean validation(){
+        boolean validated = true;
+        if (lotText.getText().toString().isEmpty() && tagText.getText().toString().isEmpty()){
+            validated = false;
+        }
+        return validated;
     }
 }

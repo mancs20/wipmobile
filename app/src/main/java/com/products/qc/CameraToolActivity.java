@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,9 @@ public class CameraToolActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_tool);
+
+        EditText lotText = (EditText) findViewById(R.id.edTxtLot);
+        EditText tagText = (EditText) findViewById(R.id.edTxtTag);
 
         RecyclerView mRecyclerView;
         RecyclerView.Adapter mCameraSettingAdapter;
@@ -35,7 +39,7 @@ public class CameraToolActivity extends AppCompatActivity {
         cameras = CameraSettings.getCamerasFromSharedPreferences(this.getBaseContext());
         if (cameras != null && !cameras.isEmpty()){
             // specify an adapter (see also next example)
-            mCameraSettingAdapter = new CameraToolAdapter(cameras, this);
+            mCameraSettingAdapter = new CameraToolAdapter(cameras, this, lotText, tagText);
             mRecyclerView.setAdapter(mCameraSettingAdapter);
         }
     }

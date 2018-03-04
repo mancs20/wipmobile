@@ -43,13 +43,12 @@ public class OneCameraSettingActivity extends AppCompatActivity {
                 cameraIP.setText(cameraSettings.getCameraIP());
                 cameraUser.setText(cameraSettings.getCameraUser());
                 cameraPass.setText(cameraSettings.getCameraPassword());
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null ){
+                    actionBar.setTitle(getString(R.string.edit_string) + " " + cameraSettings.getCameraName());
+                }
             }
             idCameraPosition = b.getInt("cameraId");
-
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null){
-                actionBar.setTitle(getString(R.string.edit_string) + " " + cameraSettings.getCameraName());
-            }
         }
 
 

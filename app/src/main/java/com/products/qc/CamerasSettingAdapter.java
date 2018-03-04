@@ -21,7 +21,7 @@ import java.util.List;
  * Created by manuel on 2/21/2018.
  */
 
-public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAdapter.ViewHolder> {
+public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAdapter.ViewHolder>{
     //private String[] mCamerasDataSet;
     private List<CameraSettings> mCamerasDataSet;
     private Activity activity;
