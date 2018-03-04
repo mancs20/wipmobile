@@ -119,7 +119,6 @@ public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAd
                 b.putInt("cameraId", position);
                 intent.putExtras(b);
                 activity.startActivity(intent);
-                activity.finish();
             }
         };
     }

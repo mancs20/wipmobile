@@ -79,7 +79,6 @@ public class CameraToolAdapter extends RecyclerView.Adapter<CameraToolAdapter.Vi
                 b.putParcelable("cameraObject", camera);
                 intent.putExtras(b);
                 activity.startActivity(intent);
-                activity.finish();
             }
         };
     }

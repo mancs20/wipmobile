@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.net.ssl.HttpsURLConnection;
+
 /**
  * Created by YJ Kim on 2017-02-23.
  */
@@ -26,7 +28,22 @@ public class MjpegView extends SurfaceView implements SurfaceHolder.Callback{
         CONNECTION_PROGRESS,
         CONNECTED,
         CONNECTION_ERROR,
-        STOPPING_PROGRESS
+        STOPPING_PROGRESS,
+        AUTHORIZATION_PROBLEM
+
+        /*DISCONNECTED(0),
+        CONNECTION_PROGRESS(1),
+        CONNECTED(2),
+        CONNECTION_ERROR(3),
+        STOPPING_PROGRESS(4);
+
+        private int value;
+        private State(int value){
+            this.value = value;
+        }
+        public int getValue() {
+            return value;
+        }*/
     };
 
     public final static int SIZE_FIT = 1;
@@ -153,8 +170,13 @@ public class MjpegView extends SurfaceView implements SurfaceHolder.Callback{
                 String basicAuth = getBasicAuthValue(params[0][1],params[0][2]);
                 conn.setRequestProperty ("Authorization", basicAuth);
                 conn.setRequestMethod("POST");
-                if(conn.getResponseCode() != 200){
-                    state = State.CONNECTION_ERROR;
+                int responseCode = conn.getResponseCode();
+                if(responseCode != 200){
+                    if (responseCode == HttpsURLConnection.HTTP_UNAUTHORIZED){
+                        state = State.AUTHORIZATION_PROBLEM;
+                    }else{
+                        state = State.CONNECTION_ERROR;
+                    }
                     alertState();
                     return null;
                 }

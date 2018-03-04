@@ -16,7 +16,6 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- Customize your theme here. -->
-        <item name="android:windowBackground">@android:color/holo_red_light</item>
     </style>
     <!--<style name="AppTheme" parent="AppBaseTheme">
         &lt;!&ndash; All customizations that are NOT specific to a particular API-level can go here. &ndash;&gt;

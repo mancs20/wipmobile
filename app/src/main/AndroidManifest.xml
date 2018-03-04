@@ -23,7 +23,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/AppTheme">
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.products.qc.fileprovider"
@@ -128,14 +128,22 @@
         <activity
             android:name=".InquireLocation53Activity"
             android:label="@string/title_activity_inquire_location53" />
-        <activity android:name=".CameraToolActivity" />
+        <activity android:name=".CameraToolActivity"
+            android:label="@string/button_go_cameratool"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ChoiceToolsActivity"/>
         <activity
             android:name=".CamerasSettingActivity"
-            android:label="@string/title_activity_cameras_setting" />
-        <activity android:name=".OneCameraSettingActivity" />
+            android:label="@string/title_activity_cameras_setting"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".CameraToolActivity"/>
+        <activity android:name=".OneCameraSettingActivity"
+            android:label="@string/title_activity_one_camera_setting"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".CamerasSettingActivity"/>
         <activity
             android:name=".CameraIPVisualizationActivity"
-            android:label="@string/title_activity_camera_visualization"></activity>
+            android:parentActivityName=".CameraToolActivity"></activity>
     </application>
 
 </manifest>

@@ -50,14 +50,5 @@ public class CameraToolActivity extends AppCompatActivity {
     public void showCameraIPSettings(MenuItem item){
         Intent intent = new Intent(this, CamerasSettingActivity.class);
         startActivity(intent);
-        finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(getBaseContext(), ChoiceToolsActivity.class);
-        startActivity(intent);
-        finish();
     }
 }

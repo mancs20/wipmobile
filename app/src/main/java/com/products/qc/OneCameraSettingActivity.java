@@ -1,6 +1,7 @@
 package com.products.qc;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,7 +45,13 @@ public class OneCameraSettingActivity extends AppCompatActivity {
                 cameraPass.setText(cameraSettings.getCameraPassword());
             }
             idCameraPosition = b.getInt("cameraId");
+
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null){
+                actionBar.setTitle(getString(R.string.edit_string) + " " + cameraSettings.getCameraName());
+            }
         }
+
 
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +88,7 @@ public class OneCameraSettingActivity extends AppCompatActivity {
     }
 
     private boolean ValidateFields(){
-        //TODO validate entries
+        //TODO validate entries, ip
         boolean validation = true;
         if (cameraName.getText().toString().matches("")&&cameraIP.getText().toString().matches("")){
             Toast.makeText(getBaseContext(),R.string.toast_camera_name_or_ip_empty,Toast.LENGTH_LONG).show();
@@ -97,12 +104,6 @@ public class OneCameraSettingActivity extends AppCompatActivity {
         camera.setCameraUser(cameraUser.getText().toString());
         camera.setCameraPassword(cameraPass.getText().toString());
         return camera;
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        GoToCamerasSettings();
     }
 
     public void GoToCamerasSettings(){

@@ -5,18 +5,15 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context="com.products.qc.CameraIPVisualizationActivity">
 
-<yjkim.mjpegviewer.MjpegView
-    android:id="@+id/videoView"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <yjkim.mjpegviewer.MjpegView
+        android:id="@+id/videoView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 <ImageView
     android:id="@+id/imageView"
@@ -33,21 +30,20 @@ tools:context="com.products.qc.CameraIPVisualizationActivity">
     app:srcCompat="@android:color/background_light"
     tools:ignore="ContentDescription" />
 
-<android.support.design.widget.FloatingActionButton
-    android:id="@+id/floatingActionButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentTop="true"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginStart="8dp"
-    android:clickable="true"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:srcCompat="@android:drawable/ic_menu_camera" android:focusable="true"
-    android:layout_alignParentRight="true"
-    android:layout_marginRight="16dp"
-    android:layout_marginLeft="8dp" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 </android.support.constraint.ConstraintLayout>

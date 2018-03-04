@@ -29,7 +29,6 @@ public class CamerasSettingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), OneCameraSettingActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
         /* use this setting to improve performance if you know that changes
@@ -46,13 +45,5 @@ public class CamerasSettingActivity extends AppCompatActivity {
             mCameraSettingAdapter = new CamerasSettingAdapter(cameras, this);
             mRecyclerView.setAdapter(mCameraSettingAdapter);
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(getBaseContext(), CameraToolActivity.class);
-        startActivity(intent);
-        finish();
     }
 }
