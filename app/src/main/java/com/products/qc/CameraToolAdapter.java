@@ -74,7 +74,7 @@ public class CameraToolAdapter extends RecyclerView.Adapter<CameraToolAdapter.Vi
             @Override
             public void onClick(View v) {
                 CameraSettings camera = mCamerasDataSet.get(position);
-                Intent intent = new Intent(v.getContext(), OneCameraSettingActivity.class);
+                Intent intent = new Intent(v.getContext(), CameraIPVisualizationActivity.class);
                 Bundle b = new Bundle();
                 b.putParcelable("cameraObject", camera);
                 intent.putExtras(b);

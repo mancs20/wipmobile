@@ -37,24 +37,14 @@ public class OneCameraSettingActivity extends AppCompatActivity {
         if(b != null){
             edit = true;
             cameraSettings = b.getParcelable("cameraObject");
-            cameraName.setText(cameraSettings.getCameraName());
-            cameraIP.setText(cameraSettings.getCameraIP());
-            cameraUser.setText(cameraSettings.getCameraUser());
-            cameraPass.setText(cameraSettings.getCameraPassword());
+            if (cameraSettings != null) {
+                cameraName.setText(cameraSettings.getCameraName());
+                cameraIP.setText(cameraSettings.getCameraIP());
+                cameraUser.setText(cameraSettings.getCameraUser());
+                cameraPass.setText(cameraSettings.getCameraPassword());
+            }
             idCameraPosition = b.getInt("cameraId");
         }
-
-/*        Intent intent = getIntent();
-        if (intent.hasExtra("cameraObject")){
-            edit = true;
-            cameraSettings = intent.getParcelableExtra("cameraObject");
-            cameraName.setText(cameraSettings.getCameraName());
-            cameraIP.setText(cameraSettings.getCameraIP());
-            cameraUser.setText(cameraSettings.getCameraUser());
-            cameraPass.setText(cameraSettings.getCameraPassword());
-            idCameraPosition = intent.getParcelableExtra("cameraId");
-        }*/
-
 
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,9 +86,7 @@ public class OneCameraSettingActivity extends AppCompatActivity {
         if (cameraName.getText().toString().matches("")&&cameraIP.getText().toString().matches("")){
             Toast.makeText(getBaseContext(),R.string.toast_camera_name_or_ip_empty,Toast.LENGTH_LONG).show();
             validation = false;
-        }/*else if (){
-            validation = false;
-        }*/
+        }
         return validation;
     }
 

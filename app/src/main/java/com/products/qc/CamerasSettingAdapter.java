@@ -113,7 +113,7 @@ public class CamerasSettingAdapter extends RecyclerView.Adapter<CamerasSettingAd
             @Override
             public void onClick(View v) {
                 CameraSettings camera = mCamerasDataSet.get(position);
-                Intent intent = new Intent(v.getContext(), CameraIPVisualizationActivity.class);
+                Intent intent = new Intent(v.getContext(), OneCameraSettingActivity.class);
                 Bundle b = new Bundle();
                 b.putParcelable("cameraObject", camera);
                 b.putInt("cameraId", position);

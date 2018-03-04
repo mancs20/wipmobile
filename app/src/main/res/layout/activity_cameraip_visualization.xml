@@ -30,7 +30,8 @@ tools:context="com.products.qc.CameraIPVisualizationActivity">
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@android:color/background_light" />
+    app:srcCompat="@android:color/background_light"
+    tools:ignore="ContentDescription" />
 
 <android.support.design.widget.FloatingActionButton
     android:id="@+id/floatingActionButton"
