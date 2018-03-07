@@ -12,15 +12,14 @@ import java.util.ArrayList;
 
 public class CamerasSettingActivity extends AppCompatActivity {
 
+
+    private RecyclerView mRecyclerView;
+    RecyclerView.LayoutManager mLayoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cameras_setting);
-        RecyclerView mRecyclerView;
-        RecyclerView.Adapter mCameraSettingAdapter;
-        RecyclerView.LayoutManager mLayoutManager;
-        ArrayList<CameraSettings> cameras;
-
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         FloatingActionButton addCamera = (FloatingActionButton) findViewById(R.id.floatingBtnAddCamera);
@@ -38,27 +37,27 @@ public class CamerasSettingActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+
         //Populate the list of adapter (cameras)
-        cameras = CameraSettings.getCamerasFromSharedPreferences(this.getBaseContext());
+        PopulateAdapter(mRecyclerView);
+    }
+
+    private void PopulateAdapter(RecyclerView mRecyclerView){
+        ArrayList<CameraSettings> cameras = CameraSettings.getCamerasFromSharedPreferences(this.getBaseContext());
         if (cameras != null && !cameras.isEmpty()){
             // specify an adapter (see also next example)
-            mCameraSettingAdapter = new CamerasSettingAdapter(cameras, this);
+            RecyclerView.Adapter mCameraSettingAdapter = new CamerasSettingAdapter(cameras, this);
             mRecyclerView.setAdapter(mCameraSettingAdapter);
         }
+    }
 
-        /*mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                LinearLayoutManager layoutManager=LinearLayoutManager.class.cast(recyclerView.getLayoutManager());
-                int totalItemCount = layoutManager.getItemCount();
-                int lastVisible = layoutManager.findLastVisibleItemPosition();
-
-                boolean endHasBeenReached = lastVisible + 5 >= totalItemCount;
-                if (totalItemCount > 0 && endHasBeenReached) {
-                    //you have reached to the bottom of your recycler view
-
-                }
-            }
-        });*/
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        PopulateAdapter(mRecyclerView);
+        /*ArrayList<CameraSettings> camRestart = CameraSettings.getCamerasFromSharedPreferences(this.getBaseContext());
+        if ((camRestart != null) && (mRecyclerView.getAdapter() == null ||(camRestart.size() != mRecyclerView.getAdapter().getItemCount()))){
+            PopulateAdapter(mRecyclerView);
+        }*/
     }
 }

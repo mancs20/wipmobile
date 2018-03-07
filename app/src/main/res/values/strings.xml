@@ -43,6 +43,8 @@
     <string name="edit_grower">Enter Grower</string>
     <string name="edit_plus">Enter</string>
     <string name="preference_file_key">com.products.qc.PREFERENCE_FILE_KEY</string>
+    <string name="toast_preference_ftp_port_validation">FTP port must be an integer between 1 and 65535</string>
+    <string name="toast_preference_ftp_address_validation">FTP address format is incorrect</string>
     <string name="saved_warehouse">com.products.qc.warehouse</string>
     <string name="saved_warehouse_customer">com.products.qc.warehousecustomer</string>
     <string name="saved_referenceno">com.products.qc.referenceno</string>
@@ -69,6 +71,8 @@
 
     <string name="title_activity_qc_factor_table">QcFactorTableActivity</string>
     <string name="toast_error_sendindg_data">Something wrong. Try again</string>
+    <string name="toast_error_saving_file">Error saving picture. Try again</string>
+    <string name="toast_error_ftp_connection">Error connecting with the FTP server. Try again</string>
 
     <string-array name="factor_types_array">
         <item>Q</item>
@@ -155,7 +159,9 @@
     <string name="tag_string">Tag</string>
     <string name="cameras_string">Cameras</string>
     <string name="menu_camera_tool_ip">Cameras IP</string>
-    <string name="camera_ip">Camera IP</string>
+    <string name="menu_ftp_settings">FTP Settings</string>
+    <string name="menu_upload_pic_ftp">Upload to FTP</string>
+    <string name="camera_ip">http://xx.xx.xx.xx:port/mjpeg.cgi</string>
     <string name="camera_name">Camera Name</string>
     <string name="title_activity_cameras_setting">IP Cameras</string>
     <string name="title_activity_one_camera_setting">Add Camera</string>
@@ -167,7 +173,9 @@
     <string name="toast_camera_ip_wrong">Enter a correct Camera ip</string>
     <string name="toast_empty_lot">Enter Lot</string>
     <string name="toast_empty_tag">Enter Tag</string>
+    <string name="toast_file_uploaded_ftp">Picture successfully upload!</string>
     <string name="title_activity_camera_visualization">CameraVisualizationActivity</string>
     <string name="title_activity_show_cam_ip_pict">ShowCamIpPictActivity</string>
+    <string name="title_activity_ftpsettings">FTP Settings</string>
 
 </resources>

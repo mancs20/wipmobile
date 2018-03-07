@@ -82,9 +82,8 @@ public class CameraToolAdapter extends RecyclerView.Adapter<CameraToolAdapter.Vi
             public void onClick(View v) {
                 if (validation(v.getContext())) {
                     CameraSettings camera = mCamerasDataSet.get(position);
-                    String picName = lotText.getText().toString() + '.' + tagText.getText().toString() + '.'
-                            + camera.getCameraName();//TODO add serial to picName
-
+                    String picName = lotText.getText().toString() + '-' + tagText.getText().toString() + '-'
+                            + camera.getCameraName();
                     Intent intent = new Intent(v.getContext(), CameraIPVisualizationActivity.class);
                     Bundle b = new Bundle();
                     b.putParcelable("cameraObject", camera);

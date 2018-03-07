@@ -6,6 +6,6 @@
         android:id="@+id/upload_action_bar"
         android:icon="@android:drawable/stat_sys_upload_done"
         android:onClick="upLoadPicture"
-        android:title="@string/menu_camera_tool_ip"
+        android:title="@string/menu_upload_pic_ftp"
         app:showAsAction="always" />
 </menu>

@@ -86,16 +86,26 @@ public class OneCameraSettingActivity extends AppCompatActivity {
     }
 
     private boolean ValidateFields(){
-        boolean validation = false;
+        boolean validation = true;
         if (cameraName.getText().toString().isEmpty()){
             Toast.makeText(getBaseContext(),R.string.toast_camera_name_empty,Toast.LENGTH_SHORT).show();
+            validation = false;
         }else if(cameraIP.getText().toString().isEmpty()){
             Toast.makeText(getBaseContext(),R.string.toast_camera_ip_empty,Toast.LENGTH_SHORT).show();
-        }else if(!validateIsIP(cameraIP.getText().toString())){
-            Toast.makeText(getBaseContext(),R.string.toast_camera_ip_wrong,Toast.LENGTH_SHORT).show();
-        }else{
-            validation = true;
-        }
+            validation = false;
+        }/*else{
+            if((cameraIP.getText().toString().startsWith("http://")) || (cameraIP.getText().toString().startsWith("https://"))){
+                int ipStarts = cameraIP.getText().toString().indexOf("//");
+                String ip = cameraIP.getText().toString().substring(ipStarts);
+                if (!validateIsIP(ip)){
+                    Toast.makeText(getBaseContext(),R.string.toast_camera_ip_wrong,Toast.LENGTH_SHORT).show();
+                    validation = false;
+                }
+            }else{
+                Toast.makeText(getBaseContext(),R.string.toast_camera_ip_wrong,Toast.LENGTH_SHORT).show();
+                validation = false;
+            }
+        }*/
         return validation;
     }
 

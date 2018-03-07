@@ -3,8 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <item android:id="@+id/camera_tool_ip_menu"
+    <item
+        android:id="@+id/camera_tool_ip_menu"
+        android:onClick="showCameraIPSettings"
         android:title="@string/menu_camera_tool_ip"
-        app:showAsAction="ifRoom"
-        android:onClick="showCameraIPSettings"/>
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/ftp_settings_menu"
+        android:onClick="showFTPSettings"
+        android:title="@string/menu_ftp_settings" />
 </menu>

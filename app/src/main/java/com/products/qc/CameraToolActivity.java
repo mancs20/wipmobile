@@ -14,19 +14,19 @@ import java.util.ArrayList;
 
 public class CameraToolActivity extends AppCompatActivity {
 
+    private RecyclerView mRecyclerView;
+    private EditText lotText;
+    private EditText tagText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_tool);
 
-        EditText lotText = (EditText) findViewById(R.id.edTxtLot);
-        EditText tagText = (EditText) findViewById(R.id.edTxtTag);
+        lotText = (EditText) findViewById(R.id.edTxtLot);
+        tagText = (EditText) findViewById(R.id.edTxtTag);
 
-        RecyclerView mRecyclerView;
-        RecyclerView.Adapter mCameraSettingAdapter;
         RecyclerView.LayoutManager mLayoutManager;
-        ArrayList<CameraSettings> cameras;
-
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         /* use this setting to improve performance if you know that changes
          in content do not change the layout size of the RecyclerView*/
@@ -36,12 +36,7 @@ public class CameraToolActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         //Populate the list of adapter (cameras)
-        cameras = CameraSettings.getCamerasFromSharedPreferences(this.getBaseContext());
-        if (cameras != null && !cameras.isEmpty()){
-            // specify an adapter (see also next example)
-            mCameraSettingAdapter = new CameraToolAdapter(cameras, this, lotText, tagText);
-            mRecyclerView.setAdapter(mCameraSettingAdapter);
-        }
+        populateAdapter(mRecyclerView);
     }
 
     @Override
@@ -54,5 +49,29 @@ public class CameraToolActivity extends AppCompatActivity {
     public void showCameraIPSettings(MenuItem item){
         Intent intent = new Intent(this, CamerasSettingActivity.class);
         startActivity(intent);
+    }
+
+    public void showFTPSettings(MenuItem item){
+        // Display the fragment as the main content.
+        Intent intent = new Intent(this, FTPSettingsActivity.class);
+        startActivity(intent);
+    }
+
+    private void populateAdapter(RecyclerView mRecyclerView){
+        ArrayList<CameraSettings> cameras = CameraSettings.getCamerasFromSharedPreferences(this.getBaseContext());
+        if (cameras != null && !cameras.isEmpty()){
+            // specify an adapter (see also next example)
+            RecyclerView.Adapter mCameraSettingAdapter = new CameraToolAdapter(cameras, this, lotText, tagText);
+            mRecyclerView.setAdapter(mCameraSettingAdapter);
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        ArrayList<CameraSettings> camRestart = CameraSettings.getCamerasFromSharedPreferences(this.getBaseContext());
+        if ((camRestart != null) && (mRecyclerView.getAdapter() == null || (camRestart.size() != mRecyclerView.getAdapter().getItemCount()))){
+            populateAdapter(mRecyclerView);
+        }
     }
 }

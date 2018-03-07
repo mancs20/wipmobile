@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="ftp://198.71.51.207"
+        android:key="ftp_pref_address"
+        android:selectAllOnFocus="true"
+        android:summary="ftp://ftp_address"
+        android:title="FTP Address" />
+    <EditTextPreference
+        android:defaultValue="21"
+        android:key="ftp_pref_port"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="21"
+        android:maxLength="5"
+        android:numeric="integer"
+        android:title="Server port" />
+    <EditTextPreference
+        android:defaultValue="gduser"
+        android:key="ftp_pref_user"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="User" />
+    <EditTextPreference
+        android:defaultValue="gdsand54"
+        android:key="ftp_pref_password"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:password="true"
+        android:title="Password" />
+    <EditTextPreference
+        android:defaultValue="WIP_Mobile"
+        android:key="ftp_pref_folder"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="FTP Folder" />
+</PreferenceScreen>

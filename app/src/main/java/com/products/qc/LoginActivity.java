@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -31,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        PreferenceManager.setDefaultValues(this, R.xml.ftp_settings, false);
+
         this.getSupportActionBar().setTitle("Login");
         userEditText = (EditText) findViewById(R.id.edit_user);
         passwordEditText = (EditText) findViewById(R.id.edit_password);
@@ -47,10 +51,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View view) {
         //TODO comment this (code between the 2 TODOs) in production version, this is only to test camera tool without login in the system
-        Intent intent = new Intent(this, ChoiceToolsActivity.class);
-        startActivity(intent);
-        //TODO uncomment the following in production version. This is comment to try the new tool without necessity of getting connected with the system
-        /*String user = userEditText.getText().toString();
+        /*Intent intent = new Intent(this, ChoiceToolsActivity.class);
+        startActivity(intent);*/
+        //TODO uncomment the following in production version. This comment is to try the new tool without necessity of getting connected with the system
+        String user = userEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         if (user.equals("")) {
             Toast.makeText(LoginActivity.this, "Enter User", Toast.LENGTH_LONG).show();
@@ -64,7 +68,8 @@ public class LoginActivity extends AppCompatActivity {
             rslt = "START";
             Caller1 c = new Caller1(this, user, password);
             c.start();
-        }*/
+        }
+        //TODO for test comment until here----------------------------------------
     }
 
     public void loginCorrect()
