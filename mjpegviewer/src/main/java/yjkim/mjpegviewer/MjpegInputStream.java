@@ -12,7 +12,7 @@ import java.util.Properties;
 
 public class MjpegInputStream extends DataInputStream{
     // 0. Variables
-    private final static int FRAME_MAX_LENGTH = 200000;
+    private final static int FRAME_MAX_LENGTH = 400000;
     private final byte[] SOI_MARKER = {(byte)0xFF, (byte)0xD8};
     private final byte[] EOF_MARKER = {(byte)0xFF, (byte)0xD9};
     private int mContentLength = -1;
@@ -66,7 +66,20 @@ public class MjpegInputStream extends DataInputStream{
         ByteArrayInputStream headerIn = new ByteArrayInputStream(headerBytes);
         Properties props = new Properties();
         props.load(headerIn);
-        return Integer.parseInt(props.getProperty("Content-length"));
+
+        if(props.getProperty("Content-Length")!=null)
+            return Integer.parseInt(props.getProperty("Content-Length"));
+
+        if(props.getProperty("Content-length")!=null)
+            return Integer.parseInt(props.getProperty("Content-length"));
+
+        if(props.getProperty("CONTENT-LENGTH")!=null)
+            return Integer.parseInt(props.getProperty("CONTENT-LENGTH"));
+
+        if(props.getProperty("content-length")!=null)
+            return Integer.parseInt(props.getProperty("content-length"));
+
+        return 0;
     }
 
     /*********************************************************************************************/
